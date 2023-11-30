@@ -2,7 +2,6 @@
 
 The document in this file is an annotated outline for specifying software requirements, adapted from the IEEE Guide to Software Requirements Specifications (Std 830-1993).
 
-Tailor this to your needs, removing explanatory comments as you go along. Where you decide to omit a section, you might keep the header, but insert a comment saying why you omit the data.
 
 ## CA326 - Digital Atlas
 Jade Hudson and Sruthi Santhosh
@@ -66,7 +65,7 @@ Jade Hudson and Sruthi Santhosh
 
 # 1. Introduction
 
-## Purpose
+## 1.1 Purpose
 The product specified in this document is the Digital Atlas website. The purpose of this website is to deliver general statistics about an area and user feedback opportunities to users in a concise and comprehensive way. The website will provide information relevant to the user all in one place, saving the user time searching for particular pieces of information. The intended audience of this service will be users interested in purchasing property in a particular area, business owners and current residents of the area. The information presented on the website will allow these users to make informed decisions on their actions relevant to their situation.
 
 ## 1.2 Scope
@@ -422,8 +421,8 @@ The website's design does not impose fixed memory constraints on user machines. 
 
 | USER | SYSTEM |
 |------|--------|
-| User clicks the search bar and types in the name of the area | |
-| | User clicks on the area’s name in the search bar |
+| User clicks the search bar and types in the name of the area. | |
+| User clicks on the area’s name in the search bar. | |
 | | System acknowledges the user's request and redirects to that area's page. |
 
 **Quality Requirements:** The user does not lose internet access for the duration of the process.
@@ -648,7 +647,9 @@ The website's design does not impose fixed memory constraints on user machines. 
 - Updating blog entries.
 
 **December - January**
+
 *Early December*
+
 - Beginning the backend development of the website.
 - Configuring the APIs and ensuring access tokens to be able to fetch the required data.
 - Test API links and ensuring data retrieval.
@@ -656,6 +657,7 @@ The website's design does not impose fixed memory constraints on user machines. 
 - Updating blog entries.
 
 *Late December*
+
 - Frontend development will begin.
 - Ensuring the functionality of the area search bar is completed.
 - Completing the criteria box functionality.
@@ -722,7 +724,7 @@ If none of the above organizational schemes prove helpful, the overall functiona
 *NOT APPLICABLE*
 
 
-**Change Management Process**
+# 4 Change Management Process
 
 1. **Change Identification:** Changes may be identified through various channels:
    - Talks within the team about developments in the project or technical issues.

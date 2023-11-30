@@ -67,21 +67,24 @@ Jade Hudson and Sruthi Santhosh
 # 1. Introduction
 
 ## Purpose
-The product specified in this document is the Digital Atlas website. The purpose of this website is to deliver general statistics about an area and user feedback opportunities to users in a concise and comprehensive way. The website will provide information relevant to the user all in one place, saving the user time searching for particular pieces of information. The intended audience of this service will be users interested in purchasing property in a particular area, business owners, and current residents of the area. The information presented on the website will allow these users to make informed decisions on their actions relevant to their situation.
+The product specified in this document is the Digital Atlas website. The purpose of this website is to deliver general statistics about an area and user feedback opportunities to users in a concise and comprehensive way. The website will provide information relevant to the user all in one place, saving the user time searching for particular pieces of information. The intended audience of this service will be users interested in purchasing property in a particular area, business owners and current residents of the area. The information presented on the website will allow these users to make informed decisions on their actions relevant to their situation.
 
 ## 1.2 Scope
 The product to be discussed is the Digital Atlas website. The scope of this project details how we plan on providing searchable general statistics information, filtering features, and user feedback services for users interested in local information about specific areas. This will involve the gathering of the information to be displayed as well as the implementation of both the user feedback section and the filtering options available. The benefits of this website will include but are not limited to:
-- Providing relevant information in one, easily accessible place.
-- Delivering a method of prioritisation to users who would like to search for areas depending on their own personal area criterias.
-- Allowing users to interact with other users, giving them the opportunity to ask for advice on any queries or concerns about an area of interest.
-- Allowing users living in a specified area the opportunity to communicate with fellow neighbours. The goal of this website is to deliver a user experience that allows for fast access to relevant information. We plan on expanding this project further to include more information.
+    -Providing relevant information in one, easily accessible place .
+    -Delivering a method of prioritisation to users who would like to search for areas depending on their own personal area criterias.
+    -Allowing users to interact with other users, giving them the opportunity to ask for advice on any queries or concerns about an area of interest.
+    -Allowing users living in a specified area the opportunity to        communicate with fellow neighbours.
+The goal of this website is to deliver a user experience that allows for fast access to relevant information. We plan on expanding this project further to include more information.
+
 
 ## 1.3 Business Context
 The first business context of our website revolves around being an independent, real estate support website. This is a unique idea that has not been developed before. It provides a multitude of statistics in one location. Our website caters towards offering general statistics about areas of interest to users within Ireland. It is aimed towards user who are planning on purchasing a home/ starting a business in an area, or users who are trying to find areas that fit their living criteria(s). Our website also caters towards users who are interested in discovering general statistics about an area. Such users may be residents living in the specified area, or users researching an area(s).
 
 Another business context of Digital atlas is possibly partnering up with a business with a similar target market. Websites such as Daft.ie, MyHome.ie etc provide data on current home prices and the rates on inflation on area pricings. This data combined with the information found on our websites would be a profitable partnership for both businesses.
 
-A further business context to consider is the prospect of having internal advertisements found within the website. This would offer a source of potential income for Digital Atlas.
+A further business context to consider is the prospect of having internal advertisements found within the website. This would offer a source of potential income for Digital Atlas. 
+
 
 ## 1.4 Glossary: Definitions, Acronyms, and Abbreviations
 | Term | Description |
@@ -101,7 +104,12 @@ A further business context to consider is the prospect of having internal advert
 [4] [OpenStreetMap](https://www.openstreetmap.org/#map=7/53.465/-8.240) (accessed Nov. 29, 2023).  
 
 ## 1.6 Overview
-The remainder of this document contains all of the necessary information to do with Digital Atlas. Section 2 contains all of our goals and user information. For developers, all our information regarding setup and implementation can be found at the bottom in Section 3. This document is organized into 3 Sections: Section 1 contains the introduction to the document and a brief explanation of Digital Atlas as well as necessary terms used and references. Section 2 contains all information directed to customers and stakeholders pertaining to our goals and user information. Section 3 contains all of the necessary information regarding the requirements of the software (for developers). Each section has its own series of subsections.
+The remainder of this document contains all of the necessary information to do with Digital Atlas. Section 2 contains all of our goals and user information. For developers, all our information regarding setup and implementation can be found at the bottom in Section 3. 
+
+This document is organized into 3 Sections: 
+    Section 1 contains the introduction to the document and a brief explanation of Digital Atlas as well as necessary terms used and references. 
+    Section 2 contains all information directed to customers and stakeholders pertaining to our goals and user information. 
+    Section 3 contains all of the necessary information regarding the requirements of the software (for developers). Each section has its own series of subsections.
 
 
 
@@ -118,180 +126,218 @@ The product targets users who are interested in purchasing property, starting a 
 
 ### 2.1.1 System Interfaces
 #### External Interfaces (HTTP Based API’s and Datasets)
-- **Gov.ie:** Provides various government services, information, and resources. Digital Atlas harnesses the Attractions dataset and the Primary schools dataset from here.
-- **Central Statistics Office / CSO:** Responsible for collecting, analyzing, and disseminating statistical information about various aspects of the country. Digital Atlas queries the Crime dataset to gather crime statistics.
-- **OpenStreetMap / OSM:** A collaborative mapping platform. Digital Atlas leverages the National Roads Travel Times API to provide transport information locally.
-- **IrelandStats.com:** Provides comprehensive user data about social and public life in Ireland. The schools datasets from this website are used to provide education services data.
-- **National Transport Authority:** Provides public transport APIs for Ireland. The General Transit Feed Specification (GTFS) - RealTime API is used by Digital Atlas.
+- **Gov.ie:** The official government website of Ireland. It provides various government services, information, and resources. Digital Atlas harnesses the Attractions dataset and the Primary schools dataset from here.
+- **Central Statistics Office / CSO:** The Central Statistics Office (CSO) is the national statistical agency of Ireland. It is responsible for collecting, analysing, and disseminating statistical information about various aspects of the country, including demographics, economics, and social trends. Digital Atlas queries the Crime dataset to gather crime statistics.
+- **OpenStreetMap / OSM:** OpenStreetMap is a collaborative mapping platform that allows users to view, edit, and use geographic information freely. Digital Atlas leverages the National Roads Travel Times API to provide transport information locally. 
+- **IrelandStats.com:** Is a website providing comprehensive user data about social and public life in Ireland. From this website we are using the schools datasets to provide education services data.
+- **National Transport Authority:** They provide public transport APIs for Ireland. From this website we will be using the General Transit Feed Specification (GTFS) - RealTime API.
 
 ## 2.1.2 Interfaces
 
 ### Homepage Interface:
-- **About Information:** Display a brief breakdown of Digital Atlas services and a simple guide on how users can search for their queried location/criteria.
-- **Search Bar:** A simple search bar providing functionality to search for the desired area.
-- **Criteria boxes:** Check/uncheck boxes providing amenities/facilities in an area such as schools, house prices, etc.
-- **Navigation bar:** A top navigation bar linking to other pages like About and Contact.
+- **About Information:** The homepage will display a brief breakdown of what services Digital Atlas provides and a simple description of how a user can search for their queried location / criteria.
+- **Search Bar:** A simple search bar providing the functionality the user needs to search for their desired area.
+- **Criteria boxes:** Boxes that the user can check / uncheck providing amenities / facilities in an area that may be of interest such as schools, house prices, etc.
+- **Navigation bar:** A navigation bar will be present at the top of the page containing links to travel to other pages of the website such as the About page and the Contact page.
 
 ### Searched Area Interface:
-- **Statistical Data:** Display pertinent data to the searched area, including local home prices, education, transport, crime, etc.
-- **User Feedback/Commenting:** Allows users to share thoughts on the area, read comments from others, fostering a sense of community.
+- **Statistical Data:** Data will be displayed on the screen pertinent to the area searched. Statistics such as the local price of a home, education, transport, crime etc will be found here.
+- **User Feedback/Commenting:** Allows the user to share their thoughts on the area. Users can also read the comments of other users which could also be a source of advice/ further understanding of the area. This also aids in adding a sense of community to the webpage.
 
 ### Contact Page:
-- **Email box:** Submission box for users requiring assistance or providing feedback on additional statistics.
+- **Email box:** An email submission box will be provided to allow users to contact in the event that they require assistance. This can also be used to provide a place for feedback on what statistics should further be provided on the website.
 
 ### Accessibility:
-- The user interfaces comply with ADA standards for web accessibility, providing alternative text for images, captions for videos, keyboard navigation, color contrast, and are responsive across devices.
+- The above user interfaces will also comply with the ADA standards for web accessibility, such as providing alternative text for images, captions for videos, keyboard navigation, and colour contrast. The user interfaces are also responsive and adaptive to different devices, such as desktops, laptops, tablets, or smartphones. The user interfaces are also tested and evaluated by users and experts to ensure usability, accessibility, and satisfaction.
+
 
 ## 2.1.3 Hardware Interfaces
-- The system operates through web browsers (Chrome, Microsoft Edge, Safari, etc) across multiple platforms (Linux, Windows) and is compatible with various devices like PCs, laptops, phones, and lab machines.
+- The system has no hardware interface requirements. It operates through web browsers (Chrome, Microsoft Edge, Safari, etc) across multiple platforms (Linux, Windows) and is compatible with various devices such as PCs, laptops, phones and lab machines.
 
 ## 2.1.4 Software Interfaces
 
 #### Central Statistics Office Crime Dataset
 - **Name:** Central Statistics Office (CSO)
 - **Mnemonic:** CSO
+- **Specification number:** Not applicable
+- **Version number:** Not applicable
 - **Source:** CSO
-- **Discussion:** Holds crime statistics for specified regions, accessed to gather crime-related data.
-- **Interface Definition:** Uses internal methods to access the CSO dataset.
+- **Discussion:** The CSO dataset holds crime statistics for the specified region. The website accesses this dataset to gather crime-related data.
+- **Interface Definition:** The system uses internal methods to access the CSO dataset, retrieving crime statistics.
 
 #### Gov.ie
-- ... (other datasets follow with similar formatting)
+- **Name:** Gov.ie Schools and Amenities Datasets
+- **Mnemonic:** None
+- **Specification number:** Not applicable
+- **Version number:** Not applicable
+- **Source:** Gov.ie
+- **Discussion:** The Gov.ie datasets are used to access school and traffic data within specified areas.
+- **Interface Definition:** The system uses internal methods to access the Gov.ie datasets, retrieving school and local amenities.
+
+#### OpenStreetMap API
+- **Name:** National Roads Travel Times API
+- **Mnemonic:** None
+- **Specification number:** Not applicable
+- **Version number:** Not applicable
+- **Source:** OpenStreetMap
+- **Discussion:** OpenStreetMap API is employed to retrieve amenity-related information for specific regions. It provides details about various amenities available in the area.
+- **Interface Definition:** Queries made through HTTP requests to OpenStreetMap endpoints for amenity data retrieval.
+
+#### General Transit Feed Specification API(GTFS)
+- **Name:** General Transit Feed Specification 
+- **Mnemonic:** GTFS
+- **Specification number:** Not applicable
+- **Version number:** Not applicable
+- **Source:** National Transport Authority
+- **Discussion:** GTFS API is used to retrieve transportation information for specific regions. It provides details on various transportations mode available in an area.
+- **Interface Definition:** Queries made through HTTP requests to GTFS API endpoints for transportation data retrieval.
+
+
+
 
 ## 2.1.5 Communications Interfaces
 
-### The Digital Atlas website primarily operates over standard web communication protocols such as HTTP and HTTPS via the internet, employing typical request-response mechanisms without specific custom protocols.
+The Digital Atlas website primarily operates over standard web communication protocols and interfaces. As such, the HTTP and HTTPS protocols via the internet serve as the primary means of communication. The interactions occur through typical web request-response mechanisms without specific custom protocols. The application does not use or build any special communication protocols. The website does not involve any distinct network protocols or communication interfaces beyond standard web-based interaction.
 
 ## 2.1.6 Memory Constraints
 
-### Digital Atlas operates as a web-based application without specific memory constraints on primary or secondary memory within the user environment. Memory utilization depends on the user's device and server architecture.
+The Digital Atlas website primarily operates as a web-based application and does not have specific memory constraints on primary or secondary memory within the user environment. Because it is a web-based platform, memory utilisation depends on the user's device and the server architecture that hosts the programme.
+
+The website's design does not impose fixed memory constraints on user machines. Instead, it operates within the memory limits typical of modern web applications. Because web-based interactions are dynamic, the target design and operation of Digital Atlas do not require any minimum system requirements or memory constraints.
+
 
 ## 2.1.7 Operations
 
 ### Interactive and Unattended Operations:
-- Digital Atlas operates primarily in interactive mode, engaging users for information retrieval.
+- Digital Atlas primarily functions in interactive mode where users engage with the site to gather information about specific areas in Ireland. It does not require extended unattended operations as it is primarily user-driven and responsive.
 
 ### Data Processing Support:
-- Handles data retrieval from trusted sources (CSO, Gov.ie, OSM) efficiently based on user input.
+- While the system does not perform extensive data processing, it needs to handle data retrieval from trusted sources (CSO, Gov.ie, OSM) efficiently. This requires robust querying of APIs and datasets based on user input.
+
 
 ### User Interaction Management:
-- Supports the comment section for user feedback; moderation tools may be considered.
+- The system needs to support the comment section, allowing users to leave feedback and insights. Moderation tools or mechanisms to manage and review these comments might not be necessary.
+
 
 ## 2.1.8 Site Adaptation Requirements
 
 ### Data Source Configuration:
-- Configures the existing database server to accommodate new data tables.
+- Prior to system activation, the website’s existing database server needs to be configured to accommodate new data tables required for Digital Atlas functionality. These tables will store fetched data from Irish datasets and APIs.
 
 ### Software Setup:
-- Installs software components (Django, React, MySQL Workbench) on designated server machines.
+- The software components – Django, React, and MySQL Workbench – should be installed on designated server machines compatible with Chrome, Microsoft Edge, Linux, and Windows platforms.
 
 ### API Connectivity:
-- Sets up necessary configurations and access authorizations for connectivity with external APIs.
+- Necessary configuration and access authorizations need to be set up for connectivity with external APIs, such as those provided by the CSO, Gov.ie, and OSM and NTA. This includes validating API keys and authentication methods required for data retrieval.
 
 ### Version Compatibility:
-- Ensures compatibility and updates for software tools across development machines.
+- Confirm that all software tools used for development – Visual Studio Code, GitLab, JEST, PyTest, and Postman – are compatible and updated to their latest version across the development team’s machines.
 
 ### User Accessibility:
-- Performs compatibility tests on various devices and browsers to ensure wide accessibility.
+- Ensure the website is usable across various devices and browsers (Chrome, Microsoft Edge, Safari) to cater to a large demographic of users. Perform compatibility tests on PCs, lab machines to ensure wide accessibility.
 
 
 ## 2.2 Product Functions
 
-- **Search for Areas:** Allows users to input and search for a specific area of interest. Users can type in the area, select the correct option that appears as a result, and access that area's information page. This is facilitated through a Search Bar placed at the top of the Homepage.
+- **Search for Areas:** Allows the user to input and search for a specific area of interest. The user will type in the area, click on the correct option that appears as a result and be directed to that area's information page. This is done via a Search Bar placed at the top of the Homepage.
 
-- **About Information:** This section on the Homepage explains how to use the website. It includes an explanation of the search bar mechanics mentioned above and how users can find areas of interest using the criteria matching boxes.
+- **About Information:** This is a section found on the Homepage explaining how to use the website. This section will include the search bar mechanics explained above and also how the user can find areas of interest by using the criteria matching boxes.
 
-- **Specification matching user criteria:** Digital Atlas provides a filtering service via criteria boxes. Users can search for areas based on their own specifications, such as school availability, crime rate, local traffic, etc.
+- **Specification matching user criteria:** Digital Atlas also provides a filtering service through the use of criteria boxes. If a user would like to search for an area based on their own specifications, they may use this service to be provided with areas that contain these specifications. Specifications include but are not limited to; school availability, crime rate, local traffic, etc.
 
-- **Website Navigation:** A navigation bar across website interfaces allows users to access other pages like the homepage and contact page.
+- **Website Navigation:** A navigation bar is provided on the interfaces of the website to allow users the ability to access other pages on the website. Pages such as the homepage and the contact page can be found here.
 
-- **Statistical Data displayed:** Once a user selects an area, they are directed to that area's page detailing its statistics. Information such as the average home price, education opportunities, traffic, amenities, attractions, and crime rate will be presented in a user-friendly manner for a large target audience.
+- **Statistical Data displayed:** Once a user has chosen an area, they will be redirected to that area's individual page detailing the area statistics. Statistics such as the average price of a home, education opportunities, traffic, amenities, attractions and crime rate of the locality will be found here. This information will be laid out in a user friendly way as the main aspect of the page is to provide information to a large target audience. 
 
-- **Commenting/User Feedback Section:** Enables users to comment on specific areas and view other users' comments. Users can also respond to comments by clicking the reply button. This section serves as a space for users to ask questions to area residents and for residents to engage in discussions about local events or issues.
+- **Commenting/User Feedback Section:** Allows the user to comment on the specific area. This also allows users to view other comments made by other users about this area. Users also have the opportunity to respond to other user comments by clicking into the comment and clicking rh reply button.This comment section has a dual purpose, both doubling as a space where users can pose queries to residence in the area, and can also be used by residents in the area to get to know their neighbours / discuss local events or issues
 
-- **Email Submission Box:** Allows open communication between users and website maintenance. Users can report website issues, provide feedback, or suggest additional data for the website.
+- **Email Submission Box:** An open communication between users and website maintenance. Users can provide issues about the website or any feedback / data they would like added to the website.
 
 
 
 ## 2.3 User Characteristics
 
 ### Educational Level
-- **Description:** The intended users of Digital Atlas may have diverse educational backgrounds, catering to multiple demographics without any required educational level.
-- **Impact on Design:** Prioritizing considerations for various educational backgrounds, the design will focus on clear visual elements to present data comprehensibly. Complex statistical or technical terms will be minimized.
+- **Description:** The intended users of Digital Atlas may have a diverse educational background. Digital Atlas is a website aimed at multiple demographics, and as such there is not a required educational level needed to use the website services. Users may have a high level of education or more of a practical understanding.
+- **Impact on Design:** Considerations for users of various educational backgrounds will be prioritised and the design should accommodate this. Visual elements will be elevated to display the data in a clear, understandable manner, as well as keeping statistical/technical jargon and terms to a minimum. 
 
 ### Experience
-- **Description:** User experience with Digital Atlas may vary, ranging from those well-versed in property knowledge to first-time buyers exploring investment opportunities.
-- **Impact on Design:** Statistical information will be presented clearly for all users. The criteria boxes service will aid new homebuyers in finding areas based on their preferences.
+- **Description:** The experience of the users of Digital Altas may vary. The website is geared towards allowing users to make informed decisions regarding property and local area statistics.
+    -Some users may be familiar with property knowledge and may have purchased property before, whereas some users may be first time buyers or may be individuals exploring areas for investment opportunities.
+    -Some users may be residents of the specified area, whereas some may be interested in learning more about an area.
+
+- **Impact on Design:** The statistical information will be laid out in a clear manner to inform all users of the data found on a particular area. There will also be the criteria boxes service, allowing new home-owners the opportunity to find areas based on their own particular criteria if they are not familiar with the property market prior to searching.
 
 ### Technical Expertise
-- **Description:** The user base of Digital Atlas will encompass a vast demographic without a high requirement for technical expertise.
-- **Impact on Design:** A simple and consistent layout will cater to users with varying technical abilities, ensuring ease of use for all.
+- **Description:** The demographic of users expected to utilise Digital Atlas will be vast and will not require a high level of technical experience. Many users may be familiar with advanced features of technology, whereas some may only have basic knowledge. Our website will have a simple layout to ensure consistency so that understanding how to use the service is possible for all users. 
+- **Impact on Design:** Users with less technical experience will require a more simple and straightforward interface. With our services being laid out in a way that is easy to find and navigate around, this will accommodate those users.
 
 ### Accessibility
-- **Description:** User accessibility may differ based on individual needs, where some users might face difficulty accessing specific resources on the website.
-- **Impact on Design:** Prioritizing wide accessibility, incorporating features like alternative text for images, intuitive navigation, and clear text. Compatibility across various browsers and devices (Chrome, Edge, Linux, Windows) is crucial.
+- **Description:** The accessibility of users may vary depending on their specific needs. Some users may be able to access all resources on the website without difficulty, whereas others may not. 
+- **Impact on Design:** Ensuring the website is able to cater for a wide target market, incorporating features such as alternative text for images, an intuitive site navigation bar as well as large, clear text will be a priority. As the platform relies on datasets and APIs, ensuring the website is compatible across different browsers and devices (Chrome, Edge, Linux, Windows) is crucial. This accommodates users accessing the site from various platforms.
 
 ### Impact on Internal System Design
-- **Adaptability:** The system should adapt to different user preferences for customized area searches.
-- **User Interaction Design:** Design should encourage user interactions, facilitating comments and feedback sharing. Effective management of user-generated content is vital for a community-driven approach.
-- **Testing:** Comprehensive testing and evaluation from users with diverse characteristics to ensure usability and effectiveness of the system.
+- **Adaptability:** The system should have the ability to adjust to different user preferences and criteria. This is pertinent to the service, allowing users to customise their area searches based on individual needs and priorities.
+- **User Interaction Design:** The design should facilitate user interactions, considering the potential for users to share comments and feedback. Including a comment section fosters user engagement and allows individuals to share insights and experiences. This community-driven approach can influence decision-making for other users, making it essential to create an accessible and easy-to-use comment feature. User-generated content should be managed effectively to enhance the overall user experience.
+- **Testing:** A diverse user market implies the need for all-inclusive testing and evaluation. For testing, this will allow users with different characteristics to provide feedback on the website's structure to ensure the system's usability and effectiveness.
 
 
 ## 2.4 Constraints
 
-- **Regulatory Policies:** Ensure compliance with data protection laws, safeguarding user data and statistical information according to data privacy regulations.
+- **Regulatory Policies:** Ensure compliance with data protection laws and regulations governing the use and dissemination of information. For example, adhere to data privacy laws handling user data and statistical information.
   
-- **Hardware Limitations:** Optimize website performance across varying hardware specifications and internet connection speeds for a seamless user experience on different devices.
+- **Hardware Limitations:** Optimise the website’s performance for various hardware specifications and internet connection speeds to ensure seamless user experience across different devices.
 
-- **Interface to Other Applications:** Ensure smooth integration with APIs and datasets from various sources (Central Statistics Office, Gov.ie, Open Street Map) for accurate and updated information.
+- **Interface to Other Applications:** Ensure seamless integration with APIs and datasets from different sources (Central Statistics Office, Gov.ie, Open Street Map) to gather accurate and updated information.
 
-- **Reliability Requirements:** Maintain consistent and reliable access to datasets and APIs to ensure accurate information availability for website users.
+- **Reliability Requirements:** Maintain consistent and reliable access to datasets and APIs to guarantee accurate information for users accessing the website.
 
-- **User Accessibility:** Design the website to be accessible for users with disabilities, aligning with accessibility standards such as ADA.
+- **User Accessibility:** Ensure the website is designated to be accessible to users with disabilities, aligning with accessibility standards such as ADA.
 
-- **Performance:** Optimize website performance, especially during queries and data retrieval from external sources, to minimize loading times.
+- **Performance:** Optimise the website’s performance for responsiveness, especially when dealing with queries and fetching data from external sources to minimise loading times.
 
-- **Compatibility:** Ensure compatibility across different browsers (Chrome, Microsoft Edge), operating systems (Linux, Windows), and devices (PC, Lab Machines) to reach a wider user base without functional inconsistencies.
+- **Compatibility:** Ensure compatibility across various browsers (Chrome, Microsoft Edge), operating system (Linux, Windows), and devices (PC, Lab Machines) to reach a wider user base without functional inconsistencies.
 
 ## 2.5 Assumptions and Dependencies
 
-- **Data Availability:** Assumes regular and consistent availability of datasets from Central Statistics Office, Gov.ie, and OpenStreetMap. Disruptions or unavailability in these datasets may impact the accuracy of information on the website.
+- **Data Availability:** An assumption is that the datasets from the Central Statistics Office, Gov.ie, and OpenStreetMap will be regularly updated and consistently available. The accuracy and dependability of the information on the website could be impacted by any disruption or unavailability in these datasets.
 
-- **API Stability:** Relies on the stability and consistent functioning of APIs provided by mentioned sources. Changes or termination of these APIs could affect data retrieval and website functionality.
+- **API Stability:** Reliance on the reliability and consistent functioning of the APIs provided by the mentioned sources. Modification or termination of these APIs may have an impact on data retrieval, which could alter the website’s functionality.
 
-- **Technological Changes:** Assumes stability and consistency in technologies like Python, JavaScript, frameworks, and tools, expecting compatibility and support for future updates.
+- **Technological Changes:** The technologies utilised, such as Python, JavaScript, and associated frameworks and tools, are assumed to be stable and consistent, with the expectation that they will remain compatible and support future updates.
 
-- **User Engagement:** Assumes active engagement with the comment section by users to provide insights. Reliance on user involvement may impact the quality and depth of information accessible to other users.
+- **User Engagement:** An assumption is that users will actively engage with the comment section to provide insights. Reliance on user involvement may have an impact on the depth and calibre of information accessible to other users.
 
-- **Development Tool Suitability:** Relies on the efficiency and reliability of programming tools (e.g., Django, React, Visual Studio Code) throughout the development process.
+- **Development Tool Suitability:** Reliances on the efficiency and dependability of the programming tools (e.g. Django, React, Visual Studio Code) that are thought to be appropriate for the entire development process.
 
-- **Browser and Operating System Compatibility:** Assumes reliability of platforms like Chrome, Microsoft Edge, Linux, and Windows for user engagement. Modifications or issues with these platforms may impact website functionality and user experience.
+- **Browser and Operating System Compatibility:** Presumptions about Chrome, Microsoft Edge, Linux, and Windows as reliable platforms for user engagement. The functionality and user experience of the website may be impacted by modifications or problems with these platforms.
 
-- **Team Collaboration:** Requires efficient cooperation and communication among team members in task management and version control with Trello and Git. Communication breakdowns could hinder project development.
+- **Team Collaboration:** Requires efficient cooperation and communication between members of the team while managing tasks and version control with Trello and Git. Any communication breakdowns could hinder the project’s development.
 
 
 ## 2.6 Apportioning of Requirements
 
 ### Immediate Development
 
-- **Basic Functionality:** Implementing core functionalities like data extraction from trusted sources (Central Statistics Office, Gov.ie, OpenStreetMap), displaying essential features including area-specific information, search functionality, and user comment section.
+- **Basic Functionality:** Implementing the core functionalities such as data extraction from trusted sources (Central Statistics Office, Gov.ie, OpenStreetMap), displaying essential features including area-specific information, search functionality, and user comment section.
 
 - **User Interface:** Designing an intuitive user interface to facilitate website interaction and easy navigation.
 
-- **Backend and Frontend Development:** Establishing backend logic in Python (using Django) and frontend development with JavaScript (using React) to ensure the website’s fundamental architecture works.
+- **Backend and Frontend Development:** Establishing the backend logic in Python (using Django) and frontend development with JavaScript (using React) to make sure the website’s fundamental architecture works.
 
-- **Data Query and Display:** Ensuring dependable datasets and API queries to present correct data based on user-inputted area.
+- **Data Query and Display:** Ensuring dependable datasets and API queries in order to present correct data depending on the user-inputed area.
 
-- **Testing:** Conducting preliminary testing on various platforms (Chrome, Microsoft Edge) and operating systems (Linux, Windows) to ensure basic functionality and usability.
+- **Testing:** Conducting preliminary testing on several platforms (Chrome, Microsoft Edge) and operating systems such as Linux and Windows to ensure basic functionality and usability. 
 
 ### Deferred to Future Versions
 
-- **Advanced Features:** Including more complex features like personalized user accounts, auto-complete searching, advanced data visualization, or additional data sources beyond the original reliable ones.
+- **Advanced Features:** Including more complex features such as personalised user accounts, auto-complete searching, advanced data visualisation, or additional data sources other than the original reliable ones.
 
 - **Enhanced User Interaction:** Extending features for user interactions, including advanced feedback mechanisms or community forums.
 
-- **Performance Optimization:** Conducting additional performance and speed optimization, particularly for complex queries or large datasets.
+- **Performance Optimization:** Conducting additional performance and speed optimisation particularly for complex queries or huge datasets. 
 
-- **Extended Platform Support:** Extending support to additional platforms or browsers not originally covered in the main scope.
+- **Extended Platform Support:** Extending support to additional platforms or browsers that were not originally covered by the main scope.
 
 
 ## 3. Specific Requirements
@@ -300,7 +346,7 @@ The product targets users who are interested in purchasing property, starting a 
 
 1. **Digital Atlas Website Interface:**
     - **Description:** Interfaces for users to access and navigate the website and services.
-    - **Purpose:** Providing access to information on local statistics like the average price of a home, schools, traffic, amenities, and crime for a specified area in Ireland.
+    - **Purpose:** Providing access to information on local statistics such as the average price of a home, schools, traffic, amenities and crime for a specified area in Ireland.
     - **Source/Destination:** Web-based interaction between the user and the website.
     - **Valid Range/Accuracy/Tolerance:** N/A
     - **Units of Measure:** N/A
@@ -329,34 +375,34 @@ The product targets users who are interested in purchasing property, starting a 
 
 ### Functional Requirements
 
-- **The system shall allow the user to search for an area and be redirected to that area's information page.**
+- The system shall allow the user to search for an area and be redirected to that area's information page.
   - *Criticality level:* H
 
-- **The system shall allow the user to filter areas based on their specific criteria.**
+- The system shall allow the user to filter areas based on their specific criteria.
   - *Criticality level:* H
 
-- **The system shall allow users to interact with other users through the comment / feedback section found below each area page.**
+- The system shall allow users to interact with other users through the comment / feedback section found below each area page.
   - *Criticality level:* H
 
-- **The system shall gather its information from the specified API’s and datasets detailed in the specification.**
+- The system shall gather its information from the specified API’s and datasets detailed in the specification.
   - *Criticality level:* H
 
-- **The system shall have a responsive design, ensuring optimal user experience across various devices and screen sizes.**
+- The system shall have a responsive design, ensuring optimal user experience across various devices and screen sizes.
   - *Criticality level:* M
 
-- **The system shall regularly update its datasets and external APIs to ensure the information is current and accurate.**
+- The system shall regularly update its datasets and external APIs to ensure the information is current and accurate.
   - *Criticality level:* M
 
-- **The system shall allow users to communicate feedback to Digital Atlas through email via the contact page.**
+- The system shall allow users to communicate feedback to Digital Atlas through email via the contact page.
   - *Criticality level:* M
 
-- **The system shall provide an option for users to report inappropriate or misleading comments or information.**
+- The system shall provide an option for users to report inappropriate or misleading comments or information.
   - *Criticality level:* M
 
-- **The system shall provide an autocomplete feature in the search bar for quicker and more accurate location input.**
+- The system shall provide an autocomplete feature in the search bar for quicker and more accurate location input.
   - *Criticality level:* L
 
-- **The system shall allow the user to navigate through the website via the navbar at the top of the page.**
+- The system shall allow the user to navigate through the website via the navbar at the top of the page.
   - *Criticality level:* L
 
 
@@ -448,17 +494,17 @@ The product targets users who are interested in purchasing property, starting a 
 
 - **Number of Simultaneous Users:** The system should accommodate a minimum of 100 simultaneous users accessing area-specific information without compromising performance.
   
-- **Information Handling:** Efficiently handle and display a variety of data, including crime statistics, school data, traffic information, amenities, and home prices for various areas within Ireland.
+- **Information Handling:** The system should efficiently handle and display a variety of data, including crime statistics, school data, traffic information, amenities, and home prices for various areas within Ireland.
 
 - **Response Time:** 95% of area-specific data queries should turn within 3 seconds or less to ensure a responsive user experience.
 
 #### Dynamic Numerical Requirements:
 
-- **Transactions and Queries:** Process a minimum of 500 queries per hour during normal usage and up to 1000 queries per hour during peak times, ensuring consistent performance.
+- **Transactions and Queries:** The system should process a minimum of 500 queries per hour during normal usage and up to 1000 queries per hour during peak times, ensuring consistent performance.
   
-- **Data Processing:** Handle at least 100,000 data records each day to provide users with up-to-date information for statistical and information retrieval.
+- **Data Processing:** In order to provide users with up-to-date information, data processing for statistical and information retrieval should handle at least 100,000 data records each day.
   
-- **Comment Section Interaction:** The comment section should handle a minimum of 50 user interactions (comments, replies, etc.) every day without any performance reduction.
+- **Comment Section Interaction:** Without experiencing any performance reduction, the comment section should handle a minimum of 50 user interactions (comments, replies, etc.) everyday.
 
 ### 3.4 Logical Database Requirement
 
@@ -476,7 +522,7 @@ The product targets users who are interested in purchasing property, starting a 
 
 #### Data Retention:
 
-- Specify the duration for retaining user comments and interactions within the system to maintain relevance and manage the database size efficiently.
+- Specifying the duration of which user comments and interaction are retained within the system to maintain relevancy and manage database size efficiently.
 
 
 ### 3.4.1 System Architecture / Domain Model Diagram
@@ -673,6 +719,9 @@ If none of the above organizational schemes prove helpful, the overall functiona
 - **Internal data access:** Retrieval and manipulation of data from Irish datasets and APIs.
 
 ### 3.9 Additional Comments
+*NOT APPLICABLE*
+
+
 **Change Management Process**
 
 1. **Change Identification:** Changes may be identified through various channels:

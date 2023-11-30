@@ -563,16 +563,6 @@ The product targets users who are interested in purchasing property, starting a 
 
 #### Gantt Chart:
 
-| ID | Characteristic     | H/M/L |
-|----|--------------------|-------|
-| 1  | Correctness        | H     |
-| 2  | Efficiency         | M     |
-| 3  | Flexibility        | M     |
-| 4  | Integrity/Security | L     |
-| 5  | Maintainability    | M     |
-| 6  | Portability        | H     |
-| 7  | Usability          | H     |
-
 ![Gantt Chart](Gantt_Chart.png)
 
 - **Correctness (H):**

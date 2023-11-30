@@ -363,7 +363,7 @@ The product targets users who are interested in purchasing property, starting a 
 ### 3.2.1 Operational Scenarios / Use Cases
 
 
-
+![Use Case Model](Use_Case_Diagram.png)
 
 ## Use Case: User searches for a particular area
 
@@ -481,7 +481,7 @@ The product targets users who are interested in purchasing property, starting a 
 
 ### 3.4.1 System Architecture / Domain Model Diagram
 
-[Diagram Placeholder]
+![Domain Diagram](Domain_Diagram.png)
 
 ### 3.5 Design Constraints
 
@@ -499,7 +499,7 @@ The product targets users who are interested in purchasing property, starting a 
 
 ### 3.6 High-Level Design
 
-[Content Not Provided]
+![Hight-Level Diagram](High-Level_Diagram.png)
 
 ### 3.7 Software System Attributes
 
@@ -572,6 +572,8 @@ The product targets users who are interested in purchasing property, starting a 
 | 5  | Maintainability    | M     |
 | 6  | Portability        | H     |
 | 7  | Usability          | H     |
+
+![Gantt Chart](Gantt_Chart.png)
 
 - **Correctness (H):**
   - **Rationale:** Correctness is given a high priority because the information provided by Digital Atlas needs to be accurate.

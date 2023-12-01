@@ -1,4 +1,4 @@
-# Software Requirements Specification (SRS) Template
+# Software Requirements and Functional Specification (SRS)
 
 The document in this file is an annotated outline for specifying software requirements, adapted from the IEEE Guide to Software Requirements Specifications (Std 830-1993).
 
@@ -6,7 +6,7 @@ The document in this file is an annotated outline for specifying software requir
 ## CA326 - Digital Atlas
 Jade Hudson and Sruthi Santhosh
 
-### Software Requirements Specification Document
+### Software Requirements and Functional Specification Document
 #### Version: (1)	Date: (20/11/2023)
 
 ## Table of Contents
@@ -248,7 +248,7 @@ The website's design does not impose fixed memory constraints on user machines. 
 
 - **Statistical Data displayed:** Once a user has chosen an area, they will be redirected to that area's individual page detailing the area statistics. Statistics such as the average price of a home, education opportunities, traffic, amenities, attractions and crime rate of the locality will be found here. This information will be laid out in a user friendly way as the main aspect of the page is to provide information to a large target audience. 
 
-- **Commenting/User Feedback Section:** Allows the user to comment on the specific area. This also allows users to view other comments made by other users about this area. Users also have the opportunity to respond to other user comments by clicking into the comment and clicking rh reply button.This comment section has a dual purpose, both doubling as a space where users can pose queries to residence in the area, and can also be used by residents in the area to get to know their neighbours / discuss local events or issues
+- **Commenting/User Feedback Section:** Allows the user to comment on the specific area. This also allows users to view other comments made by other users about this area. Users also have the opportunity to respond to other user comments by clicking into the comment and clicking the reply button.This comment section has a dual purpose, both doubling as a space where users can pose queries to residence in the area, and can also be used by residents in the area to get to know their neighbours / discuss local events or issues
 
 - **Email Submission Box:** An open communication between users and website maintenance. Users can provide issues about the website or any feedback / data they would like added to the website.
 
@@ -482,7 +482,7 @@ The website's design does not impose fixed memory constraints on user machines. 
 |-------|-------|
 | | User2 clicks the comment button and provides a comment |
 | User1 sees User2’s comment and decides to respond | |
-| | User1 clicks the reply button on User2’s comment and submits their response. |
+| User1 clicks the reply button on User2’s comment and submits their response. | |
 
 **Quality Requirements:** The user does not lose internet access for the duration of the process.
 
@@ -715,7 +715,7 @@ Functions within the system support generating responses:
 - **Displaying comments:** Responds to user submissions by displaying feedback on the website.
 
 #### 3.8.7 Functional Hierarchy
-If none of the above organizational schemes prove helpful, the overall functionality can be organized into a hierarchy:
+The overall functionality can be organized into a hierarchy:
 - **Inputs:** User queries for area information.
 - **Outputs:** Display of area-specific statistics and information.
 - **Internal data access:** Retrieval and manipulation of data from Irish datasets and APIs.

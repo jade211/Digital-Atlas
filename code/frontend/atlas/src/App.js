@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Amenities from './components/amenities';
-import Transport from './components/transportation';
+// import Transport from './components/transportation';
 import Crime from './components/crime';
 
 
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Transport />
+        {/* <Transport /> */}
         <Amenities />
         <Crime />
         <img src={logo} className="App-logo" alt="logo" />

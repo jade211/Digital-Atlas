@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/home';
 import Amenities from './components/amenities';
 // import Transport from './components/transportation';
 import Crime from './components/crime';
@@ -10,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Navbar/>
         {/* <Transport /> */}
         <Amenities />
         <Crime />

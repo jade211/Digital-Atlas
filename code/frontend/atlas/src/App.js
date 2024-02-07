@@ -72,10 +72,11 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Amenities from './components/amenities';
-import Navbar from './components/home';
+import Home from './components/home';
 import Transport from './components/transportation';
-// import Crime from './components/crime';
+import Crime from './components/crime';
 import Schools from './components/school';
+import Navbar from './components/navbar';
 
 
 
@@ -84,13 +85,16 @@ function App() {
   return (
     <Router>
       <div>
-        <Routes>
-          <Route exact path='/' element={<Navbar />} />
-          <Route path='/amenities' element={<Amenities />} />
-          {/* <Route path='/crime' element={<Crime />} /> */}
-          <Route path='/transport' element={<Transport />} />
-          <Route path='/school' element={<Schools />} />
-        </Routes>
+        <Navbar />
+        <div className="content-container">
+          <Routes>
+            <Route exact path='/' element={<Home />} />
+            <Route path='/amenities' element={<Amenities />} />
+            <Route path='/crime' element={<Crime />} />
+            <Route path='/transport' element={<Transport />} />
+            <Route path='/school' element={<Schools />} />
+          </Routes>
+        </div>
       </div>
     </Router>
 

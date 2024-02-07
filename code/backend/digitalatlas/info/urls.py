@@ -10,8 +10,14 @@ from .views import *
 # ]
 
 router = DefaultRouter()
-router.register(r'schools', SchoolsViewSet)
+# router.register(r'schools', SchoolsViewSet)
+router.register(r'county', CountyViewSet)
+router.register(r'primary', PrimaryViewSet)
+router.register(r'post_primary', PostPrimaryViewSet)
+router.register(r'special', SpecialViewSet)
+
 
 urlpatterns = [
     path('', include(router.urls)),
 ]
+

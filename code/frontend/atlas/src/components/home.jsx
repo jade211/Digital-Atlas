@@ -64,8 +64,8 @@ const Navbar = () => {
         <a href="/amenities">Amenities<span></span></a>
         <a href="/crime">Crime<span></span></a>
         <a href="/transport">Transport<span></span></a>
-        {/* <a href="crime.jsx">School<span></span></a>
-        <a href="crime.jsx">Housing<span></span></a> */}
+        <a href="/school">School<span></span></a>
+        <a href="crime.jsx">Housing<span></span></a>
         <a href="#">Contact<span></span></a>
         <a href="#">Comments<span></span></a>
       </nav>

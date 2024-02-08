@@ -45,4 +45,7 @@ class PostPrimaryViewSet(viewsets.ModelViewSet):
 class SpecialViewSet(viewsets.ModelViewSet):
     queryset = Special.objects.all()
     serializer_class = SpecialSerializer
-    
+
+class TransportViewSet(viewsets.ModelViewSet):
+    queryset = Transport.objects.all()
+    serializer_class = TransportSerializer

@@ -35,3 +35,8 @@ class SpecialSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Special
         fields = ['id','name', 'address', 'county', 'county_name']
+
+class TransportSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Transport
+        fields  = ['id', 'bus', 'route_from', 'route_to']

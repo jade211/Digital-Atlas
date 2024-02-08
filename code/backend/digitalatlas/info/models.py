@@ -32,3 +32,9 @@ class Special(models.Model):
     name = models.CharField(max_length=75)
     address = models.TextField()
     county = models.ForeignKey(County, on_delete=models.CASCADE)
+
+class Transport(models.Model):
+    id = models.AutoField(primary_key=True)
+    bus = models.CharField(max_length=10)
+    route_from = models.CharField(max_length=100)
+    route_to = models.CharField(max_length=100)

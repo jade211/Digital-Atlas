@@ -40,3 +40,9 @@ class TransportSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Transport
         fields  = ['id', 'bus', 'route_from', 'route_to']
+
+
+class HouseSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = House
+        fields = ['id', 'year', 'area', 'price']

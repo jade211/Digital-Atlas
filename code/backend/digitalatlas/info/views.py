@@ -49,3 +49,7 @@ class SpecialViewSet(viewsets.ModelViewSet):
 class TransportViewSet(viewsets.ModelViewSet):
     queryset = Transport.objects.all()
     serializer_class = TransportSerializer
+
+class HouseViewSet(viewsets.ModelViewSet):
+    queryset = House.objects.all() 
+    serializer_class = HouseSerializer

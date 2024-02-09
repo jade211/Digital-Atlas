@@ -575,7 +575,7 @@ function AmenitiesNav() {
           )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
 
-          const amenitiesApiUrl = `https://api.geoapify.com/v2/places?categories=education.library,entertainment,leisure,service,sport,activity,religion&filter=place:${encodeURIComponent(
+          const amenitiesApiUrl = `https://api.geoapify.com/v2/places?categories=education.library,entertainment,leisure, sport,activity&filter=place:${encodeURIComponent(
             placeId
           )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
@@ -649,7 +649,7 @@ function AmenitiesNav() {
 
       {/* Display search results */}
       <div>
-        <h2>Amenities</h2>
+        <h2>Entertainment and Leisure</h2>
         {amenitiesData.features && amenitiesData.features.map((result) => (
           <div className="card" key={result.properties.place_id}>
             <div className="card-body">
@@ -662,7 +662,7 @@ function AmenitiesNav() {
       </div>
 
       <div>
-        <h2>Services</h2>
+        <h2>Services and Religious Establishments</h2>
         {servicesData.features && servicesData.features.map((result) => (
           <div className="card" key={result.properties.place_id}>
             <div className="card-body">

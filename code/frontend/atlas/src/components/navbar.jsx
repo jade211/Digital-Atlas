@@ -134,19 +134,20 @@ function Navbar() {
             font-family: sans-serif;
           }
           body {
-            display: flex;
+            position; fixed;
+            // display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             background: #345; /* Body background color */
             margin: 0;
+            padding: 3px 2px;
             color: #000;
           }
           nav {
             position: fixed;
             top: 0;
             left: 0%;
-            right: 0%;
             width: 100%;
             background-color: #000; /* Fixed navbar background color */
             padding: 10px 20px;
@@ -159,7 +160,7 @@ function Navbar() {
             font-weight: 100;
             color: #fff; /* Text color */
             text-decoration: none;
-            padding: 6px 20px;
+            padding: 6px 19px;
             transition: 0.5s;
           }
           nav a:hover {

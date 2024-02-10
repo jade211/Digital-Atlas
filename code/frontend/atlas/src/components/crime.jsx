@@ -2305,10 +2305,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
+import { Chart } from 'chart.js/auto';
 
   function Crime( {searchTerm} ) {
     const [data, setData] = useState(null);
-
+    // const [gardaStationInput, setGardaStationInput] = useState("Cavan"); // Default to "Cavan"
+  
+    // Mapping object for Garda station names and numbers
     const gardaStationMapping = {
       "cavan": "11",
       "monaghan" : 11,
@@ -2430,6 +2433,9 @@ import { Bar } from 'react-chartjs-2';
       }
       
 
+
+      // const gardaStationNumber = gardaStationMapping[searchTerm];
+      
       const apiUrl = generateApiUrl("TLIST(Q1)", "C02481V03160", "20231", gardaStationNumber);
   
       fetch(apiUrl)
@@ -2443,7 +2449,80 @@ import { Bar } from 'react-chartjs-2';
   
       const crimeData = data.result.value;
 
-
+  
+      // const crimeTypeLabels = {
+      //   '01': 'Homicide Offences',
+      //   '0111': 'Murder',
+      //   '0112': 'Manslaughter',
+      //   '0113': 'Infanticide',
+      //   '012': 'Dangerous driving leading to death',
+      //   '02': 'Sexual offences',
+      //   '021': 'Rape and sexual assault',
+      //   '022': 'Other sexual offences',
+      //   '03' : 'Attempts/threats to murder, assaults, harassments and related offences',
+      //   '0311': 'Murder-attempt',
+      //   '0313': 'Threat to kill or cause serious harm',
+      //   '033': 'Harassment and related offences',
+      //   '034': 'Assault causing harm, poisoning',
+      //   '035': 'Other assault',
+      //   '04': 'Dangerous or negligent acts',
+      //   '0411': 'Dangerous driving causing serious bodily harm',
+      //   '0412': 'Driving/in charge of a vehicle while over legal alcohol limit',
+      //   '0413': 'Driving/in charge of a vehicle under the influence of drugs',
+      //   '0421': 'Endangerment with potential for serious harm/death',
+      //   '0422': 'Abandoning a child, child neglect and cruelty',
+      //   '0423': 'Unseaworthy/dangerous use of boat or ship',
+      //   '0424': 'False alarm/interference with aircraft or air transport facilities',
+      //   '0425': 'Endangering traffic offences',
+      //   '05': 'Kidnapping and related offences',
+      //   '0511': 'False imprisonment',
+      //   '0512': 'Abduction of person under 16 years of age',
+      //   '0513': 'Human trafficking offences',
+      //   '06': 'Robbery, extortion and hijacking offences',
+      //   '0611': 'Robbery of an establishment or institution',
+      //   '0612': 'Robbery of cash or goods in transit',
+      //   '0613': 'Robbery from the person',
+      //   '0621': 'Blackmail or extortion',
+      //   '0631': 'Carjacking, hijacking/unlawful seizure of aircraft/vessel',
+      //   '07': 'Burglary and related offences',
+      //   '0711': 'Aggravated burglary',
+      //   '0712': 'Burglary (not aggravated)',
+      //   '0713': 'Possession of an article (with intent to burgle, steal, demand)',
+      //   '08': 'Theft and related offences',
+      //   '081': 'Theft/taking of vehicle and related offences',
+      //   '0821': 'Theft from person',
+      //   '0822': 'Theft from shop',
+      //   '084': 'Other thefts, handling stolen property',
+      //   '09': 'Fraud, deception and related offences',
+      //   '10': 'Controlled drug offences',
+      //   '1011': 'Importation of drugs',
+      //   '1012': 'Cultivation or manufacture of drugs',
+      //   '1021': 'Possession of drugs for sale or supply',
+      //   '1022': 'Possession of drugs for personal use',
+      //   '103': 'Other drug offences',
+      //   '11': 'Weapons and Explosives Offences',
+      //   '111': 'Explosives, chemical weapons offences',
+      //   '1121': 'Discharging a firearm',
+      //   '1122': 'Possession of a firearm',
+      //   '113': 'Offensive weapons offences (n.e.c.)',
+      //   '114': 'Fireworks offences',
+      //   '12': 'Damage to property and to the environment',
+      //   '1211': 'Arson',
+      //   '1212': 'Criminal damage (not arson)',
+      //   '1221': 'Litter offences',
+      //   '13': 'Public order and other social code offences',
+      //   '131': 'Disorderly conduct',
+      //   '132': 'Trespass offences',
+      //   '133': 'Liquor licensing offences',
+      //   '134': 'Prostitution offences',
+      //   '135': 'Regulated betting/money, collection/trading offences',
+      //   '136': 'Social code offences (n.e.c.)',
+      //   '15': 'Offences against government, justice procedures and organisation of crime',
+      //   '151': 'Offences against government and its agents',
+      //   '152': 'Organisation of crime and conspiracy to commit crime',
+      //   '153': 'Perverting the course of justice',
+      //   '157': 'Offences while in custody, breach of court orders',
+      // };
   
       const formattedCrimeData = crimeData.map((value, index) => {
         const crimeTypeCode = Object.keys(data.result.dimension['C02480V03003'].category.label)[index];
@@ -2525,4 +2604,6 @@ import { Bar } from 'react-chartjs-2';
   }
   
 export default Crime;
+
+
 

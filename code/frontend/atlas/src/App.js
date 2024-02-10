@@ -140,6 +140,7 @@ import Transport from './components/transportation';
 import CrimeNav from './components/crime-navbar';
 import Navbar from './components/navbar';
 import Schools from './components/school';
+import House from './components/house';
 
 
 
@@ -155,6 +156,7 @@ function App() {
           <Route path='/crimenav' element={<CrimeNav />} />
           <Route path='/transport' element={<Transport />} />
           <Route path='/school' element={<Schools />} />
+          <Route path='/house' element={<House />} />
 
 
           {/* <Route exact path='/' element={<SearchBar />} />

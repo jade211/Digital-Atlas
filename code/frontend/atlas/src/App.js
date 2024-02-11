@@ -139,7 +139,7 @@ import AreaSearch from './components/areasearch';
 import Transport from './components/transportation';
 import CrimeNav from './components/crime-navbar';
 import Navbar from './components/navbar';
-import Schools from './components/school';
+import SchoolsNav from './components/school-navbar';
 import House from './components/house';
 import Comment from './components/comment';
 
@@ -155,8 +155,9 @@ function App() {
           <Route path='/searcharea' element={<AreaSearch />} />
           <Route path='/amenitiesnav' element={<AmenitiesNav />} />
           <Route path='/crimenav' element={<CrimeNav />} />
+          <Route path='/schoolsnav' element={<SchoolsNav />} />
           <Route path='/transport' element={<Transport />} />
-          <Route path='/school' element={<Schools />} />
+          <Route path='/amenitiesnav' element={<AmenitiesNav />} />
           <Route path='/house' element={<House />} />
           <Route path='/comment' element={<Comment />} />
           

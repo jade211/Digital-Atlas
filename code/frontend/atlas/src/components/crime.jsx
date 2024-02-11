@@ -2591,7 +2591,7 @@ import { Chart } from 'chart.js/auto';
         ],
       };
     };
-  
+
     return (
       <div>
         {data && (

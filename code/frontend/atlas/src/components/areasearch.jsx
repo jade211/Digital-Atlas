@@ -85,6 +85,7 @@
 import React, { useState } from 'react';
 import Amenities from './amenities';
 import Crime from './crime';
+import Schools from './school';
 
 function AreaSearch() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -112,6 +113,7 @@ function AreaSearch() {
       {searchClicked && (
         <div>
           <Amenities searchTerm={searchTerm} />
+          <Schools searchTerm={searchTerm} />
           <Crime searchTerm={searchTerm} />
         </div>
       )}

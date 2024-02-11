@@ -194,8 +194,8 @@ function Navbar() {
         <a href="/transport">Transport<span></span></a>
         <a href="/school">School<span></span></a>
         <a href="/house">House<span></span></a>
+        <a href="/comment">Comments<span></span></a>
         <a href="#">Contact<span></span></a>
-        <a href="#">Comments<span></span></a>
       </nav>
     </>
   );

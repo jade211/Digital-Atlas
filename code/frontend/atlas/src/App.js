@@ -140,7 +140,7 @@ import TransportNav from './components/transportation-navbar';
 import CrimeNav from './components/crime-navbar';
 import Navbar from './components/navbar';
 import SchoolsNav from './components/school-navbar';
-import House from './components/house';
+import HouseNav from './components/house-navbar';
 import Comment from './components/comment';
 
 
@@ -157,7 +157,7 @@ function App() {
           <Route path='/crimenav' element={<CrimeNav />} />
           <Route path='/schoolsnav' element={<SchoolsNav />} />
           <Route path='/transportnav' element={<TransportNav />} />
-          <Route path='/house' element={<House />} />
+          <Route path='/housenav' element={<HouseNav />} />
           <Route path='/comment' element={<Comment />} />
           
 

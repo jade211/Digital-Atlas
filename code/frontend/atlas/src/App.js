@@ -136,7 +136,7 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import AmenitiesNav from './components/amenities-navbar';
 import Home from './components/home';
 import AreaSearch from './components/areasearch';
-import Transport from './components/transportation';
+import TransportNav from './components/transportation-navbar';
 import CrimeNav from './components/crime-navbar';
 import Navbar from './components/navbar';
 import SchoolsNav from './components/school-navbar';
@@ -156,7 +156,7 @@ function App() {
           <Route path='/amenitiesnav' element={<AmenitiesNav />} />
           <Route path='/crimenav' element={<CrimeNav />} />
           <Route path='/schoolsnav' element={<SchoolsNav />} />
-          <Route path='/transport' element={<Transport />} />
+          <Route path='/transport' element={<TransportNav />} />
           <Route path='/amenitiesnav' element={<AmenitiesNav />} />
           <Route path='/house' element={<House />} />
           <Route path='/comment' element={<Comment />} />

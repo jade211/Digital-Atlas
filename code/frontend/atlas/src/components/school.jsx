@@ -114,7 +114,7 @@ function Schools({ searchTerm }) {
   const [schoolsData, setSchoolsData] = useState([]);
   const [collegeData, setCollegeData] = useState([]);
   const [universityData, setUniversityData] = useState([]);
-  const API_KEY = 'a777d7b98c864c52ac9a1081e45d8e51'; // Replace 'YOUR_API_KEY' with your actual API key
+  const API_KEY = 'a777d7b98c864c52ac9a1081e45d8e51';
 
   useEffect(() => {
     const handleSearch = async () => {

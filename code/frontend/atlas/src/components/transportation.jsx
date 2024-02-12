@@ -464,37 +464,45 @@ function Transport({ searchTerm }) {
       {/* Remove the button, as it's now automatically updating based on searchTerm */}
       {searchButtonClicked && (
         <>
-          <h3>DUBLIN BUSES</h3>
-          {filteredTransports.length > 0 ? (
-            <ul>
-              {filteredTransports.map((transport) => (
-                <li key={transport.id}>
-                  <p><strong>Bus:</strong> {transport.bus}</p>
-                  <p><strong>First Stop:</strong> {transport.route_from}</p>
-                  <p><strong>Last Stop:</strong> {transport.route_to}</p>
-                  <p><strong>County:</strong> {transport.county}</p>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No Bus Services For This Area</p>
-          )}
+          <div className="card-container">
+            <h3>Dublin Bus</h3>
+            {filteredTransports.length > 0 ? (
+              <div>
+                {filteredTransports.map((transport) => (
+                  <div key={transport.id} className="card">
+                    <div className="card-body">
+                      <p className="card-title"><strong>Bus:</strong> {transport.bus}</p>
+                      <p className="card-text"><strong>First Stop:</strong> {transport.route_from}</p>
+                      <p className="card-text"><strong>Last Stop:</strong> {transport.route_to}</p>
+                      <p className="card-text"><strong>County:</strong> {transport.county}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p>No Bus Services For This Area</p>
+            )}
+          </div>
 
-          <h3>BUS EIREANN</h3>
-          {filteredExtraTransports.length > 0 ? (
-            <ul>
-              {filteredExtraTransports.map((transport) => (
-                <li key={transport.id}>
-                  <p><strong>Bus:</strong> {transport.bus}</p>
-                  <p><strong>First Stop:</strong> {transport.route_from}</p>
-                  <p><strong>Last Stop:</strong> {transport.route_to}</p>
-                  <p><strong>County:</strong> {transport.county}</p>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No Bus Services For This Area</p>
-          )}
+          <div className="card-container">
+            <h3>Bus Eireann</h3>
+            {filteredExtraTransports.length > 0 ? (
+              <div>
+                {filteredExtraTransports.map((transport) => (
+                  <div key={transport.id} className="card">
+                    <div className="card-body">
+                      <p className="card-title"><strong>Bus:</strong> {transport.bus}</p>
+                      <p className="card-text"><strong>First Stop:</strong> {transport.route_from}</p>
+                      <p className="card-text"><strong>Last Stop:</strong> {transport.route_to}</p>
+                      <p className="card-text"><strong>County:</strong> {transport.county}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p>No Bus Services For This Area</p>
+            )}
+          </div>
         </>
       )}
     </div>

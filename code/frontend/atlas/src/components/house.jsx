@@ -1323,7 +1323,7 @@ function House({ searchTerm }) {
 
   return (
     <div>
-      <h1>Housing and Rent Prices</h1>
+      <h1>Housing and Rent Prices 🏠</h1>
       {displayHouse()}
       <div>
         <pre>{formatHouseData()}</pre>

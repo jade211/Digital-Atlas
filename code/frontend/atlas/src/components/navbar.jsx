@@ -191,7 +191,7 @@ function Navbar() {
         <a href="searcharea">Search<span></span></a>
         <a href="/amenitiesnav">Amenities<span></span></a>
         <a href="/crimenav">Crime<span></span></a>
-        <a href="/transport">Transport<span></span></a>
+        <a href="/transportnav">Transport<span></span></a>
         <a href="/school">School<span></span></a>
         <a href="/house">House<span></span></a>
         <a href="/comment">Comments<span></span></a>

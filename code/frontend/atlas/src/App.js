@@ -156,7 +156,7 @@ function App() {
           <Route path='/amenitiesnav' element={<AmenitiesNav />} />
           <Route path='/crimenav' element={<CrimeNav />} />
           <Route path='/schoolsnav' element={<SchoolsNav />} />
-          <Route path='/transport' element={<TransportNav />} />
+          <Route path='/transportnav' element={<TransportNav />} />
           <Route path='/amenitiesnav' element={<AmenitiesNav />} />
           <Route path='/house' element={<House />} />
           <Route path='/comment' element={<Comment />} />

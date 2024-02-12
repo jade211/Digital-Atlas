@@ -116,7 +116,7 @@ function AreaSearch() {
           <Amenities searchTerm={searchTerm} />
           <Schools searchTerm={searchTerm} />
           <Crime searchTerm={searchTerm} />
-          <Transport searchTerm={searchTerm} />
+          {/* <Transport searchTerm={searchTerm} /> */}
         </div>
       )}
     </div>

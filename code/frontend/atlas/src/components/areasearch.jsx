@@ -40,6 +40,7 @@
 import React, { useState } from 'react';
 import Amenities from './amenities';
 import Crime from './crime';
+import Schools from './school';
 import Transport from './transportation';
 
 function AreaSearch() {
@@ -51,6 +52,7 @@ function AreaSearch() {
       return (
         <div>
           <Amenities searchTerm={searchTerm} />
+          <Schools searchTerm={searchTerm} />
           <Crime searchTerm={searchTerm} />
           <Transport searchTerm={searchTerm} />
         </div>

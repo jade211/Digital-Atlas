@@ -408,6 +408,113 @@
 // export default Transport;
 
 
+// import React, { useState, useEffect } from "react";
+
+// function Transport({ searchTerm }) {
+//   const [transports, setTransports] = useState([]);
+//   const [extraTransports, setExtraTransports] = useState([]);
+//   const [filteredTransports, setFilteredTransports] = useState([]);
+//   const [filteredExtraTransports, setFilteredExtraTransports] = useState([]);
+//   const [searchButtonClicked, setSearchButtonClicked] = useState(false);
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const responses = await Promise.all([
+//           fetch(`http://127.0.0.1:8000/transport/`),
+//           fetch(`http://127.0.0.1:8000/extra_transport/`)
+//         ]);
+//         const [transport, extraTransport] = await Promise.all(
+//           responses.map((response) => response.json())
+//         );
+
+//         setTransports(transport);
+//         setExtraTransports(extraTransport);
+//       } catch (error) {
+//         console.error("Error fetching data:", error);
+//       }
+//     };
+
+//     fetchData();
+//   }, [searchTerm]); // Listen to changes in searchTerm
+
+//   useEffect(() => {
+//     // Filter transports when searchTerm changes
+//     const filteredTransportsResult = transports.filter(
+//       (transport) =>
+//         transport.route_from.toLowerCase().includes(searchTerm.toLowerCase()) ||
+//         transport.route_to.toLowerCase().includes(searchTerm.toLowerCase()) ||
+//         transport.county.toLowerCase().includes(searchTerm.toLowerCase())
+//     );
+
+//     const filteredExtraTransportsResult = extraTransports.filter(
+//       (transport) =>
+//         transport.route_from.toLowerCase().includes(searchTerm.toLowerCase()) ||
+//         transport.route_to.toLowerCase().includes(searchTerm.toLowerCase()) ||
+//         transport.county.toLowerCase().includes(searchTerm.toLowerCase())
+//     );
+
+//     setFilteredTransports(filteredTransportsResult);
+//     setFilteredExtraTransports(filteredExtraTransportsResult);
+//     setSearchButtonClicked(true);
+//   }, [searchTerm, transports, extraTransports]);
+
+//   return (
+//     <div>
+//       {/* Remove the button, as it's now automatically updating based on searchTerm */}
+//       {searchButtonClicked && (
+//         <>
+//           <div className="card-container">
+//             <h3>Dublin Bus</h3>
+//             {filteredTransports.length > 0 ? (
+//               <div>
+//                 {filteredTransports.map((transport) => (
+//                   <div key={transport.id} className="card">
+//                     <div className="card-body">
+//                       <p className="card-title"><strong>Bus:</strong> {transport.bus}</p>
+//                       <p className="card-text"><strong>First Stop:</strong> {transport.route_from}</p>
+//                       <p className="card-text"><strong>Last Stop:</strong> {transport.route_to}</p>
+//                       <p className="card-text"><strong>County:</strong> {transport.county}</p>
+//                     </div>
+//                   </div>
+//                 ))}
+//               </div>
+//             ) : (
+//               <p>No Bus Services For This Area</p>
+//             )}
+//           </div>
+
+//           <div className="card-container">
+//             <h3>Bus Eireann</h3>
+//             {filteredExtraTransports.length > 0 ? (
+//               <div>
+//                 {filteredExtraTransports.map((transport) => (
+//                   <div key={transport.id} className="card">
+//                     <div className="card-body">
+//                       <p className="card-title"><strong>Bus:</strong> {transport.bus}</p>
+//                       <p className="card-text"><strong>First Stop:</strong> {transport.route_from}</p>
+//                       <p className="card-text"><strong>Last Stop:</strong> {transport.route_to}</p>
+//                       <p className="card-text"><strong>County:</strong> {transport.county}</p>
+//                     </div>
+//                   </div>
+//                 ))}
+//               </div>
+//             ) : (
+//               <p>No Bus Services For This Area</p>
+//             )}
+//           </div>
+//         </>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default Transport;
+
+
+
+
+
 import React, { useState, useEffect } from "react";
 
 function Transport({ searchTerm }) {
@@ -416,6 +523,8 @@ function Transport({ searchTerm }) {
   const [filteredTransports, setFilteredTransports] = useState([]);
   const [filteredExtraTransports, setFilteredExtraTransports] = useState([]);
   const [searchButtonClicked, setSearchButtonClicked] = useState(false);
+  const [trainData, setTrainData] = useState([]);
+  const API_KEY = 'a777d7b98c864c52ac9a1081e45d8e51';
 
   useEffect(() => {
     const fetchData = async () => {
@@ -436,10 +545,32 @@ function Transport({ searchTerm }) {
     };
 
     fetchData();
-  }, [searchTerm]); // Listen to changes in searchTerm
+  }, [searchTerm]);
+
+  const fetchTrainData = async () => {
+    try {
+      if (searchTerm.trim() !== '') {
+        const geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&type=state&filter=countrycode:ie&format=json&apiKey=${API_KEY}`;
+        const geocodeResponse = await fetch(geocodeApiUrl);
+        const geocodeData = await geocodeResponse.json();
+        const placeId = geocodeData.results[0]?.place_id;
+
+        if (placeId) {
+          const trainUrl = `https://api.geoapify.com/v2/places?categories=public_transport.train&filter=place:${encodeURIComponent(placeId)}&limit=5&apiKey=${API_KEY}`;
+
+          const [trainResponse] = await Promise.all([fetch(trainUrl)]);
+          const [trainData] = await Promise.all([trainResponse.json()]);
+
+          setTrainData(trainData);
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching train data:", error);
+    }
+  };
+
 
   useEffect(() => {
-    // Filter transports when searchTerm changes
     const filteredTransportsResult = transports.filter(
       (transport) =>
         transport.route_from.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -457,6 +588,8 @@ function Transport({ searchTerm }) {
     setFilteredTransports(filteredTransportsResult);
     setFilteredExtraTransports(filteredExtraTransportsResult);
     setSearchButtonClicked(true);
+
+    fetchTrainData()
   }, [searchTerm, transports, extraTransports]);
 
   return (
@@ -503,6 +636,19 @@ function Transport({ searchTerm }) {
               <p>No Bus Services For This Area</p>
             )}
           </div>
+
+          <h2>Train Stations</h2>
+          {trainData.features && trainData.features.map((result) => (
+            <div className="card" key={result.properties.place_id}>
+              <div className="card-body">
+              <h5 className="card-title">{result.properties.name}</h5>
+                  <p className="card-text">Address: {result.properties.formatted}</p>
+                  <p className="card-text">Eircode: {result.properties.postcode}</p>
+                  <p className="card-text">Operator: {result.properties.datasource.raw.operator}</p>
+                  <p className="card-text">City: {result.properties.datasource.raw['addr:city']}</p>
+              </div>
+            </div>
+          ))}
         </>
       )}
     </div>

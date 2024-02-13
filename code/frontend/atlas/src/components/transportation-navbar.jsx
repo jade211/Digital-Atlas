@@ -653,16 +653,27 @@ function TransportNav() {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
+    <div className="container mt-4">
+      <div className="mb-3">
+        <label htmlFor="searchTerm" className="form-label">
+          Search by Locality or Country:
+        </label>
+        <div className="input-group">
+            <input
+                type="text"
+                id="searchTerm"
+                className="form-control"
+                placeholder="Search..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
 
-      <button onClick={handleSearch}>Search</button>
-
+            <button className="btn btn-primary" onClick={handleSearch}>
+                Search
+            </button>
+          </div>
+        </div>
+    
       {searchButtonClicked && (
         <>
           <div className="card-container">

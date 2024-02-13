@@ -160,7 +160,7 @@ function Navbar() {
             font-weight: 100;
             color: #fff; /* Text color */
             text-decoration: none;
-            padding: 6px 19px;
+            padding: 6px 15px;
             transition: 0.5s;
           }
           nav a:hover {

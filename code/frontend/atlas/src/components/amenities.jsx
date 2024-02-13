@@ -291,22 +291,207 @@
 
 
 
+// import React, { useState, useEffect } from 'react';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
+// function Amenities({ searchTerm }) {
+//   const [servicesData, setServicesData] = useState([]);
+//   const [amenitiesData, setAmenitiesData] = useState([]);
+//   const [hotelsData, setHotelsData] = useState([]);
+//   const [healthcareData, setHealthcareData] = useState([]);
+//   const [restaurantsCafesData, setRestaurantsCafesData] = useState([]);
+//   const [shopsBusinessesData, setShopsBusinessesData] = useState('');
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         if (searchTerm.trim() !== '') {
+//           const geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&type=state&filter=countrycode:ie&format=json&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+//           const geocodeResponse = await fetch(geocodeApiUrl);
+//           const geocodeData = await geocodeResponse.json();
+//           const placeId = geocodeData.results[0]?.place_id;
+
+//           if (placeId) {
+//             const servicesApiUrl = `https://api.geoapify.com/v2/places?categories=service,religion&filter=place:${encodeURIComponent(
+//               placeId
+//             )}&limit=2&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+//             const amenitiesApiUrl = `https://api.geoapify.com/v2/places?categories=education.library,entertainment,leisure, sport,activity&filter=place:${encodeURIComponent(
+//               placeId
+//             )}&limit=2&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+//             const hotelsApiUrl = `https://api.geoapify.com/v2/places?categories=accommodation.hotel&filter=place:${encodeURIComponent(
+//               placeId
+//             )}&limit=2&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+//             const healthcareApiUrl = `https://api.geoapify.com/v2/places?categories=healthcare&filter=place:${encodeURIComponent(
+//               placeId
+//             )}&limit=2&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+//             const restaurantsCafesApiUrl = `https://api.geoapify.com/v2/places?categories=catering&filter=place:${encodeURIComponent(
+//               placeId
+//             )}&limit=2&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+//             const shopsBusinessesApiUrl = `https://api.geoapify.com/v2/places?categories=commercial&filter=place:${encodeURIComponent(
+//               placeId
+//             )}&limit=2&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+//             const [servicesResponse, amenitiesResponse, hotelsResponse, healthcareResponse, restaurantsCafesResponse, shopsBusinessesResponse] =
+//               await Promise.all([
+//                 fetch(servicesApiUrl),
+//                 fetch(amenitiesApiUrl),
+//                 fetch(hotelsApiUrl),
+//                 fetch(healthcareApiUrl),
+//                 fetch(restaurantsCafesApiUrl),
+//                 fetch(shopsBusinessesApiUrl),
+//               ]);
+
+//             const [servicesData, amenitiesData, hotelsData, healthcareData, restaurantsCafesData, shopsBusinessesData] =
+//               await Promise.all([
+//                 servicesResponse.json(),
+//                 amenitiesResponse.json(),
+//                 hotelsResponse.json(),
+//                 healthcareResponse.json(),
+//                 restaurantsCafesResponse.json(),
+//                 shopsBusinessesResponse.json(),
+//               ]);
+
+//             setServicesData(servicesData);
+//             setAmenitiesData(amenitiesData);
+//             setHotelsData(hotelsData);
+//             setHealthcareData(healthcareData);
+//             setRestaurantsCafesData(restaurantsCafesData);
+//             setShopsBusinessesData(shopsBusinessesData);
+//           }
+//         }
+//       } catch (error) {
+//         console.error(error);
+//       }
+//     };
+
+//     fetchData();
+//   }, [searchTerm]);
+
+//   return (
+//     <div className="container mt-4">
+//       {/* Display search results */}
+//       <div>
+//         <h2>Entertainment and Leisure</h2>
+//         {amenitiesData.features &&
+//           amenitiesData.features.map((result) => (
+//             <div className="card" key={result.properties.place_id}>
+//               <div className="card-body">
+//                 <h5 className="card-title">{result.properties.name}</h5>
+//                 <p className="card-text">Address: {result.properties.formatted}</p>
+//                 <p className="card-text">Eircode: {result.properties.postcode}</p>
+//               </div>
+//             </div>
+//           ))}
+//       </div>
+
+//       <div>
+//         <h2>Services and Religious Establishments</h2>
+//         {servicesData.features &&
+//           servicesData.features.map((result) => (
+//             <div className="card" key={result.properties.place_id}>
+//               <div className="card-body">
+//                 <h5 className="card-title">{result.properties.name}</h5>
+//                 <p className="card-text">Address: {result.properties.formatted}</p>
+//                 <p className="card-text">Eircode: {result.properties.postcode}</p>
+//               </div>
+//             </div>
+//           ))}
+//       </div>
+
+//       <div>
+//         <h2>Hotels</h2>
+//         {hotelsData.features &&
+//           hotelsData.features.map((result) => (
+//             <div className="card" key={result.properties.place_id}>
+//               <div className="card-body">
+//                 <h5 className="card-title">{result.properties.name}</h5>
+//                 <p className="card-text">Address: {result.properties.formatted}</p>
+//                 <p className="card-text">Eircode: {result.properties.postcode}</p>
+//               </div>
+//             </div>
+//           ))}
+//       </div>
+
+//       <div>
+//         <h2>Healthcare, Pharmacies and Hospitals</h2>
+//         {healthcareData.features &&
+//           healthcareData.features.map((result) => (
+//             <div className="card" key={result.properties.place_id}>
+//               <div className="card-body">
+//                 <h5 className="card-title">{result.properties.name}</h5>
+//                 <p className="card-text">Address: {result.properties.formatted}</p>
+//                 <p className="card-text">Eircode: {result.properties.postcode}</p>
+//               </div>
+//             </div>
+//           ))}
+//       </div>
+
+//       <div>
+//         <h2>Restaurants and Cafes</h2>
+//         {restaurantsCafesData.features &&
+//           restaurantsCafesData.features.map((result) => (
+//             <div className="card" key={result.properties.place_id}>
+//               <div className="card-body">
+//                 <h5 className="card-title">{result.properties.name}</h5>
+//                 <p className="card-text">Address: {result.properties.formatted}</p>
+//                 <p className="card-text">Eircode: {result.properties.postcode}</p>
+//               </div>
+//             </div>
+//           ))}
+//       </div>
+
+//       <div>
+//         <h2>Shopping Centres and Businesses</h2>
+//         {shopsBusinessesData.features &&
+//           shopsBusinessesData.features.map((result) => (
+//             <div className="card" key={result.properties.place_id}>
+//               <div className="card-body">
+//                 <h5 className="card-title">{result.properties.name}</h5>
+//                 <p className="card-text">Address: {result.properties.formatted}</p>
+//                 <p className="card-text">Eircode: {result.properties.postcode}</p>
+//               </div>
+//             </div>
+//           ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Amenities;
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function AmenitiesNav({ searchTerm }) {
+function Amenities({ searchTerm }) {
   const [servicesData, setServicesData] = useState([]);
   const [amenitiesData, setAmenitiesData] = useState([]);
   const [hotelsData, setHotelsData] = useState([]);
   const [healthcareData, setHealthcareData] = useState([]);
   const [restaurantsCafesData, setRestaurantsCafesData] = useState([]);
-  const [shopsBusinessesData, setShopsBusinessesData] = useState('');
+  const [shopsBusinessesData, setShopsBusinessesData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (searchTerm.trim() !== '') {
-          const geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&type=state&filter=countrycode:ie&format=json&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+          const geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&filter=countrycode:ie&format=json&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
           const geocodeResponse = await fetch(geocodeApiUrl);
           const geocodeData = await geocodeResponse.json();
@@ -317,7 +502,7 @@ function AmenitiesNav({ searchTerm }) {
               placeId
             )}&limit=2&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
-            const amenitiesApiUrl = `https://api.geoapify.com/v2/places?categories=education.library,entertainment,leisure, sport,activity&filter=place:${encodeURIComponent(
+            const amenitiesApiUrl = `https://api.geoapify.com/v2/places?categories=education.library,entertainment,sport,activity&filter=place:${encodeURIComponent(
               placeId
             )}&limit=2&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
@@ -374,25 +559,27 @@ function AmenitiesNav({ searchTerm }) {
   }, [searchTerm]);
 
   return (
-    <div className="container mt-4">
-      {/* Display search results */}
-      <div>
-        <h2>Entertainment and Leisure</h2>
-        {amenitiesData.features &&
-          amenitiesData.features.map((result) => (
-            <div className="card" key={result.properties.place_id}>
-              <div className="card-body">
-                <h5 className="card-title">{result.properties.name}</h5>
-                <p className="card-text">Address: {result.properties.formatted}</p>
-                <p className="card-text">Eircode: {result.properties.postcode}</p>
+      <div className="container mt-4">
+        <div>
+          <h2>Entertainment and Leisure</h2>
+          {amenitiesData.features && amenitiesData.features.length > 0 ? (
+            amenitiesData.features.map((result) => (
+              <div className="card" key={result.properties.place_id}>
+                <div className="card-body">
+                  <h5 className="card-title">{result.properties.name}</h5>
+                  <p className="card-text">Address: {result.properties.formatted}</p>
+                  <p className="card-text">Eircode: {result.properties.postcode}</p>
+                </div>
               </div>
-            </div>
-          ))}
-      </div>
+            ))
+          ) : (
+            <p>No data</p>
+          )}
+        </div>
 
       <div>
         <h2>Services and Religious Establishments</h2>
-        {servicesData.features &&
+        {servicesData.features && servicesData.features.length > 0 ? (
           servicesData.features.map((result) => (
             <div className="card" key={result.properties.place_id}>
               <div className="card-body">
@@ -401,66 +588,83 @@ function AmenitiesNav({ searchTerm }) {
                 <p className="card-text">Eircode: {result.properties.postcode}</p>
               </div>
             </div>
-          ))}
-      </div>
+          ))
+        ) : (
+          <p>No data</p>
+        )}
+    </div>
 
       <div>
         <h2>Hotels</h2>
-        {hotelsData.features &&
+        {hotelsData.features && hotelsData.features.length > 0 ? (
           hotelsData.features.map((result) => (
             <div className="card" key={result.properties.place_id}>
               <div className="card-body">
                 <h5 className="card-title">{result.properties.name}</h5>
                 <p className="card-text">Address: {result.properties.formatted}</p>
                 <p className="card-text">Eircode: {result.properties.postcode}</p>
-              </div>
+                </div>
             </div>
-          ))}
-      </div>
+          ))
+        ) : (
+          <p>No data</p>
+        )}
+    </div>
 
       <div>
         <h2>Healthcare, Pharmacies and Hospitals</h2>
-        {healthcareData.features &&
+        {healthcareData.features && healthcareData.features.length > 0 ? (
           healthcareData.features.map((result) => (
             <div className="card" key={result.properties.place_id}>
               <div className="card-body">
                 <h5 className="card-title">{result.properties.name}</h5>
                 <p className="card-text">Address: {result.properties.formatted}</p>
                 <p className="card-text">Eircode: {result.properties.postcode}</p>
-              </div>
+                </div>
             </div>
-          ))}
-      </div>
+          ))
+        ) : (
+          <p>No data</p>
+        )}
+    </div>
 
       <div>
         <h2>Restaurants and Cafes</h2>
-        {restaurantsCafesData.features &&
+        {restaurantsCafesData.features && restaurantsCafesData.features.length > 0 ? (
           restaurantsCafesData.features.map((result) => (
             <div className="card" key={result.properties.place_id}>
               <div className="card-body">
                 <h5 className="card-title">{result.properties.name}</h5>
                 <p className="card-text">Address: {result.properties.formatted}</p>
                 <p className="card-text">Eircode: {result.properties.postcode}</p>
-              </div>
+                </div>
             </div>
-          ))}
-      </div>
+          ))
+        ) : (
+          <p>No data</p>
+        )}
+    </div>
 
       <div>
         <h2>Shopping Centres and Businesses</h2>
-        {shopsBusinessesData.features &&
+        {shopsBusinessesData.features && shopsBusinessesData.features.length > 0 ? (
           shopsBusinessesData.features.map((result) => (
             <div className="card" key={result.properties.place_id}>
               <div className="card-body">
                 <h5 className="card-title">{result.properties.name}</h5>
                 <p className="card-text">Address: {result.properties.formatted}</p>
                 <p className="card-text">Eircode: {result.properties.postcode}</p>
-              </div>
+                </div>
             </div>
-          ))}
-      </div>
+          ))
+        ) : (
+          <p>No data</p>
+        )}
+    </div>
     </div>
   );
 }
 
-export default AmenitiesNav;
+export default Amenities;
+
+

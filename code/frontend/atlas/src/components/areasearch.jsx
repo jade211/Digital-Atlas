@@ -160,7 +160,7 @@
 
 
 
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import Amenities from './amenities';
 import Crime from './crime';
 import Schools from './school';
@@ -174,6 +174,18 @@ function AreaSearch() {
   const handleSearch = () => {
     setSearchButtonClicked(true);
   };
+
+  useEffect(() => {
+    // Triggering the components
+
+    // Reset the search button state after a short delay (e.g., 100 milliseconds)
+    const resetSearchButton = setTimeout(() => {
+      setSearchButtonClicked(false);
+    }, 100);
+
+    // Clean up the timeout to avoid memory leaks
+    return () => clearTimeout(resetSearchButton);
+  }, [searchTerm]);
 
   return (
     <div style={{ display: 'flex' }}>
@@ -209,6 +221,5 @@ function AreaSearch() {
 }
 
 export default AreaSearch;
-
 
 

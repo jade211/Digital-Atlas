@@ -1247,9 +1247,9 @@ function House({ searchTerm }) {
 
     return filteredHouses.map((house) => (
       <div key={house.id}>
-        <p>Year: {house.year}</p>
-        <p>Area: {house.area}</p>
-        <p>Average Home Cost: {house.price}</p>
+        <p><strong>Year:</strong> {house.year}</p>
+        <p><strong>Area:</strong> {house.area}</p>
+        <p><strong>Average Home Cost:</strong> {house.price}</p>
       </div>
     ));
   };

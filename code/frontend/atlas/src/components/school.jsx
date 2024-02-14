@@ -163,7 +163,7 @@ function Schools({ searchTerm, searchOption }) {
       </div>
 
       <div>
-        <h2>Colleges</h2>
+        <h2>Colleges/ University</h2>
         {collegeData.features && collegeData.features.map((result) => (
           <div className="card" key={result.properties.place_id}>
             <div className="card-body">
@@ -173,10 +173,10 @@ function Schools({ searchTerm, searchOption }) {
             </div>
           </div>
         ))}
-      </div>
+      {/* </div>
 
       <div>
-        <h2>University</h2>
+        <h2>University</h2> */}
         {universityData.features && universityData.features.map((result) => (
           <div className="card" key={result.properties.place_id}>
             <div className="card-body">

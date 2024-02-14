@@ -568,7 +568,7 @@ function AreaSearch() {
           value={searchOption}
           onChange={(e) => setSearchOption(e.target.value)}
         >
-          <option value="city">Town</option>
+          <option value="street">Town</option>
           <option value="state">County</option>
         </select>
         <button onClick={handleSearch}>Search</button>
@@ -577,10 +577,10 @@ function AreaSearch() {
       {searchButtonClicked && searchTerm.trim() !== '' && (
         <div>
           <Amenities searchTerm={searchTerm} searchOption={searchOption} />
-          <Schools searchTerm={searchTerm} searchOption={searchTerm}/>
+          <Schools searchTerm={searchTerm} searchOption={searchOption}/>
           <Crime searchTerm={searchTerm} />
           <House searchTerm={searchTerm} />
-          <Transport searchTerm={searchTerm} searchOption={searchTerm}/>
+          <Transport searchTerm={searchTerm} searchOption={searchOption}/>
         </div>
       )}
     </div>

@@ -517,7 +517,7 @@
 
 import React, { useState, useEffect } from "react";
 
-function Transport({ searchTerm }) {
+function Transport({ searchTerm, searchOption }) {
   const [transports, setTransports] = useState([]);
   const [extraTransports, setExtraTransports] = useState([]);
   const [filteredTransports, setFilteredTransports] = useState([]);
@@ -550,7 +550,7 @@ function Transport({ searchTerm }) {
   const fetchTrainData = async () => {
     try {
       if (searchTerm.trim() !== '') {
-        const geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&type=state&filter=countrycode:ie&format=json&apiKey=${API_KEY}`;
+        const geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&type=${encodeURIComponent(searchOption)}&filter=countrycode:ie&format=json&apiKey=${API_KEY}`;
         const geocodeResponse = await fetch(geocodeApiUrl);
         const geocodeData = await geocodeResponse.json();
         const placeId = geocodeData.results[0]?.place_id;

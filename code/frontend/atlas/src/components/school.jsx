@@ -110,7 +110,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Schools({ searchTerm }) {
+function Schools({ searchTerm, searchOption }) {
   const [schoolsData, setSchoolsData] = useState([]);
   const [collegeData, setCollegeData] = useState([]);
   const [universityData, setUniversityData] = useState([]);
@@ -120,7 +120,7 @@ function Schools({ searchTerm }) {
     const handleSearch = async () => {
       try {
         if (searchTerm.trim() !== '') {
-          const geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&type=state&filter=countrycode:ie&format=json&apiKey=${API_KEY}`;
+          const geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&type=${encodeURIComponent(searchOption)}&filter=countrycode:ie&format=json&apiKey=${API_KEY}`;
           const geocodeResponse = await fetch(geocodeApiUrl);
           const geocodeData = await geocodeResponse.json();
           const placeId = geocodeData.results[0]?.place_id;

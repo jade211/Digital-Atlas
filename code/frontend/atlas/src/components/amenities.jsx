@@ -479,7 +479,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Amenities({ searchTerm }) {
+function Amenities({ searchTerm, searchOption }) {
   const [servicesData, setServicesData] = useState([]);
   const [amenitiesData, setAmenitiesData] = useState([]);
   const [hotelsData, setHotelsData] = useState([]);
@@ -491,7 +491,7 @@ function Amenities({ searchTerm }) {
     const fetchData = async () => {
       try {
         if (searchTerm.trim() !== '') {
-          const geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&filter=countrycode:ie&format=json&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+          const geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&type=${encodeURIComponent(searchOption)}&filter=countrycode:ie&format=json&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
           const geocodeResponse = await fetch(geocodeApiUrl);
           const geocodeData = await geocodeResponse.json();
@@ -556,7 +556,7 @@ function Amenities({ searchTerm }) {
     };
 
     fetchData();
-  }, [searchTerm]);
+  }, [searchTerm, searchOption]);
 
   return (
       <div className="container mt-4">

@@ -440,6 +440,19 @@ function AreaSearch() {
     }
   };
 
+  useEffect(() => {
+    // Triggering the components
+
+    // Reset the search button state after a short delay (e.g., 100 milliseconds)
+    const resetSearchButton = setTimeout(() => {
+      setSearchButtonClicked(false);
+    }, 100);
+
+    // Clean up the timeout to avoid memory leaks
+    return () => clearTimeout(resetSearchButton);
+  }, [searchTerm]);
+
+
   return (
     <div style={{ width: '80%', margin: '0 auto' }}>
       <div style={{ marginBottom: '20px' }}>

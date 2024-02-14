@@ -549,14 +549,19 @@ function Transport({ searchTerm, searchOption }) {
 
   const fetchTrainData = async () => {
     try {
+      let geocodeApiUrl;
       if (searchTerm.trim() !== '') {
-        const geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&type=${encodeURIComponent(searchOption)}&filter=countrycode:ie&format=json&apiKey=${API_KEY}`;
+        if (searchOption === 'state') {
+          geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&type=${encodeURIComponent(searchOption)}&filter=countrycode:ie&format=json&apiKey=${API_KEY}`;
+        } else {
+          geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&filter=countrycode:ie&format=json&apiKey=${API_KEY}`;
+        }
         const geocodeResponse = await fetch(geocodeApiUrl);
         const geocodeData = await geocodeResponse.json();
         const placeId = geocodeData.results[0]?.place_id;
 
         if (placeId) {
-          const trainUrl = `https://api.geoapify.com/v2/places?categories=public_transport.train&filter=place:${encodeURIComponent(placeId)}&limit=5&apiKey=${API_KEY}`;
+          const trainUrl = `https://api.geoapify.com/v2/places?categories=public_transport.train&filter=place:${encodeURIComponent(placeId)}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
           const [trainResponse] = await Promise.all([fetch(trainUrl)]);
           const [trainData] = await Promise.all([trainResponse.json()]);

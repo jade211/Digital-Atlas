@@ -693,13 +693,13 @@ function AreaSearch() {
               case 'amenities':
                 return <Amenities key={feature} searchTerm={searchTerm} searchOption={searchOption} />;
               case 'schools':
-                return <Schools key={feature} searchTerm={searchTerm} searchOption={searchTerm} />;
+                return <Schools key={feature} searchTerm={searchTerm} searchOption={searchOption} />;
               case 'crime':
                 return <Crime key={feature} searchTerm={searchTerm} />;
               case 'house':
                 return <House key={feature} searchTerm={searchTerm} />;
               case 'transport':
-                return <Transport key={feature} searchTerm={searchTerm} searchOption={searchTerm} />;
+                return <Transport key={feature} searchTerm={searchTerm} searchOption={searchOption} />;
               default:
                 return null;
             }

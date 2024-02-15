@@ -4697,12 +4697,13 @@ const House = ({ searchTerm }) => {
             const county = geocodeData.results[0]?.county.replace(/^County\s/i, '');
 
             const price = countyMapping[county];
+            const searchTermNew = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
 
             if (price) {
               setResult(
                 <div>
                 <p>Year: 2022 </p>
-                <p>Area: {searchTerm}, County {county}</p>
+                <p>Area: {searchTermNew}, County {county}</p>
                 <p>Average Home Cost: {price}</p>
                 </div>
               )

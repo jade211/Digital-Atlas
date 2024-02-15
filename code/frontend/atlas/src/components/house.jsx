@@ -4702,7 +4702,7 @@ const House = ({ searchTerm }) => {
             if (price) {
               setResult(
                 <div>
-                <p>Year: 2022 </p>
+                <p>Year: 2023 </p>
                 <p>Area: {searchTermNew}, County {county}</p>
                 <p>Average Home Cost: {price}</p>
                 </div>

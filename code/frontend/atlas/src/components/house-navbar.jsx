@@ -1764,7 +1764,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-const House = () => {
+const HouseNav = () => {
   const [data, setData] = useState(null);
   const [houses, setHouses] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -2356,5 +2356,5 @@ const House = () => {
   );
 };
 
-export default House;
+export default HouseNav;
 

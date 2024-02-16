@@ -282,13 +282,14 @@ function CrimeNav() {
         fetchCrimeData();
       }
     }, [gardaStationInput, searchClicked]);
-    
+
     const formatCrimeData = () => {
-      if (!data) return 'Loading......';
+      if (!data) return '';
   
       const crimeData = data.result.value;
   
       const crimeTypeLabels = {
+        '01': 'Homicide Offences',
         '0111': 'Murder',
         '0112': 'Manslaughter',
         '0113': 'Infanticide',
@@ -296,6 +297,7 @@ function CrimeNav() {
         '02': 'Sexual offences',
         '021': 'Rape and sexual assault',
         '022': 'Other sexual offences',
+        '03' : 'Attempts/threats to murder, assaults, harassments and related offences',
         '0311': 'Murder-attempt',
         '0313': 'Threat to kill or cause serious harm',
         '033': 'Harassment and related offences',

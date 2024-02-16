@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.mail import send_mail
 
 # Create your models here.
 
@@ -53,3 +54,22 @@ class Extra_Transport(models.Model):
     route_to = models.CharField(max_length=100)
     county = models.CharField(max_length=50)
     
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    timestamp = models.DateField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.message
+    
+    # def save(self, *args, **kwargs):
+    #     send_mail(
+    #         'Contact message',
+    #         'Here is my message',
+    #         'digitalatlas211@gmail.com',
+    #         [self.email],
+    #         fail_silently=False,
+    #         html_message=f"<p>{self.name}</p><p>Message: {self.message}</p>"
+    #     )
+    #     return super(Contact, self).save(*args, **kwargs)

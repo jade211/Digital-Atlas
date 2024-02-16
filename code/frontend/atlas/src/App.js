@@ -142,7 +142,7 @@ import Navbar from './components/navbar';
 import SchoolsNav from './components/school-navbar';
 import HouseNav from './components/house-navbar';
 import Comment from './components/comment';
-
+import Contact from './components/contact';
 
 
 function App() {
@@ -159,6 +159,7 @@ function App() {
           <Route path='/transportnav' element={<TransportNav />} />
           <Route path='/housenav' element={<HouseNav />} />
           <Route path='/comment' element={<Comment />} />
+          <Route path='/contact' element={<Contact />} />
           
 
 

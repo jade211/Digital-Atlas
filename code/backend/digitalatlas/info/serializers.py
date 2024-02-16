@@ -51,3 +51,8 @@ class ExtraTransportSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Extra_Transport
         fields  = ['id', 'bus', 'route_from', 'route_to', 'county']
+
+class ContactSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Contact
+        fields  = ['name', 'email', 'message', 'timestamp']

@@ -18,6 +18,7 @@ router.register(r'special', SpecialViewSet)
 router.register(r'transport', TransportViewSet)
 router.register(r'house', HouseViewSet)
 router.register(r'extra_transport', ExtraTransportViewSet)
+router.register(r'contact', ContactViewSet)
 
 
 urlpatterns = [

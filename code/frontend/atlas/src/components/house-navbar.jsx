@@ -2368,7 +2368,7 @@ const HouseNav = () => {
   const [apiUrl, setApiUrl] = useState("");
   const [formattedData, setFormattedData] = useState('');
   const [result, setResult] = useState(null);
-
+  
   const areaMapping = {
     "carlow": "110000",
     "carlow town": "110200",

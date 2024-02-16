@@ -36,3 +36,101 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+/* home.jsx*/
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+}
+
+.left-content {
+  flex: 1;
+}
+
+.right-content {
+  flex-basis: 5%;
+  margin-left: 10px; /* Adjust as needed */
+}
+
+.hero {
+  text-align: center;
+}
+
+.hero-content {
+  margin-top: 50px;
+}
+
+.overview {
+  margin-top: 50px;
+}
+
+.feature {
+  margin-bottom: 30px;
+}
+
+.feature ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.call-to-action {
+  margin-top: 50px;
+}
+
+.search-bar {
+  display: flex;
+  margin-top: 20px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+footer {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.contact-info {
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+}
+
+.contact-info ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact-info ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.copyright {
+  font-size: 0.8em;
+  color: #888;
+}
+

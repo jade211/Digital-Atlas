@@ -201,6 +201,7 @@
 
 
 import React, { useState, useEffect } from 'react';
+import { Bar } from 'react-chartjs-2';
 
 function CrimeNav() {
   const [data, setData] = useState(null);
@@ -244,51 +245,8 @@ function CrimeNav() {
       "D.M.R. Eastern": "65",
       "D.M.R. Western": "66"
     };
-  
-    useEffect(() => {
-      const fetchCrimeData = async () => {
-        try {
-          let gardaStationNumber = gardaStationMapping[gardaStationInput.toLowerCase()];
-  
-          if (!gardaStationNumber) {
-            const geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(
-              gardaStationInput
-            )}&limit=1&type=state&filter=countrycode:ie&format=json&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
-  
-            const geocodeResponse = await fetch(geocodeApiUrl);
-            const geocodeData = await geocodeResponse.json();
-            const county = geocodeData.results[0]?.county.replace(/^County\s/i, '');
-  
-            const countyGardaStationNumber = gardaStationMapping[county.toLowerCase()];
-            if (countyGardaStationNumber) {
-              gardaStationNumber = countyGardaStationNumber;
-            } else {
-              console.error(`Garda station not found for county: ${county}`);
-              return;
-            }
-          }
-  
-          const apiUrl = generateApiUrl("TLIST(Q1)", "C02481V03160", "20231", gardaStationNumber);
-  
-          const response = await fetch(apiUrl);
-          const jsonData = await response.json();
-          setData(jsonData);
-        } catch (error) {
-          console.error(`Error fetching crime data for gardaStationInput: ${gardaStationInput}`, error);
-        }
-      };
-  
-      if (searchClicked && gardaStationInput) {
-        fetchCrimeData();
-      }
-    }, [gardaStationInput, searchClicked]);
 
-    const formatCrimeData = () => {
-      if (!data) return '';
-  
-      const crimeData = data.result.value;
-  
-      const crimeTypeLabels = {
+    const crimeTypeLabels = {
         '01': 'Homicide Offences',
         '0111': 'Murder',
         '0112': 'Manslaughter',
@@ -362,6 +320,49 @@ function CrimeNav() {
         '157': 'Offences while in custody, breach of court orders',
       };
   
+    useEffect(() => {
+      const fetchCrimeData = async () => {
+        try {
+          let gardaStationNumber = gardaStationMapping[gardaStationInput.toLowerCase()];
+  
+          if (!gardaStationNumber) {
+            const geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(
+              gardaStationInput
+            )}&limit=1&type=state&filter=countrycode:ie&format=json&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+  
+            const geocodeResponse = await fetch(geocodeApiUrl);
+            const geocodeData = await geocodeResponse.json();
+            const county = geocodeData.results[0]?.county.replace(/^County\s/i, '');
+  
+            const countyGardaStationNumber = gardaStationMapping[county.toLowerCase()];
+            if (countyGardaStationNumber) {
+              gardaStationNumber = countyGardaStationNumber;
+            } else {
+              console.error(`Garda station not found for county: ${county}`);
+              return;
+            }
+          }
+  
+          const apiUrl = generateApiUrl("TLIST(Q1)", "C02481V03160", "20231", gardaStationNumber);
+  
+          const response = await fetch(apiUrl);
+          const jsonData = await response.json();
+          setData(jsonData);
+        } catch (error) {
+          console.error(`Error fetching crime data for gardaStationInput: ${gardaStationInput}`, error);
+        }
+      };
+  
+      if (searchClicked && gardaStationInput) {
+        fetchCrimeData();
+      }
+    }, [gardaStationInput, searchClicked]);
+
+    const formatCrimeData = () => {
+      if (!data) return '';
+  
+      const crimeData = data.result.value;
+  
       const formattedCrimeData = crimeData.map((value, index) => {
         const crimeTypeCode = Object.keys(data.result.dimension['C02480V03003'].category.label)[index];
         const crimeTypeLabel = crimeTypeLabels[crimeTypeCode];
@@ -409,22 +410,49 @@ function CrimeNav() {
       return apiUrl;
     };
     
-  const handleSearchClick = () => {
-    setSearchClicked(true);
-  };
-
-  return (
-    <div>
-      <input
-        type="text"
-        placeholder="Enter Garda station name"
-        value={gardaStationInput}
-        onChange={(e) => setGardaStationInput(e.target.value)}
-      />
-      <button onClick={handleSearchClick}>Search</button>
-      <pre>{formatCrimeData()}</pre>
-    </div>
-  );
-}
-
+    const generateChartData = () => {
+      if (!data) return null;
+  
+      const crimeData = data.result.value;
+  
+      const labels = Object.keys(data.result.dimension['C02480V03003'].category.label).map((code) => crimeTypeLabels[code]);
+      const values = crimeData.map((value) => value);
+  
+      return {
+        labels,
+        datasets: [
+          {
+            label: 'Number of Crimes',
+            data: values,
+            backgroundColor: 'rgba(75,192,192,0.2)',
+            borderColor: 'rgba(75,192,192,1)',
+            borderWidth: 1,
+          },
+        ],
+      };
+    };
+  
+    const handleSearchClick = () => {
+      setSearchClicked(true);
+    };
+  
+    return (
+      <div>
+        <input
+          type="text"
+          placeholder="Enter Garda station name"
+          value={gardaStationInput}
+          onChange={(e) => setGardaStationInput(e.target.value)}
+        />
+        <button onClick={handleSearchClick}>Search</button>
+        <pre>{formatCrimeData()}</pre>
+        {data && (
+          <div>
+            <Bar data={generateChartData()} options={{ maintainAspectRatio: false }} />
+          </div>
+        )}
+      </div>
+    );
+  }
+  
 export default CrimeNav;

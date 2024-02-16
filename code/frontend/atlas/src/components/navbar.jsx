@@ -352,7 +352,7 @@ function Navbar() {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Lobster', cursive;
+            font-family: 'Lobster';
           }
           body {
             background: linear-gradient(135deg, #283048 0%, #859398 100%);

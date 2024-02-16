@@ -366,7 +366,10 @@ function CrimeNav() {
       // Sort crime data by values from highest to lowest
       const sortedCrimeData = crimeData.slice().sort((a, b) => b - a);
     
-      const formattedCrimeData = sortedCrimeData.map((value, index) => {
+      // Take only the top 10 crimes
+      const topCrimes = sortedCrimeData.slice(0, 10);
+    
+      const formattedCrimeData = topCrimes.map((value, index) => {
         const crimeTypeCode = Object.keys(data.result.dimension['C02480V03003'].category.label)[index];
         const crimeTypeLabel = crimeTypeLabels[crimeTypeCode];
         return `${crimeTypeLabel}: ${value}`;
@@ -454,7 +457,9 @@ function CrimeNav() {
       {searchClicked && !data && <p>Loading...</p>}
       {data && (
         <div className="result-container">
-          <pre>{formatCrimeData()}</pre>
+          <pre>
+            <h2>Top 10 Crimes of the Area</h2>
+            {formatCrimeData()}</pre>
           <div className="chart-container">
             <Bar data={generateChartData()} options={{ maintainAspectRatio: false }} />
           </div>

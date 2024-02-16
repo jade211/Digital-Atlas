@@ -164,3 +164,36 @@ footer {
 .school-info, .college-info, .university-info {
   margin-top: 30px;
 }
+
+
+/* crime-navbar */
+.crime-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+  padding: 8px;
+  margin-right: 8px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+.chart-container {
+  margin-top: 20px;
+}

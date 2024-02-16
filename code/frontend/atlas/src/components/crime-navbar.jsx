@@ -436,23 +436,26 @@ function CrimeNav() {
       setSearchClicked(true);
     };
   
-    return (
-      <div>
-        <input
-          type="text"
-          placeholder="Enter Garda station name"
-          value={gardaStationInput}
-          onChange={(e) => setGardaStationInput(e.target.value)}
-        />
-        <button onClick={handleSearchClick}>Search</button>
-        <pre>{formatCrimeData()}</pre>
-        {data && (
-          <div>
+  return (
+    <div className="crime-container">
+      <input
+        type="text"
+        placeholder="Enter Garda station name"
+        value={gardaStationInput}
+        onChange={(e) => setGardaStationInput(e.target.value)}
+      />
+      <button onClick={handleSearchClick}>Search</button>
+      {searchClicked && !data && <p>Loading...</p>}
+      {data && (
+        <div className="result-container">
+          <pre>{formatCrimeData()}</pre>
+          <div className="chart-container">
             <Bar data={generateChartData()} options={{ maintainAspectRatio: false }} />
           </div>
-        )}
-      </div>
-    );
-  }
+        </div>
+      )}
+    </div>
+  );
+}
   
 export default CrimeNav;

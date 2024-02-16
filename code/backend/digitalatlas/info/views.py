@@ -9,6 +9,8 @@ from django.shortcuts import render
 # from rest_framework.decorators import api_view
 # from rest_framework.response import Response
 from rest_framework import viewsets
+from rest_framework import status
+from django.core.mail import send_mail
 
 
 def index(request):
@@ -57,3 +59,32 @@ class HouseViewSet(viewsets.ModelViewSet):
 class ExtraTransportViewSet(viewsets.ModelViewSet):
     queryset = Extra_Transport.objects.all()
     serializer_class = ExtraTransportSerializer
+
+class ContactViewSet(viewsets.ModelViewSet):
+    queryset = Contact.objects.all()
+    serializer_class = ContactSerializer
+
+    # def create(self, request, *args, **kwargs):
+    #     serializer = self.get_serializer(data=request.data)
+    #     serializer.is_valid(raise_exception=True)
+    #     self.perform_create(serializer)
+        
+    #     # Get the validated data from serializer
+    #     name = serializer.validated_data.get('name', '')
+    #     email = serializer.validated_data.get('email', '')
+    #     message = serializer.validated_data.get('message', '')
+
+    #     # Send email
+    #     try:
+    #         send_mail(
+    #             'Contact message',
+    #             f'Name: {name}\nEmail: {email}\nMessage: {message}',
+    #             'digitalatlas211@gmail.com',  # Sender's email
+    #             ['digitalatlas211@gmail.com'],  # Recipient's email
+    #             fail_silently=False,
+    #         )
+    #     except Exception as e:
+    #         # Handle email sending failure
+    #         return Response({'message': 'Failed to send email'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    #     return Response(serializer.data, status=status.HTTP_201_CREATED)

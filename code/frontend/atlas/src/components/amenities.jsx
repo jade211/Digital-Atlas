@@ -490,9 +490,13 @@ function Amenities({ searchTerm, searchOption }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        let geocodeApiUrl;
         if (searchTerm.trim() !== '') {
-          const geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&type=${encodeURIComponent(searchOption)}&filter=countrycode:ie&format=json&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
-
+          if (searchOption === 'state') {
+            geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&type=${encodeURIComponent(searchOption)}&filter=countrycode:ie&format=json&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+          } else {
+            geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&filter=countrycode:ie&format=json&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+          }
           const geocodeResponse = await fetch(geocodeApiUrl);
           const geocodeData = await geocodeResponse.json();
           const placeId = geocodeData.results[0]?.place_id;

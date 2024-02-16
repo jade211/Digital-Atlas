@@ -360,15 +360,18 @@ function CrimeNav() {
 
     const formatCrimeData = () => {
       if (!data) return '';
-  
+    
       const crimeData = data.result.value;
-  
-      const formattedCrimeData = crimeData.map((value, index) => {
+    
+      // Sort crime data by values from highest to lowest
+      const sortedCrimeData = crimeData.slice().sort((a, b) => b - a);
+    
+      const formattedCrimeData = sortedCrimeData.map((value, index) => {
         const crimeTypeCode = Object.keys(data.result.dimension['C02480V03003'].category.label)[index];
         const crimeTypeLabel = crimeTypeLabels[crimeTypeCode];
         return `${crimeTypeLabel}: ${value}`;
       });
-  
+    
       return formattedCrimeData.join('\n');
     };
   
@@ -412,12 +415,15 @@ function CrimeNav() {
     
     const generateChartData = () => {
       if (!data) return null;
-  
+    
       const crimeData = data.result.value;
-  
+    
+      // Sort values from highest to lowest
+      const sortedCrimeData = crimeData.slice().sort((a, b) => b - a);
+    
       const labels = Object.keys(data.result.dimension['C02480V03003'].category.label).map((code) => crimeTypeLabels[code]);
-      const values = crimeData.map((value) => value);
-  
+      const values = sortedCrimeData.map((value) => value);
+    
       return {
         labels,
         datasets: [

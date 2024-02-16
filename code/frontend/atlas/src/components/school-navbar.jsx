@@ -209,7 +209,7 @@ function SchoolsNav() {
       </div>
 
 
-    <div>
+    <div className='school-info'>
       <h2>Schools</h2>
       {schoolsData.features && schoolsData.features.map((result) => (
         <div className="card" key={result.properties.place_id}>
@@ -222,7 +222,7 @@ function SchoolsNav() {
       ))}
     </div>
 
-    <div>
+    <div className='school-info'>
       <h2>Colleges/ University</h2>
       {collegeData.features && collegeData.features.map((result) => (
         <div className="card" key={result.properties.place_id}>

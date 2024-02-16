@@ -2425,104 +2425,47 @@ import { Chart } from 'chart.js/auto';
     };
   
     useEffect(() => {
-      const gardaStationNumber = gardaStationMapping[searchTerm];
-      if (!gardaStationNumber) {
-        // Handle the case when searchTerm doesn't match any Garda station
-        console.error(`Garda station not found for searchTerm: ${searchTerm}`);
-        return;
-      }
-      
-
-
-      // const gardaStationNumber = gardaStationMapping[searchTerm];
-      
-      const apiUrl = generateApiUrl("TLIST(Q1)", "C02481V03160", "20231", gardaStationNumber);
+      const fetchCrimeData = async () => {
+        try {
+          let gardaStationNumber = gardaStationMapping[searchTerm.toLowerCase()];
   
-      fetch(apiUrl)
-        .then((response) => response.json())
-        .then(json => setData(json))
-        .catch(error => console.error(error));
+          if (!gardaStationNumber) {
+            const geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(
+              searchTerm
+            )}&limit=1&type=state&filter=countrycode:ie&format=json&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+  
+            const geocodeResponse = await fetch(geocodeApiUrl);
+            const geocodeData = await geocodeResponse.json();
+            const county = geocodeData.results[0]?.county.replace(/^County\s/i, '');
+  
+            const countyGardaStationNumber = gardaStationMapping[county.toLowerCase()];
+            if (countyGardaStationNumber) {
+              gardaStationNumber = countyGardaStationNumber;
+            } else {
+              console.error(`Garda station not found for county: ${county}`);
+              return;
+            }
+          }
+  
+          const apiUrl = generateApiUrl("TLIST(Q1)", "C02481V03160", "20231", gardaStationNumber);
+  
+          const response = await fetch(apiUrl);
+          const jsonData = await response.json();
+          setData(jsonData);
+        } catch (error) {
+          console.error(`Error fetching crime data for searchTerm: ${searchTerm}`, error);
+        }
+      };
+  
+      if (searchTerm) {
+        fetchCrimeData();
+      }
     }, [searchTerm]);
   
     const formatCrimeData = () => {
       if (!data) return <h2>Crime Data</h2>;
   
       const crimeData = data.result.value;
-
-  
-      // const crimeTypeLabels = {
-      //   '01': 'Homicide Offences',
-      //   '0111': 'Murder',
-      //   '0112': 'Manslaughter',
-      //   '0113': 'Infanticide',
-      //   '012': 'Dangerous driving leading to death',
-      //   '02': 'Sexual offences',
-      //   '021': 'Rape and sexual assault',
-      //   '022': 'Other sexual offences',
-      //   '03' : 'Attempts/threats to murder, assaults, harassments and related offences',
-      //   '0311': 'Murder-attempt',
-      //   '0313': 'Threat to kill or cause serious harm',
-      //   '033': 'Harassment and related offences',
-      //   '034': 'Assault causing harm, poisoning',
-      //   '035': 'Other assault',
-      //   '04': 'Dangerous or negligent acts',
-      //   '0411': 'Dangerous driving causing serious bodily harm',
-      //   '0412': 'Driving/in charge of a vehicle while over legal alcohol limit',
-      //   '0413': 'Driving/in charge of a vehicle under the influence of drugs',
-      //   '0421': 'Endangerment with potential for serious harm/death',
-      //   '0422': 'Abandoning a child, child neglect and cruelty',
-      //   '0423': 'Unseaworthy/dangerous use of boat or ship',
-      //   '0424': 'False alarm/interference with aircraft or air transport facilities',
-      //   '0425': 'Endangering traffic offences',
-      //   '05': 'Kidnapping and related offences',
-      //   '0511': 'False imprisonment',
-      //   '0512': 'Abduction of person under 16 years of age',
-      //   '0513': 'Human trafficking offences',
-      //   '06': 'Robbery, extortion and hijacking offences',
-      //   '0611': 'Robbery of an establishment or institution',
-      //   '0612': 'Robbery of cash or goods in transit',
-      //   '0613': 'Robbery from the person',
-      //   '0621': 'Blackmail or extortion',
-      //   '0631': 'Carjacking, hijacking/unlawful seizure of aircraft/vessel',
-      //   '07': 'Burglary and related offences',
-      //   '0711': 'Aggravated burglary',
-      //   '0712': 'Burglary (not aggravated)',
-      //   '0713': 'Possession of an article (with intent to burgle, steal, demand)',
-      //   '08': 'Theft and related offences',
-      //   '081': 'Theft/taking of vehicle and related offences',
-      //   '0821': 'Theft from person',
-      //   '0822': 'Theft from shop',
-      //   '084': 'Other thefts, handling stolen property',
-      //   '09': 'Fraud, deception and related offences',
-      //   '10': 'Controlled drug offences',
-      //   '1011': 'Importation of drugs',
-      //   '1012': 'Cultivation or manufacture of drugs',
-      //   '1021': 'Possession of drugs for sale or supply',
-      //   '1022': 'Possession of drugs for personal use',
-      //   '103': 'Other drug offences',
-      //   '11': 'Weapons and Explosives Offences',
-      //   '111': 'Explosives, chemical weapons offences',
-      //   '1121': 'Discharging a firearm',
-      //   '1122': 'Possession of a firearm',
-      //   '113': 'Offensive weapons offences (n.e.c.)',
-      //   '114': 'Fireworks offences',
-      //   '12': 'Damage to property and to the environment',
-      //   '1211': 'Arson',
-      //   '1212': 'Criminal damage (not arson)',
-      //   '1221': 'Litter offences',
-      //   '13': 'Public order and other social code offences',
-      //   '131': 'Disorderly conduct',
-      //   '132': 'Trespass offences',
-      //   '133': 'Liquor licensing offences',
-      //   '134': 'Prostitution offences',
-      //   '135': 'Regulated betting/money, collection/trading offences',
-      //   '136': 'Social code offences (n.e.c.)',
-      //   '15': 'Offences against government, justice procedures and organisation of crime',
-      //   '151': 'Offences against government and its agents',
-      //   '152': 'Organisation of crime and conspiracy to commit crime',
-      //   '153': 'Perverting the course of justice',
-      //   '157': 'Offences while in custody, breach of court orders',
-      // };
   
       const formattedCrimeData = crimeData.map((value, index) => {
         const crimeTypeCode = Object.keys(data.result.dimension['C02480V03003'].category.label)[index];

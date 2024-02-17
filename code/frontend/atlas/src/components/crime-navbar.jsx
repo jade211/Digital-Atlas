@@ -426,17 +426,49 @@ function CrimeNav() {
     
       const labels = Object.keys(data.result.dimension['C02480V03003'].category.label).map((code) => crimeTypeLabels[code]);
       const values = sortedCrimeData.map((value) => value);
-    
+      
       return {
         labels,
-        datasets: [
-          {
-            label: 'Number of Crimes',
-            data: values,
-            backgroundColor: 'rgba(75,192,192,0.2)',
-            borderColor: 'rgba(75,192,192,1)',
-            borderWidth: 1,
-          },
+    datasets: [
+      {
+        label: 'Number of Crimes',
+        data: values,
+        // Choose your preferred color options:
+        backgroundColor: [
+          // 'rgba(75,192,192,0.2)',
+          // 'rgba(255,99,132,0.2)', // Light red
+          // 'rgba(255,205,86,0.2)', // Light yellow
+          'rgba(54,162,235, )', // Light blue
+          // 'rgba(255,159,64,0.2)', // Light orange
+          // 'rgba(153,102,255,0.2)', // Light purple
+          // 'rgba(255,77,77,0.2)', // Light coral
+          // 'rgba(75,192,192,0.2)',
+          // 'rgba(255,99,132,0.2)',
+          // 'rgba(255,205,86,0.2)',
+        ],
+        borderColor: [
+          'rgba(75,192,192,1)',
+          // 'rgba(255,99,132,1)', // Solid red
+          // 'rgba(255,205,86,1)', // Solid yellow
+          // 'rgba(54,162,235,1)', // Solid blue
+          // 'rgba(255,159,64,1)', // Solid orange
+          // 'rgba(153,102,255,1)', // Solid purple
+          // 'rgba(255,77,77,1)', // Solid coral
+          // 'rgba(75,192,192,1)',
+          // 'rgba(255,99,132,1)',
+          // 'rgba(255,205,86,1)',
+        ],
+        borderWidth: 1,
+      },
+        // labels,
+        // datasets: [
+        //   {
+        //     label: 'Number of Crimes',
+        //     data: values,
+        //     backgroundColor: 'rgba(75,192,192,0.2)',
+        //     borderColor: 'rgba(79,192,192,1)',
+        //     borderWidth: 1,
+        //   },
         ],
       };
     };
@@ -445,28 +477,30 @@ function CrimeNav() {
       setSearchClicked(true);
     };
   
-  return (
-    <div className="crime-container">
-      <input
-        type="text"
-        placeholder="Enter Garda station name"
-        value={gardaStationInput}
-        onChange={(e) => setGardaStationInput(e.target.value)}
-      />
-      <button onClick={handleSearchClick}>Search</button>
-      {searchClicked && !data && <p>Loading...</p>}
-      {data && (
-        <div className="result-container">
-          <pre>
-            <h2>Top 10 Crimes of the Area</h2>
-            {formatCrimeData()}</pre>
-          <div className="chart-container">
-            <Bar data={generateChartData()} options={{ maintainAspectRatio: false }} />
+    return (
+      <div className="container mt-4">
+        <input
+          type="text"
+          placeholder="Enter Garda station name"
+          value={gardaStationInput}
+          onChange={(e) => setGardaStationInput(e.target.value)}
+          className="form-control mb-2"
+        />
+        <button onClick={handleSearchClick} className="btn btn-primary mb-2">
+          Search
+        </button>
+        {searchClicked && !data && <p>Loading...</p>}
+        {data && (
+          <div className="result-container">
+            <h2 className="mb-3">Top 10 Crimes of the Area</h2>
+            <pre style={{ fontSize: '16px', lineHeight: '1.5' }}>{formatCrimeData()}</pre>
+            <div className="chart-container">
+              <Bar data={generateChartData()} options={{ maintainAspectRatio: false }} />
+            </div>
           </div>
-        </div>
-      )}
-    </div>
-  );
-}
+        )}
+      </div>
+    );
+  }
   
-export default CrimeNav;
+  export default CrimeNav;

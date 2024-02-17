@@ -477,10 +477,12 @@ function CrimeNav() {
     const handleSearchClick = () => {
       setSearchClicked(true);
     };
+    
   
     return (
       <>
-      <div className="container mt-4">
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <div className="container mt-4"></div>
         <input
           type="text"
           placeholder="Enter Area Name"
@@ -493,6 +495,7 @@ function CrimeNav() {
         </button>
         {searchClicked && !data && <p>Loading...</p>}
         {data && (
+          
           <div className="result-container">
             <h2 className="mb-3">Top 10 Crimes of the Area</h2>
             <pre style={{ fontSize: '16px', lineHeight: '1.5' }}>{formatCrimeData()}</pre>

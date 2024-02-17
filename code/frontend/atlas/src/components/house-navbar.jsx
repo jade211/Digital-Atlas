@@ -3015,7 +3015,7 @@ const HouseNav = () => {
 
   return (
     <>
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <h1>Housing and Rent Prices</h1>
       <div>
         <label htmlFor="searchTerm">Search by Area:</label>

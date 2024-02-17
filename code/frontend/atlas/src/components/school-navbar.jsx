@@ -191,8 +191,9 @@ function SchoolsNav() {
 
   return (
     <>
-    <div className="container mt-4">
-      <div className="mb-3">
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <div className="container mt-4">
+        <div className="mb-3"></div>
         <label htmlFor="searchTerm" className="form-label">
           Search by Locality or Country:
         </label>

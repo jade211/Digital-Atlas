@@ -778,8 +778,7 @@ function TransportNav() {
 
   return (
     <>
-    <div className="container mt-4">
-
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <div className="mb-3">
         <label htmlFor="searchTerm" className="form-label">
           Search by Locality or Country:

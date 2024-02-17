@@ -355,7 +355,8 @@ function Navbar() {
             font-family: 'Lobster';
           }
           body {
-            background: linear-gradient(135deg, #283048 0%, #859398 100%);
+            // background: linear-gradient(135deg, #283048 0%, #859398 100%);
+            background: #2B2D42;
 
             margin: 0;
             padding: 0;

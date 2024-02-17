@@ -686,6 +686,219 @@
 
 
 
+// import React, { useState, useEffect } from 'react';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
+// function Amenities({ searchTerm, searchOption }) {
+//   const [servicesData, setServicesData] = useState([]);
+//   const [amenitiesData, setAmenitiesData] = useState([]);
+//   const [hotelsData, setHotelsData] = useState([]);
+//   const [healthcareData, setHealthcareData] = useState([]);
+//   const [restaurantsCafesData, setRestaurantsCafesData] = useState([]);
+//   const [shopsBusinessesData, setShopsBusinessesData] = useState([]);
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         let geocodeApiUrl;
+//         if (searchTerm.trim() !== '') {
+//           if (searchOption === 'state') {
+//             geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&type=${encodeURIComponent(searchOption)}&filter=countrycode:ie&format=json&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+//           } else {
+//             geocodeApiUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(searchTerm)}&limit=1&filter=countrycode:ie&format=json&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+//           }
+//           const geocodeResponse = await fetch(geocodeApiUrl);
+//           const geocodeData = await geocodeResponse.json();
+//           const placeId = geocodeData.results[0]?.place_id;
+
+//           if (placeId) {
+//             const servicesApiUrl = `https://api.geoapify.com/v2/places?categories=service,religion&filter=place:${encodeURIComponent(
+//               placeId
+//             )}&limit=2&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+//             const amenitiesApiUrl = `https://api.geoapify.com/v2/places?categories=education.library,entertainment,sport,activity&filter=place:${encodeURIComponent(
+//               placeId
+//             )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+//             const hotelsApiUrl = `https://api.geoapify.com/v2/places?categories=accommodation.hotel&filter=place:${encodeURIComponent(
+//               placeId
+//             )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+//             const healthcareApiUrl = `https://api.geoapify.com/v2/places?categories=healthcare&filter=place:${encodeURIComponent(
+//               placeId
+//             )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+//             const restaurantsCafesApiUrl = `https://api.geoapify.com/v2/places?categories=catering&filter=place:${encodeURIComponent(
+//               placeId
+//             )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+//             const shopsBusinessesApiUrl = `https://api.geoapify.com/v2/places?categories=commercial&filter=place:${encodeURIComponent(
+//               placeId
+//             )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+//             const [servicesResponse, amenitiesResponse, hotelsResponse, healthcareResponse, restaurantsCafesResponse, shopsBusinessesResponse] =
+//               await Promise.all([
+//                 fetch(servicesApiUrl),
+//                 fetch(amenitiesApiUrl),
+//                 fetch(hotelsApiUrl),
+//                 fetch(healthcareApiUrl),
+//                 fetch(restaurantsCafesApiUrl),
+//                 fetch(shopsBusinessesApiUrl),
+//               ]);
+
+//             const [servicesData, amenitiesData, hotelsData, healthcareData, restaurantsCafesData, shopsBusinessesData] =
+//               await Promise.all([
+//                 servicesResponse.json(),
+//                 amenitiesResponse.json(),
+//                 hotelsResponse.json(),
+//                 healthcareResponse.json(),
+//                 restaurantsCafesResponse.json(),
+//                 shopsBusinessesResponse.json(),
+//               ]);
+
+//             setServicesData(servicesData);
+//             setAmenitiesData(amenitiesData);
+//             setHotelsData(hotelsData);
+//             setHealthcareData(healthcareData);
+//             setRestaurantsCafesData(restaurantsCafesData);
+//             setShopsBusinessesData(shopsBusinessesData);
+//           }
+//         }
+//       } catch (error) {
+//         console.error(error);
+//       }
+//     };
+
+//     fetchData();
+//   }, [searchTerm, searchOption]);
+
+//   return (
+//     <div>
+//       <div className="result-section">
+//       <h2>Entertainment and Leisure</h2>
+//       {amenitiesData.features && amenitiesData.features.length > 0 ? (
+//         amenitiesData.features.map((result) => (
+//           result.properties.name && (
+//             <div className="card" key={result.properties.place_id}>
+//               <div className="card-body">
+//                 <h5 className="card-title">{result.properties.name}</h5>
+//                 <p className="card-text">Address: {result.properties.formatted}</p>
+//                 <p className="card-text">Eircode: {result.properties.postcode}</p>
+//               </div>
+//             </div>
+//           )
+//         ))
+//       ) : (
+//         <p>No Entertainment and Leisure Amenities Found in {searchTerm}</p>
+//       )}
+//     </div>
+
+//     <div>
+//       <div className="result-section">
+//         <h2>Services</h2>
+//         {servicesData.features && servicesData.features.length > 0 ? (
+//           servicesData.features.map((result) => (
+//             result.properties.name && (
+//               <div className="card" key={result.properties.place_id}>
+//                 <div className="card-body">
+//                   <h5 className="card-title">{result.properties.name}</h5>
+//                   <p className="card-text">Address: {result.properties.formatted}</p>
+//                   <p className="card-text">Eircode: {result.properties.postcode}</p>
+//                 </div>
+//               </div>
+//             )
+//           ))
+//         ) : (
+//           <p>No Service Amenities Found in {searchTerm}</p>
+//         )}
+//     </div>
+
+//     <div className="result-section">
+//       <h2>Hotels</h2>
+//       {hotelsData.features && hotelsData.features.length > 0 ? (
+//         hotelsData.features.map((result) => (
+//           result.properties.name && (
+//             <div className="card" key={result.properties.place_id}>
+//               <div className="card-body">
+//                 <h5 className="card-title">{result.properties.name}</h5>
+//                 <p className="card-text">Address: {result.properties.formatted}</p>
+//                 <p className="card-text">Eircode: {result.properties.postcode}</p>
+//               </div>
+//             </div>
+//           )
+//         ))
+//       ) : (
+//         <p>No Hotel/Accomodation Amenities Found in {searchTerm}</p>
+//       )}
+//   </div>
+
+//     <div className="result-section">
+//       <h2>Healthcare, Pharmacies and Hospitals</h2>
+//       {healthcareData.features && healthcareData.features.length > 0 ? (
+//         healthcareData.features.map((result) => (
+//           result.properties.name && (
+//             <div className="card" key={result.properties.place_id}>
+//               <div className="card-body">
+//                 <h5 className="card-title">{result.properties.name}</h5>
+//                 <p className="card-text">Address: {result.properties.formatted}</p>
+//                 <p className="card-text">Eircode: {result.properties.postcode}</p>
+//               </div>
+//             </div>
+//           )
+//         ))
+//       ) : (
+//         <p>No Healthcare Amenities Found in {searchTerm}</p>
+//       )}
+//   </div>
+
+//     <div className="result-section">
+//       <h2>Restaurants and Cafes</h2>
+//       {restaurantsCafesData.features && restaurantsCafesData.features.length > 0 ? (
+//           restaurantsCafesData.features.map((result) => (
+//             result.properties.name && (
+//               <div className="card" key={result.properties.place_id}>
+//                 <div className="card-body">
+//                   <h5 className="card-title">{result.properties.name}</h5>
+//                   <p className="card-text">Address: {result.properties.formatted}</p>
+//                   <p className="card-text">Eircode: {result.properties.postcode}</p>
+//                 </div>
+//               </div>
+//             )
+//           ))
+//         ) : (
+//           <p>No Restaurants/Cafe Amenities Found in {searchTerm}</p>
+//         )}
+//     </div>
+
+//     <div className="result-section">
+//       <h2>Shopping Centres and Businesses</h2>
+//       {shopsBusinessesData.features && shopsBusinessesData.features.length > 0 ? (
+//           shopsBusinessesData.features.map((result) => (
+//             result.properties.name && (
+//               <div className="card" key={result.properties.place_id}>
+//                 <div className="card-body">
+//                   <h5 className="card-title">{result.properties.name}</h5>
+//                   <p className="card-text">Address: {result.properties.formatted}</p>
+//                   <p className="card-text">Eircode: {result.properties.postcode}</p>
+//                 </div>
+//               </div>
+//             )
+//           ))
+//         ) : (
+//           <p>No Shopping Centres/Business Amenities Found in {searchTerm}</p>
+//         )}
+//     </div>
+//   </div>
+//   </div>
+//   );
+// }
+// export default Amenities;
+
+
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -696,6 +909,9 @@ function Amenities({ searchTerm, searchOption }) {
   const [healthcareData, setHealthcareData] = useState([]);
   const [restaurantsCafesData, setRestaurantsCafesData] = useState([]);
   const [shopsBusinessesData, setShopsBusinessesData] = useState([]);
+  const [religionData, setReligionData] = useState([]);
+  const [tourismData, setTourismData] = useState([]);
+  const [townsData, setTownsData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -712,31 +928,48 @@ function Amenities({ searchTerm, searchOption }) {
           const placeId = geocodeData.results[0]?.place_id;
 
           if (placeId) {
-            const servicesApiUrl = `https://api.geoapify.com/v2/places?categories=service,religion&filter=place:${encodeURIComponent(
-              placeId
-            )}&limit=2&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
-
-            const amenitiesApiUrl = `https://api.geoapify.com/v2/places?categories=education.library,entertainment,sport,activity&filter=place:${encodeURIComponent(
+            const servicesApiUrl = `https://api.geoapify.com/v2/places?categories=education.driving_school,education.music_school,education.language_school,childcare,parking,pet.veterinary,pet.service,rental,service,amenity,building.service,office&filter=place:${encodeURIComponent(
               placeId
             )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
-            const hotelsApiUrl = `https://api.geoapify.com/v2/places?categories=accommodation.hotel&filter=place:${encodeURIComponent(
+            const amenitiesApiUrl = `https://api.geoapify.com/v2/places?categories=education.library,entertainment,leisure,pet.dog_park,adult,beach,building.entertainment,sport&filter=place:${encodeURIComponent(
               placeId
-            )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+            )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
-            const healthcareApiUrl = `https://api.geoapify.com/v2/places?categories=healthcare&filter=place:${encodeURIComponent(
+            const hotelsApiUrl = `https://api.geoapify.com/v2/places?categories=accommodation&filter=place:${encodeURIComponent(
               placeId
-            )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+            )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+            const healthcareApiUrl = `https://api.geoapify.com/v2/places?categories=healthcare,building.healthcare&filter=place:${encodeURIComponent(
+              placeId
+            )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
             const restaurantsCafesApiUrl = `https://api.geoapify.com/v2/places?categories=catering&filter=place:${encodeURIComponent(
               placeId
-            )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+            )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
             const shopsBusinessesApiUrl = `https://api.geoapify.com/v2/places?categories=commercial&filter=place:${encodeURIComponent(
               placeId
             )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
-            const [servicesResponse, amenitiesResponse, hotelsResponse, healthcareResponse, restaurantsCafesResponse, shopsBusinessesResponse] =
+            const religionApiUrl = `https://api.geoapify.com/v2/places?categories=religion&filter=place:${encodeURIComponent(
+              placeId
+            )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+            const tourismApiUrl = `https://api.geoapify.com/v2/places?categories=heritage,tourism&filter=place:${encodeURIComponent(
+              placeId
+            )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+            const townsApiUrl = `https://api.geoapify.com/v2/places?categories=populated_place.village,populated_place.neighbourhood,populated_place.hamlet,populated_place.suburb,populated_place.suburb,populated_place.town,populated_place.city&filter=place:${encodeURIComponent(
+              placeId
+            )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+
+
+
+
+
+
+            const [servicesResponse, amenitiesResponse, hotelsResponse, healthcareResponse, restaurantsCafesResponse, shopsBusinessesResponse, religionResponse, tourismResponse, townsResponse] =
               await Promise.all([
                 fetch(servicesApiUrl),
                 fetch(amenitiesApiUrl),
@@ -744,9 +977,12 @@ function Amenities({ searchTerm, searchOption }) {
                 fetch(healthcareApiUrl),
                 fetch(restaurantsCafesApiUrl),
                 fetch(shopsBusinessesApiUrl),
+                fetch(religionApiUrl),
+                fetch(tourismApiUrl),
+                fetch(townsApiUrl),
               ]);
 
-            const [servicesData, amenitiesData, hotelsData, healthcareData, restaurantsCafesData, shopsBusinessesData] =
+            const [servicesData, amenitiesData, hotelsData, healthcareData, restaurantsCafesData, shopsBusinessesData, religionData, tourismData, townsData] =
               await Promise.all([
                 servicesResponse.json(),
                 amenitiesResponse.json(),
@@ -754,14 +990,32 @@ function Amenities({ searchTerm, searchOption }) {
                 healthcareResponse.json(),
                 restaurantsCafesResponse.json(),
                 shopsBusinessesResponse.json(),
+                religionResponse.json(),
+                tourismResponse.json(),
+                townsResponse.json(),
               ]);
 
-            setServicesData(servicesData);
-            setAmenitiesData(amenitiesData);
-            setHotelsData(hotelsData);
-            setHealthcareData(healthcareData);
-            setRestaurantsCafesData(restaurantsCafesData);
-            setShopsBusinessesData(shopsBusinessesData);
+            // Function to remove duplicates
+            const removeDuplicates = (data) => {
+              const uniqueNamesSet = new Set();
+              return data.features.filter((result) => {
+                if (result.properties.name && !uniqueNamesSet.has(result.properties.name)) {
+                  uniqueNamesSet.add(result.properties.name);
+                  return true;
+                }
+                return false;
+              });
+            };
+
+            setServicesData(removeDuplicates(servicesData));
+            setAmenitiesData(removeDuplicates(amenitiesData));
+            setHotelsData(removeDuplicates(hotelsData));
+            setHealthcareData(removeDuplicates(healthcareData));
+            setRestaurantsCafesData(removeDuplicates(restaurantsCafesData));
+            setShopsBusinessesData(removeDuplicates(shopsBusinessesData));
+            setReligionData(removeDuplicates(religionData));
+            setTourismData(removeDuplicates(tourismData));
+            setTownsData(removeDuplicates(townsData));
           }
         }
       } catch (error) {
@@ -775,10 +1029,9 @@ function Amenities({ searchTerm, searchOption }) {
   return (
     <div>
       <div className="result-section">
-      <h2>Entertainment and Leisure</h2>
-      {amenitiesData.features && amenitiesData.features.length > 0 ? (
-        amenitiesData.features.map((result) => (
-          result.properties.name && (
+        <h2>Entertainment and Leisure</h2>
+        {amenitiesData.length > 0 ? (
+          amenitiesData.map((result) => (
             <div className="card" key={result.properties.place_id}>
               <div className="card-body">
                 <h5 className="card-title">{result.properties.name}</h5>
@@ -786,38 +1039,17 @@ function Amenities({ searchTerm, searchOption }) {
                 <p className="card-text">Eircode: {result.properties.postcode}</p>
               </div>
             </div>
-          )
-        ))
-      ) : (
-        <p>No Entertainment and Leisure Amenities Found in {searchTerm}</p>
-      )}
-    </div>
+          ))
+        ) : (
+          <p>No Entertainment and Leisure Amenities Found in {searchTerm}</p>
+        )}
+      </div>
 
-    <div>
+
       <div className="result-section">
-        <h2>Services</h2>
-        {servicesData.features && servicesData.features.length > 0 ? (
-          servicesData.features.map((result) => (
-            result.properties.name && (
-              <div className="card" key={result.properties.place_id}>
-                <div className="card-body">
-                  <h5 className="card-title">{result.properties.name}</h5>
-                  <p className="card-text">Address: {result.properties.formatted}</p>
-                  <p className="card-text">Eircode: {result.properties.postcode}</p>
-                </div>
-              </div>
-            )
-          ))
-        ) : (
-          <p>No Service Amenities Found in {searchTerm}</p>
-        )}
-    </div>
-
-    <div className="result-section">
-      <h2>Hotels</h2>
-      {hotelsData.features && hotelsData.features.length > 0 ? (
-        hotelsData.features.map((result) => (
-          result.properties.name && (
+        <h2>Hotels and Accommodation</h2>
+        {hotelsData.length > 0 ? (
+          hotelsData.map((result) => (
             <div className="card" key={result.properties.place_id}>
               <div className="card-body">
                 <h5 className="card-title">{result.properties.name}</h5>
@@ -825,18 +1057,16 @@ function Amenities({ searchTerm, searchOption }) {
                 <p className="card-text">Eircode: {result.properties.postcode}</p>
               </div>
             </div>
-          )
-        ))
-      ) : (
-        <p>No Hotel/Accomodation Amenities Found in {searchTerm}</p>
-      )}
-  </div>
+          ))
+        ) : (
+          <p>No Hotels/Accommodation Amenities Found in {searchTerm}</p>
+        )}
+      </div>
 
-    <div className="result-section">
-      <h2>Healthcare, Pharmacies and Hospitals</h2>
-      {healthcareData.features && healthcareData.features.length > 0 ? (
-        healthcareData.features.map((result) => (
-          result.properties.name && (
+      <div className="result-section">
+        <h2>Hospitals, Pharmacies and Healthcare</h2>
+        {healthcareData.length > 0 ? (
+          healthcareData.map((result) => (
             <div className="card" key={result.properties.place_id}>
               <div className="card-body">
                 <h5 className="card-title">{result.properties.name}</h5>
@@ -844,52 +1074,120 @@ function Amenities({ searchTerm, searchOption }) {
                 <p className="card-text">Eircode: {result.properties.postcode}</p>
               </div>
             </div>
-          )
-        ))
-      ) : (
-        <p>No Healthcare Amenities Found in {searchTerm}</p>
-      )}
-  </div>
-
-    <div className="result-section">
-      <h2>Restaurants and Cafes</h2>
-      {restaurantsCafesData.features && restaurantsCafesData.features.length > 0 ? (
-          restaurantsCafesData.features.map((result) => (
-            result.properties.name && (
-              <div className="card" key={result.properties.place_id}>
-                <div className="card-body">
-                  <h5 className="card-title">{result.properties.name}</h5>
-                  <p className="card-text">Address: {result.properties.formatted}</p>
-                  <p className="card-text">Eircode: {result.properties.postcode}</p>
-                </div>
-              </div>
-            )
           ))
         ) : (
-          <p>No Restaurants/Cafe Amenities Found in {searchTerm}</p>
+          <p>No Healthcare Amenities Found in {searchTerm}</p>
         )}
-    </div>
+      </div>
 
-    <div className="result-section">
-      <h2>Shopping Centres and Businesses</h2>
-      {shopsBusinessesData.features && shopsBusinessesData.features.length > 0 ? (
-          shopsBusinessesData.features.map((result) => (
-            result.properties.name && (
-              <div className="card" key={result.properties.place_id}>
-                <div className="card-body">
-                  <h5 className="card-title">{result.properties.name}</h5>
-                  <p className="card-text">Address: {result.properties.formatted}</p>
-                  <p className="card-text">Eircode: {result.properties.postcode}</p>
-                </div>
+      <div className="result-section">
+        <h2>Restaurants and Cafes</h2>
+        {restaurantsCafesData.length > 0 ? (
+          restaurantsCafesData.map((result) => (
+            <div className="card" key={result.properties.place_id}>
+              <div className="card-body">
+                <h5 className="card-title">{result.properties.name}</h5>
+                <p className="card-text">Address: {result.properties.formatted}</p>
+                <p className="card-text">Eircode: {result.properties.postcode}</p>
               </div>
-            )
+            </div>
+          ))
+        ) : (
+          <p>No Restaurant/Cafe Amenities Found in {searchTerm}</p>
+        )}
+      </div>
+
+      <div className="result-section">
+        <h2>Shopping Centres and Shops</h2>
+        {shopsBusinessesData.length > 0 ? (
+          shopsBusinessesData.map((result) => (
+            <div className="card" key={result.properties.place_id}>
+              <div className="card-body">
+                <h5 className="card-title">{result.properties.name}</h5>
+                <p className="card-text">Address: {result.properties.formatted}</p>
+                <p className="card-text">Eircode: {result.properties.postcode}</p>
+              </div>
+            </div>
           ))
         ) : (
           <p>No Shopping Centres/Business Amenities Found in {searchTerm}</p>
         )}
+      </div>
+
+      <div className="result-section">
+        <h2>Services</h2>
+        {servicesData.length > 0 ? (
+          servicesData.map((result) => (
+            <div className="card" key={result.properties.place_id}>
+              <div className="card-body">
+                <h5 className="card-title">{result.properties.name}</h5>
+                <p className="card-text">Address: {result.properties.formatted}</p>
+                <p className="card-text">Eircode: {result.properties.postcode}</p>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No Service Amenities Found in {searchTerm}</p>
+        )}
+      </div>
+
+      <div className="result-section">
+        <h2>Religious Establishments</h2>
+        {religionData.length > 0 ? (
+          religionData.map((result) => (
+            <div className="card" key={result.properties.place_id}>
+              <div className="card-body">
+                <h5 className="card-title">{result.properties.name}</h5>
+                <p className="card-text">Address: {result.properties.formatted}</p>
+                <p className="card-text">Eircode: {result.properties.postcode}</p>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No Religion Amenities Found in {searchTerm}</p>
+        )}
+      </div>
+
+      <div className="result-section">
+        <h2>Tourist Locations</h2>
+        {tourismData.length > 0 ? (
+          tourismData.map((result) => (
+            <div className="card" key={result.properties.place_id}>
+              <div className="card-body">
+                <h5 className="card-title">{result.properties.name}</h5>
+                <p className="card-text">Address: {result.properties.formatted}</p>
+                <p className="card-text">Eircode: {result.properties.postcode}</p>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No Tourist Amenities Found in {searchTerm}</p>
+        )}
+      </div>
+
+
+      <div className="result-section">
+        <h2>Nearby Towns and Cities</h2>
+        {townsData.length > 0 ? (
+          townsData.map((result) => (
+            <div className="card" key={result.properties.place_id}>
+              <div className="card-body">
+                <h5 className="card-title">{result.properties.name}</h5>
+                <p className="card-text">Address: {result.properties.formatted}</p>
+                <p className="card-text">Eircode: {result.properties.postcode}</p>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No Nearby Towns/Cities Found near{searchTerm}</p>
+        )}
+      </div>
+
+
+
+
     </div>
-  </div>
-  </div>
   );
 }
+
 export default Amenities;

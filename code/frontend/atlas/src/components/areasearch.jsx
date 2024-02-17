@@ -1213,7 +1213,7 @@ function AreaSearch() {
     <>
     <div style={{ display: 'flex', width: '100%', minHeight: '100vh', overflowX: 'hidden' }}>
       {/* Sidebar with background layout */}
-      <div style={{ width: '10%', backgroundColor: '#000', padding: '20px', display: 'flex', flexDirection: 'column', height: '100vh' }}>
+      <div style={{ width: '10%', backgroundColor: '#000', color: '#fff', padding: '20px', display: 'flex', flexDirection: 'column', height: '100vh' }}>
         <h3>Features</h3>
         <ul style={{ listStyleType: 'none', padding: 0, flex: 1 }}>
           <li onClick={() => handleFeatureSelect('amenities')}>Amenities</li>

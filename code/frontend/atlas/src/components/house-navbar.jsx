@@ -2359,6 +2359,7 @@
 // export default HouseNav;
 
 import React, { useState, useEffect } from 'react';
+import Footer from './footer';
 
 const HouseNav = () => {
   const [data, setData] = useState(null);
@@ -3013,6 +3014,7 @@ const HouseNav = () => {
   };
 
   return (
+    <>
     <div>
       <h1>Housing and Rent Prices</h1>
       <div>
@@ -3030,6 +3032,8 @@ const HouseNav = () => {
         <pre>{formattedData}</pre>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

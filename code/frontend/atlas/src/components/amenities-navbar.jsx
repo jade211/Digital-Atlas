@@ -550,6 +550,7 @@
 
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import Footer from './footer';
 
 function AmenitiesNav() {
   const [servicesData, setServicesData] = useState([]);
@@ -628,6 +629,7 @@ function AmenitiesNav() {
   };
 
   return (
+    <>
     <div className="container mt-4">
       <div className="mb-3">
         <label htmlFor="searchTerm" className="form-label">
@@ -726,6 +728,8 @@ function AmenitiesNav() {
         ))}
       </div>
     </div>
+    <Footer />
+    </>
   );
 }
 

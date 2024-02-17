@@ -154,6 +154,7 @@
 
 
 import React, { useState } from 'react';
+import Footer from './footer';
 
 function SchoolsNav() {
   const [schoolsData, setSchoolsData] = useState([]);
@@ -189,6 +190,7 @@ function SchoolsNav() {
   };
 
   return (
+    <>
     <div className="container mt-4">
       <div className="mb-3">
         <label htmlFor="searchTerm" className="form-label">
@@ -248,6 +250,8 @@ function SchoolsNav() {
       ))}
     </div>
     </div>
+    <Footer />
+    </>
   );
 }
 

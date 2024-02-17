@@ -202,6 +202,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
+import Footer from './footer';
 
 function CrimeNav() {
   const [data, setData] = useState(null);
@@ -478,6 +479,7 @@ function CrimeNav() {
     };
   
     return (
+      <>
       <div className="container mt-4">
         <input
           type="text"
@@ -500,6 +502,8 @@ function CrimeNav() {
           </div>
         )}
       </div>
+      <Footer />
+      </>
     );
   }
   

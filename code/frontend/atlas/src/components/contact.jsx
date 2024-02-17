@@ -134,6 +134,7 @@
 
 
 import React, { useState } from 'react';
+import Footer from './footer';
 
 function ContactPage() {
     const [message, setMessage] = useState('');
@@ -151,6 +152,7 @@ function ContactPage() {
     };
 
     return (
+        <>
         <div className="container">
             <div className="row">
                 <div className="col-md-6 offset-md-3">
@@ -182,6 +184,8 @@ function ContactPage() {
                 </div>
             </div>
         </div>
+        <Footer />
+        </>
     );
 }
 

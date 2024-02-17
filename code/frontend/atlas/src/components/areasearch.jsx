@@ -1015,6 +1015,7 @@ import Transport from './transportation';
 import House from './house';
 import Comment from './comment';
 import { useLocation } from 'react-router-dom';
+import Footer from './footer';
 
 function AreaSearch() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -1076,6 +1077,7 @@ function AreaSearch() {
   };
 
   return (
+    <>
     <div style={{ display: 'flex', width: '100%' }}>
       {/* Sidebar with background layout */}
       <div style={{ width: '10%', backgroundColor: '#000', padding: '20px', display: 'flex', flexDirection: 'column', height: '100vh' }}>
@@ -1124,6 +1126,8 @@ function AreaSearch() {
         )}
       </div>
     </div>
+    <Footer />
+    </>
   );
 }
 

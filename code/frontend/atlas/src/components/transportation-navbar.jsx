@@ -742,6 +742,7 @@
 
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './footer';
 
 function TransportNav() {
   const [busesData, setBusesData] = useState([]);
@@ -776,6 +777,7 @@ function TransportNav() {
   };
 
   return (
+    <>
     <div className="container mt-4">
 
       <div className="mb-3">
@@ -827,6 +829,8 @@ function TransportNav() {
             ))}
           </div>
     </div>
+    <Footer />
+    </>
   );
 }
 

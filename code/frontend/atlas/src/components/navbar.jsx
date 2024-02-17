@@ -357,7 +357,8 @@ function Navbar() {
           body {
             // background: linear-gradient(135deg, #283048 0%, #859398 100%);
             // background: #2B2D42;
-            background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+            // background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+            background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
 
             margin: 0;
             padding: 0;

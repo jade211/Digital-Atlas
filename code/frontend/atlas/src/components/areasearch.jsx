@@ -1253,10 +1253,10 @@ function AreaSearch() {
         {searchButtonClicked && searchTerm.trim() !== '' && selectedFeature && (
           <div>
             {selectedFeature === 'amenities' && <Amenities searchTerm={searchTerm} searchOption={searchOption} />}
-            {selectedFeature === 'schools' && <Schools searchTerm={searchTerm} searchOption={searchTerm} />}
+            {selectedFeature === 'schools' && <Schools searchTerm={searchTerm} searchOption={searchOption} />}
             {selectedFeature === 'crime' && <Crime searchTerm={searchTerm} />}
             {selectedFeature === 'house' && <House searchTerm={searchTerm} />}
-            {selectedFeature === 'transport' && <Transport searchTerm={searchTerm} searchOption={searchTerm} />}
+            {selectedFeature === 'transport' && <Transport searchTerm={searchTerm} searchOption={searchOption} />}
             <Comment />
           </div>
         )}

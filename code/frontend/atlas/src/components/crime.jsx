@@ -2517,9 +2517,11 @@ import { Chart } from 'chart.js/auto';
       if (!data) return null;
   
       const crimeData = data.result.value;
+      const sortedCrimeData = crimeData.slice().sort((a, b) => b - a);
+    
   
       const labels = Object.keys(data.result.dimension['C02480V03003'].category.label).map((code) => crimeTypeLabels[code]);
-      const values = crimeData.map((value) => value);
+      const values = sortedCrimeData.map((value) => value);
   
       return {
         labels,

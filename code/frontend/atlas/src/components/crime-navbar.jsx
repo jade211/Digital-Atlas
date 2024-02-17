@@ -481,7 +481,7 @@ function CrimeNav() {
       <div className="container mt-4">
         <input
           type="text"
-          placeholder="Enter Garda station name"
+          placeholder="Enter Area Name"
           value={gardaStationInput}
           onChange={(e) => setGardaStationInput(e.target.value)}
           className="form-control mb-2"

@@ -355,14 +355,12 @@ function Navbar() {
             font-family: 'Lobster';
           }
           body {
-            // background: linear-gradient(135deg, #283048 0%, #859398 100%);
-            // background: #2B2D42;
-            // background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
-            background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
-
+            background-color: #E4E4E1;
+            background-image: radial-gradient(at top center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%), linear-gradient(to top, rgba(255,255,255,0.1) 0%, rgba(143,152,157,0.60) 100%);
+ 	          background-blend-mode: normal, multiply;
             margin: 0;
             padding: 0;
-            color: #fff;
+            color: #000;
           }
           nav {
             position: fixed;

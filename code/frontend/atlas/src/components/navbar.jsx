@@ -415,7 +415,7 @@ function Navbar() {
         <a href="/amenitiesnav">Amenities<span></span></a>
         <a href="/crimenav">Crime<span></span></a>
         <a href="/transportnav">Transport<span></span></a>
-        <a href="/schoolsnav">Schools<span></span></a>
+        <a href="/schoolsnav">Education<span></span></a>
         <a href="/housenav">Housing<span></span></a>
         <a href="/contact">Contact<span></span></a>
       </nav>

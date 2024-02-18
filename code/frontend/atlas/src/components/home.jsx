@@ -173,7 +173,7 @@ function Home() {
               <ul>
                 <li><Link to="/amenitiesnav">Amenities</Link></li>
                 <li><Link to="/crimenav">Crime</Link></li>
-                <li><Link to="/schoolsnav">Schools</Link></li>
+                <li><Link to="/schoolsnav">Education</Link></li>
                 <li><Link to="/transportnav">Transport</Link></li>
                 <li><Link to="/housenav">House Prices</Link></li>
               </ul>

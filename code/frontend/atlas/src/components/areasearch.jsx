@@ -1217,7 +1217,7 @@ function AreaSearch() {
         <h3>Features</h3>
         <ul style={{ listStyleType: 'none', padding: 0, flex: 1 }}>
           <li onClick={() => handleFeatureSelect('amenities')}>Amenities</li>
-          <li onClick={() => handleFeatureSelect('schools')}>Schools</li>
+          <li onClick={() => handleFeatureSelect('schools')}>Education</li>
           <li onClick={() => handleFeatureSelect('crime')}>Crime</li>
           <li onClick={() => handleFeatureSelect('house')}>House</li>
           <li onClick={() => handleFeatureSelect('transport')}>Transport</li>

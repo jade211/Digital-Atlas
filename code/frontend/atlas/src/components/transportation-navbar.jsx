@@ -838,7 +838,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './footer';
 
 function TransportNav() {
   const [transports, setTransports] = useState([]);
@@ -1014,6 +1014,7 @@ function TransportNav() {
           </div>
         </>
       )}
+      <Footer />
     </div>
   );
 }

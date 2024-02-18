@@ -167,77 +167,22 @@ footer {
 
 
 /* crime-navbar */
-/* .crime-container {
-  max-width: 600px;
-  margin: auto;
+.amenities-container {
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+}
+
+/* Style for each category */
+.category {
+  cursor: pointer;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect */
+.category:hover {
+  background-color: #f8f8f8;
+  transform: scale(1.05);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-} */
-
-input {
-  padding: 8px;
-  margin-right: 8px;
-}
-
-button {
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-pre {
-  white-space: pre-wrap;
-}
-
-.chart-container {
-  margin-top: 20px;
-}
-
-
-/* areasearch.jsx */
-
-body {
-  background-color: #f0f0f0; /* Set a background color for the body */
-}
-
-input[type="text"],
-select,
-button {
-  padding: 7px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-right: 10px;
-}
-
-select {
-  width: 150px; /* Adjust the width as needed */
-}
-
-ul {
-  list-style-type: none;
-}
-
-ul li {
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-
-ul li:hover {
-  text-decoration: underline;
-}
-
-.fa-arrow-left {
-  font-size: 24px;
-  color: #007bff;
-  cursor: pointer;
-}
-
-.fa-arrow-left:hover {
-  color: #0056b3;
 }

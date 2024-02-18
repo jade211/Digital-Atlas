@@ -1256,13 +1256,14 @@ function Amenities({ searchTerm, searchOption }) {
               placeId
             )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
-            const tourismApiUrl = `https://api.geoapify.com/v2/places?categories=heritage,tourism&filter=place:${encodeURIComponent(
+            const tourismApiUrl = `https://api.geoapify.com/v2/places?categories=heritage,tourism.attraction.artwork,tourism.attraction.viewpoint,tourism.attraction.fountain,tourism.attraction.clock,tourism.sights.place_of_worship,tourism.sights.place_of_worship.church,tourism.sights.place_of_worship.chapel,tourism.sights.place_of_worship.cathedral,tourism.sights.place_of_worship.mosque,tourism.sights.place_of_worship.synagogue,tourism.sights.place_of_worship.temple,tourism.sights.place_of_worship.shrine,tourism.sights.monastery,tourism.sights.city_hall,tourism.sights.conference_centre,tourism.sights.lighthouse,tourism.sights.windmill,tourism.sights.tower,tourism.sights.battlefield,tourism.sights.fort,tourism.sights.castle,tourism.sights.ruines,tourism.sights.archaeological_site,tourism.sights.city_gate,tourism.sights.bridge,tourism.sights.memorial,tourism.sights.memorial.aircraft,tourism.sights.memorial.locomotive,tourism.sights.memorial.railway_car,tourism.sights.memorial.ship,tourism.sights.memorial.tank,tourism.sights.memorial.tomb,tourism.sights.memorial.monument,tourism.sights.memorial.wayside_cross,tourism.sights.memorial.boundary_stone,tourism.sights.memorial.pillory,tourism.sights.memorial.milestone&filter=place:${encodeURIComponent(
               placeId
             )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
-            const townsApiUrl = `https://api.geoapify.com/v2/places?categories=populated_place.village,populated_place.neighbourhood,populated_place.hamlet,populated_place.suburb,populated_place.suburb,populated_place.town,populated_place.city&filter=place:${encodeURIComponent(
+            const townsApiUrl = `https://api.geoapify.com/v2/places?categories=populated_place.village,populated_place.hamlet,populated_place.neighbourhood,populated_place.city,populated_place.suburb,populated_place.town&filter=place:${encodeURIComponent(
               placeId
             )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+            
 
 
 
@@ -1387,29 +1388,31 @@ function Amenities({ searchTerm, searchOption }) {
   };
 
   return (
-    <div>
+    <div className="amenities-container">
+      <h1>Amenities</h1>
       {!selectedCategory ? (
         <div>
           <div className="result-section">
-            <h2 onClick={() => handleCategoryClick('Entertainment and Leisure')}>Entertainment and Leisure</h2>
 
-            <h2 onClick={() => handleCategoryClick('Hotels and Accommodation')}>Hotels and Accommodation</h2>
+            <h2 className="category" onClick={() => handleCategoryClick('Entertainment and Leisure')}>
+              Entertainment and Leisure
+            </h2>
 
-            <h2 onClick={() => handleCategoryClick('Hospitals, Pharmacies and Healthcare')}>Hospitals, Pharmacies and Healthcare</h2>
+            <h2 className="category" onClick={() => handleCategoryClick('Hotels and Accommodation')}>Hotels and Accommodation</h2>
 
-            <h2 onClick={() => handleCategoryClick('Restaurants and Cafes')}>Restaurants and Cafes</h2>
+            <h2 className="category" onClick={() => handleCategoryClick('Hospitals, Pharmacies and Healthcare')}>Hospitals, Pharmacies and Healthcare</h2>
 
-            <h2 onClick={() => handleCategoryClick('Shopping Centres and Shops')}>Shopping Centres and Shops</h2>
+            <h2 className="category" onClick={() => handleCategoryClick('Restaurants and Cafes')}>Restaurants and Cafes</h2>
 
-            <h2 onClick={() => handleCategoryClick('Services')}>Services</h2>
+            <h2 className="category" onClick={() => handleCategoryClick('Shopping Centres and Shops')}>Shopping Centres and Shops</h2>
 
-            <h2 onClick={() => handleCategoryClick('Religious Establishments')}>Religious Establishments</h2>
+            <h2 className="category" onClick={() => handleCategoryClick('Services')}>Services</h2>
 
-            <h2 onClick={() => handleCategoryClick('Tourist Locations')}>Tourist Locations</h2>
+            <h2 className="category" onClick={() => handleCategoryClick('Religious Establishments')}>Religious Establishments</h2>
 
-            <h2 onClick={() => handleCategoryClick('Nearby Towns and Cities')}>Nearby Towns and Cities</h2>
+            <h2 className="category" onClick={() => handleCategoryClick('Tourist Locations')}>Tourist Locations</h2>
 
-
+            <h2 className="category" onClick={() => handleCategoryClick('Nearby Towns and Cities')}>Nearby Towns and Cities</h2>
 
 
           </div>

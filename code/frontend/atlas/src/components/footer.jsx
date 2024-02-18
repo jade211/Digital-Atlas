@@ -27,7 +27,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer style={{ width: '100%', backgroundColor: '#333', color: '#fff', padding: '20px' }}>
+    <footer style={{ width: '100%', backgroundColor: '#333', color: '#fff', padding: '21px' }}>
       <div className="contact-info">
         <p>Contact us: info@digitalatlas.com</p>
         <ul style={{ listStyleType: 'none', padding: 0 }}>

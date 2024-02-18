@@ -230,3 +230,73 @@ footer {
 }
 
 /* You can add more specific styling based on your design preferences */
+
+
+/* footer.jsx */
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  position: flex;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer .contact-info {
+  margin-bottom: 10px; /* Add space between contact info and footer links */
+}
+
+.footer .footer-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer .footer-links li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer .footer-links li:last-child {
+  margin-right: 0;
+}
+
+.footer .footer-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer .copyright {
+  font-size: 14px;
+}
+
+
+/* contact.jsx */
+
+
+.black-block {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 175px; /* Adjust width as needed */
+  background-color: #000;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.contact-container {
+  position: relative;
+  z-index: 1; /* Ensure content is above the black blocks */
+}

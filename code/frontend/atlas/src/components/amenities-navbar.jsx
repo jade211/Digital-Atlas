@@ -771,7 +771,7 @@ function AmenitiesNav() {
           )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
 
-          const amenitiesApiUrl = `https://api.geoapify.com/v2/places?categories=education.library,entertainment,leisure, sport,activity&filter=place:${encodeURIComponent(
+          const amenitiesApiUrl = `https://api.geoapify.com/v2/places?categories=education.library,entertainment,leisure,sport,activity&filter=place:${encodeURIComponent(
             placeId
           )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
@@ -816,17 +816,18 @@ function AmenitiesNav() {
               fetch(townsApiUrl),
             ]);
 
-          const [servicesData, amenitiesData, hotelsData, healthcareData, restaurantsCafesData, shopsBusinessesData, religionData, tourismData, townsData] = await Promise.all([
-            servicesResponse.json(),
-            amenitiesResponse.json(),
-            hotelsResponse.json(),
-            healthcareResponse.json(),
-            restaurantsCafesResponse.json(),
-            shopsBusinessesResponse.json(),
-            religionResponse.json(),
-            tourismResponse.json(),
-            townsResponse.json(),
-          ]);
+          const [servicesData, amenitiesData, hotelsData, healthcareData, restaurantsCafesData, shopsBusinessesData, religionData, tourismData, townsData] = 
+            await Promise.all([
+              servicesResponse.json(),
+              amenitiesResponse.json(),
+              hotelsResponse.json(),
+              healthcareResponse.json(),
+              restaurantsCafesResponse.json(),
+              shopsBusinessesResponse.json(),
+              religionResponse.json(),
+              tourismResponse.json(),
+              townsResponse.json(),
+            ]);
 
           setServicesData(servicesData);
           setAmenitiesData(amenitiesData);
@@ -837,9 +838,7 @@ function AmenitiesNav() {
           setReligionData(religionData);
           setTourismData(tourismData);
           setTownsData(townsData);
-
-
-        }
+          }
       }
     } catch (error) {
       console.error(error);
@@ -868,128 +867,132 @@ function AmenitiesNav() {
       </div>
 
       {/* Display search results */}
-      <div>
-        <h2>Entertainment and Leisure</h2>
-        {amenitiesData.features && amenitiesData.features.map((result) => (
-          <div className="card" key={result.properties.place_id}>
-            <div className="card-body">
-              <h5 className="card-title">{result.properties.name}</h5>
-              <p className="card-text">Address: {result.properties.formatted}</p>
-              <p className="card-text">Eircode: {result.properties.postcode}</p>
+      <div className="row">
+          <div className="col-md-6">
+            {/* Left column: Hotels, Entertainment, Restaurants, and Shops */}
+            <div>
+              <h2>Entertainment and Leisure</h2>
+              {amenitiesData.features && amenitiesData.features.map((result) => (
+                <div className="card" key={result.properties.place_id}>
+                  <div className="card-body">
+                    <h5 className="card-title">{result.properties.name}</h5>
+                    <p className="card-text">Address: {result.properties.formatted}</p>
+                    <p className="card-text">Eircode: {result.properties.postcode}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div>
+              <h2>Restaurants and Cafes</h2>
+              {restaurantsCafesData.features && restaurantsCafesData.features.map((result) => (
+                <div className="card" key={result.properties.place_id}>
+                  <div className="card-body">
+                    <h5 className="card-title">{result.properties.name}</h5>
+                    <p className="card-text">Address: {result.properties.formatted}</p>
+                    <p className="card-text">Eircode: {result.properties.postcode}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div>
+              <h2>Shopping Centres and Businesses</h2>
+              {shopsBusinessesData.features && shopsBusinessesData.features.map((result) => (
+                <div className="card" key={result.properties.place_id}>
+                  <div className="card-body">
+                    <h5 className="card-title">{result.properties.name}</h5>
+                    <p className="card-text">Address: {result.properties.formatted}</p>
+                    <p className="card-text">Eircode: {result.properties.postcode}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div>
+              <h2>Hotels</h2>
+              {hotelsData.features && hotelsData.features.map((result) => (
+                <div className="card" key={result.properties.place_id}>
+                  <div className="card-body">
+                    <h5 className="card-title">{result.properties.name}</h5>
+                    <p className="card-text">Address: {result.properties.formatted}</p>
+                    <p className="card-text">Eircode: {result.properties.postcode}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
 
-      <div>
-        <h2>Services and Religious Establishments</h2>
-        {servicesData.features && servicesData.features.map((result) => (
-          <div className="card" key={result.properties.place_id}>
-            <div className="card-body">
-              <h5 className="card-title">{result.properties.name}</h5>
-              <p className="card-text">Address: {result.properties.formatted}</p>
-              <p className="card-text">Eircode: {result.properties.postcode}</p>
+          <div className="col-md-6">
+            {/* Right column: The rest of the amenities */}
+            <div>
+              <h2>Services and Religious Establishments</h2>
+              {servicesData.features && servicesData.features.map((result) => (
+                <div className="card" key={result.properties.place_id}>
+                  <div className="card-body">
+                    <h5 className="card-title">{result.properties.name}</h5>
+                    <p className="card-text">Address: {result.properties.formatted}</p>
+                    <p className="card-text">Eircode: {result.properties.postcode}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div>
+              <h2>Healthcare, Pharmacies and Hospitals</h2>
+              {healthcareData.features && healthcareData.features.map((result) => (
+                <div className="card" key={result.properties.place_id}>
+                  <div className="card-body">
+                    <h5 className="card-title">{result.properties.name}</h5>
+                    <p className="card-text">Address: {result.properties.formatted}</p>
+                    <p className="card-text">Eircode: {result.properties.postcode}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div>
+              <h2>Religious Establishments</h2>
+              {religionData.features && religionData.features.map((result) => (
+                <div className="card" key={result.properties.place_id}>
+                  <div className="card-body">
+                    <h5 className="card-title">{result.properties.name}</h5>
+                    <p className="card-text">Address: {result.properties.formatted}</p>
+                    <p className="card-text">Eircode: {result.properties.postcode}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div>
+              <h2>Tourism Locations</h2>
+              {tourismData.features && tourismData.features.map((result) => (
+                <div className="card" key={result.properties.place_id}>
+                  <div className="card-body">
+                    <h5 className="card-title">{result.properties.name}</h5>
+                    <p className="card-text">Address: {result.properties.formatted}</p>
+                    <p className="card-text">Eircode: {result.properties.postcode}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div>
+              <h2>Nearby Towns/Cities</h2>
+              {townsData.features && townsData.features.map((result) => (
+                <div className="card" key={result.properties.place_id}>
+                  <div className="card-body">
+                    <h5 className="card-title">{result.properties.name}</h5>
+                    <p className="card-text">Address: {result.properties.formatted}</p>
+                    <p className="card-text">Eircode: {result.properties.postcode}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
+        </div>
       </div>
-
-      <div>
-        <h2>Hotels</h2>
-        {hotelsData.features && hotelsData.features.map((result) => (
-          <div className="card" key={result.properties.place_id}>
-            <div className="card-body">
-              <h5 className="card-title">{result.properties.name}</h5>
-              <p className="card-text">Address: {result.properties.formatted}</p>
-              <p className="card-text">Eircode: {result.properties.postcode}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div>
-        <h2>Healthcare, Pharmacies and Hospitals</h2>
-        {healthcareData.features && healthcareData.features.map((result) => (
-          <div className="card" key={result.properties.place_id}>
-            <div className="card-body">
-              <h5 className="card-title">{result.properties.name}</h5>
-              <p className="card-text">Address: {result.properties.formatted}</p>
-              <p className="card-text">Eircode: {result.properties.postcode}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div>
-        <h2>Restaurants and Cafes</h2>
-        {restaurantsCafesData.features && restaurantsCafesData.features.map((result) => (
-          <div className="card" key={result.properties.place_id}>
-            <div className="card-body">
-              <h5 className="card-title">{result.properties.name}</h5>
-              <p className="card-text">Address: {result.properties.formatted}</p>
-              <p className="card-text">Eircode: {result.properties.postcode}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div>
-        <h2>Shopping Centres and Businesses</h2>
-        {shopsBusinessesData.features && shopsBusinessesData.features.map((result) => (
-          <div className="card" key={result.properties.place_id}>
-            <div className="card-body">
-              <h5 className="card-title">{result.properties.name}</h5>
-              <p className="card-text">Address: {result.properties.formatted}</p>
-              <p className="card-text">Eircode: {result.properties.postcode}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div>
-        <h2>Religious Establishments</h2>
-        {religionData.features && religionData.features.map((result) => (
-          <div className="card" key={result.properties.place_id}>
-            <div className="card-body">
-              <h5 className="card-title">{result.properties.name}</h5>
-              <p className="card-text">Address: {result.properties.formatted}</p>
-              <p className="card-text">Eircode: {result.properties.postcode}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div>
-        <h2>Tourism Locations</h2>
-        {tourismData.features && tourismData.features.map((result) => (
-          <div className="card" key={result.properties.place_id}>
-            <div className="card-body">
-              <h5 className="card-title">{result.properties.name}</h5>
-              <p className="card-text">Address: {result.properties.formatted}</p>
-              <p className="card-text">Eircode: {result.properties.postcode}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div>
-        <h2>Nearby Towns/Cities</h2>
-        {townsData.features && townsData.features.map((result) => (
-          <div className="card" key={result.properties.place_id}>
-            <div className="card-body">
-              <h5 className="card-title">{result.properties.name}</h5>
-              <p className="card-text">Address: {result.properties.formatted}</p>
-              <p className="card-text">Eircode: {result.properties.postcode}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-
-
-
-    </div>
-    <Footer />
+      <Footer />
     </>
   );
 }

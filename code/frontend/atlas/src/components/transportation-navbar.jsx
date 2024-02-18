@@ -920,6 +920,7 @@ function TransportNav() {
   };
 
   return (
+    <>
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <div className="mb-3">
         <label htmlFor="searchTerm" className="form-label">
@@ -1014,8 +1015,9 @@ function TransportNav() {
           </div>
         </>
       )}
-      <Footer />
     </div>
+    <Footer />
+    </>
   );
 }
 

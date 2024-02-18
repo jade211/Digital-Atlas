@@ -1078,26 +1078,30 @@ function CrimeNav() {
 
   return (
     <>
-      <div className="container mt-4">
-        <label htmlFor="searchTerm" className="form-label">
-          Search by Locality or County:
-        </label>
-        <div className="input-group mb-3">
-          <input
-            type="text"
-            className="form-control"
-            value={gardaStationInput}
-            onChange={(e) => setGardaStationInput(e.target.value)}
-          />
-          <button onClick={handleSearchClick} className="btn btn-primary">
-            Search
-          </button>
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <div className="container mt-4 ">
+          <div className="mb-3"></div>
+          <label htmlFor="searchTerm" className="form-label">
+            Search by Locality or County:
+          </label>
+          <div className="input-group">
+            <input
+              type="text"
+              className="form-control"
+              value={gardaStationInput}
+              onChange={(e) => setGardaStationInput(e.target.value)}
+            />
+            <button onClick={handleSearchClick} className="btn btn-primary mb-2">
+              Search
+            </button>
+          </div>
         </div>
-      </div>
+
 
       {searchClicked && !data && <p>Loading...</p>}
       {data && (
         <div className="container result-container">
+          <div style={{ display: 'flex' }}></div>
           <div className="d-flex">
             <div style={{ flex: 1 }}>
               <h2 className="mb-3">10 Most Frequent Crimes in {gardaStationInput} (2023)</h2>
@@ -1115,14 +1119,14 @@ function CrimeNav() {
               </button>
             </div>
           </div>
-          <div className="chart-container">
+          <div className="chart-container" style={{ flexGrow: 1 }}>
             <Bar data={generateChartData()} options={{ maintainAspectRatio: false }} />
           </div>
         </div>
       )}
-      <Footer />
-    </>
+      </div>
+    <Footer />
+  </>
   );
 }
-
 export default CrimeNav;

@@ -222,7 +222,7 @@ footer {
   gap: 20px;
 }
 
-.amenities-section {
+.amenities-section, .school-info {
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 8px;

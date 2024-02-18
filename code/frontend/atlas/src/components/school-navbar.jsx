@@ -159,9 +159,8 @@ import Footer from './footer';
 function SchoolsNav() {
   const [schoolsData, setSchoolsData] = useState([]);
   const [collegeData, setCollegeData] = useState([]);
-  const [universityData, setUniversityData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const API_KEY = 'a777d7b98c864c52ac9a1081e45d8e51'; // Replace 'YOUR_API_KEY' with your actual API key
+  const API_KEY = 'a777d7b98c864c52ac9a1081e45d8e51';
 
   const handleSearch = async () => {
     try {
@@ -173,15 +172,13 @@ function SchoolsNav() {
 
         if (placeId) {
           const schoolUrl = `https://api.geoapify.com/v2/places?categories=education.school&filter=place:${encodeURIComponent(placeId)}&limit=5&apiKey=${API_KEY}`;
-          const collegeUrl = `https://api.geoapify.com/v2/places?categories=education.college&filter=place:${encodeURIComponent(placeId)}&limit=5&apiKey=${API_KEY}`;
-          const universityUrl = `https://api.geoapify.com/v2/places?categories=education.university&filter=place:${encodeURIComponent(placeId)}&limit=5&apiKey=${API_KEY}`;
-
-          const [schoolResponse, collegeResponse, universityResponse] = await Promise.all([fetch(schoolUrl), fetch(collegeUrl), fetch(universityUrl)]);
-          const [schoolsData, collegeData, universityData] = await Promise.all([schoolResponse.json(), collegeResponse.json(), universityResponse.json()]);
+          const collegeUrl = `https://api.geoapify.com/v2/places?categories=education.college,education.university&filter=place:${encodeURIComponent(placeId)}&limit=5&apiKey=${API_KEY}`;
+          
+          const [schoolResponse, collegeResponse] = await Promise.all([fetch(schoolUrl), fetch(collegeUrl)]);
+          const [schoolsData, collegeData] = await Promise.all([schoolResponse.json(), collegeResponse.json()]);
 
           setSchoolsData(schoolsData);
           setCollegeData(collegeData);
-          setUniversityData(universityData);
         }
       }
     } catch (error) {
@@ -189,69 +186,75 @@ function SchoolsNav() {
     }
   };
 
+  const filterDataWithNames = (data) => {
+    return data.features ? data.features.filter(result => result.properties.name) : [];
+  };
+
   return (
     <>
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <div className="container mt-4">
-        <div className="mb-3"></div>
-        <label htmlFor="searchTerm" className="form-label">
-          Search by Locality or Country:
-        </label>
-        <div className="input-group">
-          <input
-            type="text"
-            id="searchTerm"
-            className="form-control"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <button className="btn btn-primary" onClick={handleSearch}>
-            Search
-          </button>
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <div className="container mt-4 flex-grow-1">
+          <div className="mb-3"></div>
+          <label htmlFor="searchTerm" className="form-label">
+            Search by Locality or County:
+          </label>
+          <div className="input-group">
+            <input
+              type="text"
+              id="searchTerm"
+              className="form-control"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <button className="btn btn-primary" onClick={handleSearch}>
+              Search
+            </button>
+          </div>
         </div>
+
+        <div className="row flex-grow-1">
+          <div className="col-md-6 d-flex">
+            <div className="section-container flex-grow-1">
+              <div className='school-info'>
+                <h2>Schools</h2>
+                {filterDataWithNames(schoolsData).map((result) => (
+                  <div className="card" key={result.properties.place_id}>
+                    <div className="card-body">
+                      <h5 className="card-title">{result.properties.name}</h5>
+                      <p className="card-text">Address: {result.properties.formatted}</p>
+                      <p className="card-text">Eircode: {result.properties.postcode}</p>
+                    </div>
+                  </div>
+                ))}
+                {schoolsData.features && schoolsData.features.length === 0 && (
+                  <p>No Schools Found in {searchTerm}</p>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="col-md-6 d-flex">
+            <div className="section-container flex-grow-1">
+              <div className='school-info'>
+                <h2>Colleges/ Universities</h2>
+                {filterDataWithNames(collegeData).map((result) => (
+                  <div className="card" key={result.properties.place_id}>
+                    <div className="card-body">
+                      <h5 className="card-title">{result.properties.name}</h5>
+                      <p className="card-text">Address: {result.properties.formatted}</p>
+                      <p className="card-text">Eircode: {result.properties.postcode}</p>
+                    </div>
+                  </div>
+                ))}
+                {collegeData.features && collegeData.features.length === 0 && (
+                  <p>No Universities Found in {searchTerm}</p>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+        <Footer />
       </div>
-
-
-    <div className='school-info'>
-      <h2>Schools</h2>
-      {schoolsData.features && schoolsData.features.map((result) => (
-        <div className="card" key={result.properties.place_id}>
-          <div className="card-body">
-            <h5 className="card-title">{result.properties.name}</h5>
-            <p className="card-text">Address: {result.properties.formatted}</p>
-            <p className="card-text">Eircode: {result.properties.postcode}</p>
-          </div>
-        </div>
-      ))}
-    </div>
-
-    <div className='school-info'>
-      <h2>Colleges/ University</h2>
-      {collegeData.features && collegeData.features.map((result) => (
-        <div className="card" key={result.properties.place_id}>
-          <div className="card-body">
-            <h5 className="card-title">{result.properties.name}</h5>
-            <p className="card-text">Address: {result.properties.formatted}</p>
-            <p className="card-text">Eircode: {result.properties.postcode}</p>
-          </div>
-        </div>
-      ))}
-    {/* </div>
-
-    <div>
-      <h2>University</h2> */}
-      {universityData.features && universityData.features.map((result) => (
-        <div className="card" key={result.properties.place_id}>
-          <div className="card-body">
-            <h5 className="card-title">{result.properties.name}</h5>
-            <p className="card-text">Address: {result.properties.formatted}</p>
-            <p className="card-text">Eircode: {result.properties.postcode}</p>
-          </div>
-        </div>
-      ))}
-    </div>
-    </div>
-    <Footer />
     </>
   );
 }

@@ -845,6 +845,10 @@ function AmenitiesNav() {
     }
   };
 
+  const filterDataWithNames = (data) => {
+    return data.features ? data.features.filter(result => result.properties.name) : [];
+  };
+
   return (
     <>
     <div className="container mt-4">
@@ -866,15 +870,13 @@ function AmenitiesNav() {
         </div>
       </div>
 
-      {/* Display search results */}
       <div className="row">
           <div className="col-md-6">
-            {/* Left column: Hotels, Entertainment, Restaurants, and Shops */}
             <div className="section-container">
               <div className="amenities-section">
                 <div>
                   <h2>Entertainment and Leisure 🎳</h2>
-                  {amenitiesData.features && amenitiesData.features.map((result) => (
+                  {filterDataWithNames(amenitiesData).map((result) => (
                     <div className="card" key={result.properties.place_id}>
                       <div className="card-body">
                         <h5 className="card-title">{result.properties.name}</h5>
@@ -892,7 +894,7 @@ function AmenitiesNav() {
             <div>
             <div className="amenities-section">
                 <h2>Restaurants and Cafes 🍴🍽</h2>
-                {restaurantsCafesData.features && restaurantsCafesData.features.map((result) => (
+                {filterDataWithNames(restaurantsCafesData).map((result) => (
                   <div className="card" key={result.properties.place_id}>
                     <div className="card-body">
                       <h5 className="card-title">{result.properties.name}</h5>
@@ -910,7 +912,7 @@ function AmenitiesNav() {
             <div>
               <div className="amenities-section">
                 <h2>Shopping Centres and Businesses 🏪</h2>
-                {shopsBusinessesData.features && shopsBusinessesData.features.map((result) => (
+                {filterDataWithNames(shopsBusinessesData).map((result) => (
                   <div className="card" key={result.properties.place_id}>
                     <div className="card-body">
                       <h5 className="card-title">{result.properties.name}</h5>
@@ -928,7 +930,7 @@ function AmenitiesNav() {
             <div>
               <div className="amenities-section">
                 <h2>Hotels 🏨</h2>
-                {hotelsData.features && hotelsData.features.map((result) => (
+                {filterDataWithNames(hotelsData).map((result) => (
                   <div className="card" key={result.properties.place_id}>
                     <div className="card-body">
                       <h5 className="card-title">{result.properties.name}</h5>
@@ -946,7 +948,7 @@ function AmenitiesNav() {
             <div>
               <div className="amenities-section">
                 <h2>Tourism Locations 🗽</h2>
-                {tourismData.features && tourismData.features.map((result) => (
+                {filterDataWithNames(tourismData).map((result) => (
                   <div className="card" key={result.properties.place_id}>
                     <div className="card-body">
                       <h5 className="card-title">{result.properties.name}</h5>
@@ -968,7 +970,7 @@ function AmenitiesNav() {
               <div className="amenities-section">
                 <div>
                   <h2>Services 📠</h2>
-                  {servicesData.features && servicesData.features.map((result) => (
+                  {filterDataWithNames(servicesData).map((result) => (
                     <div className="card" key={result.properties.place_id}>
                       <div className="card-body">
                         <h5 className="card-title">{result.properties.name}</h5>
@@ -987,7 +989,7 @@ function AmenitiesNav() {
             <div>
               <div className="amenities-section"> 
                 <h2>Healthcare, Pharmacies and Hospitals 🏥</h2>
-                {healthcareData.features && healthcareData.features.map((result) => (
+                {filterDataWithNames(healthcareData).map((result) => (
                   <div className="card" key={result.properties.place_id}>
                     <div className="card-body">
                       <h5 className="card-title">{result.properties.name}</h5>
@@ -1005,7 +1007,7 @@ function AmenitiesNav() {
             <div>
               <div className="amenities-section">
                 <h2>Religious Establishments ⛪</h2>
-                {religionData.features && religionData.features.map((result) => (
+                {filterDataWithNames(religionData).map((result) => (
                   <div className="card" key={result.properties.place_id}>
                     <div className="card-body">
                       <h5 className="card-title">{result.properties.name}</h5>
@@ -1025,7 +1027,7 @@ function AmenitiesNav() {
             <div>
               <div className="amenities-section">
                 <h2>Nearby Towns/Cities 🧭</h2>
-                {townsData.features && townsData.features.map((result) => (
+                {filterDataWithNames(townsData).map((result) => (
                   <div className="card" key={result.properties.place_id}>
                     <div className="card-body">
                       <h5 className="card-title">{result.properties.name}</h5>

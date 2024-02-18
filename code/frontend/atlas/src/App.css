@@ -186,3 +186,21 @@ footer {
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+
+/* Amenities-navbar css */
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.amenities-section {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* You can add more specific styling based on your design preferences */

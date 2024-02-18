@@ -870,156 +870,179 @@ function AmenitiesNav() {
       <div className="row">
           <div className="col-md-6">
             {/* Left column: Hotels, Entertainment, Restaurants, and Shops */}
-            <div>
-              <h2>Entertainment and Leisure</h2>
-              {amenitiesData.features && amenitiesData.features.map((result) => (
-                <div className="card" key={result.properties.place_id}>
-                  <div className="card-body">
-                    <h5 className="card-title">{result.properties.name}</h5>
-                    <p className="card-text">Address: {result.properties.formatted}</p>
-                    <p className="card-text">Eircode: {result.properties.postcode}</p>
-                  </div>
+            <div className="section-container">
+              <div className="amenities-section">
+                <div>
+                  <h2>Entertainment and Leisure 🎳</h2>
+                  {amenitiesData.features && amenitiesData.features.map((result) => (
+                    <div className="card" key={result.properties.place_id}>
+                      <div className="card-body">
+                        <h5 className="card-title">{result.properties.name}</h5>
+                        <p className="card-text">Address: {result.properties.formatted}</p>
+                        <p className="card-text">Eircode: {result.properties.postcode}</p>
+                      </div>
+                    </div>
+                  ))}
+                  {amenitiesData.features && amenitiesData.features.length === 0 && (
+                    <p>No Entertainment Amenities Found in {searchTerm}</p>
+                  )}
                 </div>
-              ))}
-              {amenitiesData.features && amenitiesData.features.length === 0 && (
-                <p>No Entertainment Amenities Found in {searchTerm}</p>
-              )}
+              </div>
+
+            <div>
+            <div className="amenities-section">
+                <h2>Restaurants and Cafes 🍴🍽</h2>
+                {restaurantsCafesData.features && restaurantsCafesData.features.map((result) => (
+                  <div className="card" key={result.properties.place_id}>
+                    <div className="card-body">
+                      <h5 className="card-title">{result.properties.name}</h5>
+                      <p className="card-text">Address: {result.properties.formatted}</p>
+                      <p className="card-text">Eircode: {result.properties.postcode}</p>
+                    </div>
+                  </div>
+                ))}
+                {restaurantsCafesData.features && restaurantsCafesData.features.length === 0 && (
+                  <p>No Restaurant/Cafe Amenities Found in {searchTerm}</p>
+                )}
+              </div>
             </div>
 
             <div>
-              <h2>Restaurants and Cafes</h2>
-              {restaurantsCafesData.features && restaurantsCafesData.features.map((result) => (
-                <div className="card" key={result.properties.place_id}>
-                  <div className="card-body">
-                    <h5 className="card-title">{result.properties.name}</h5>
-                    <p className="card-text">Address: {result.properties.formatted}</p>
-                    <p className="card-text">Eircode: {result.properties.postcode}</p>
+              <div className="amenities-section">
+                <h2>Shopping Centres and Businesses 🏪</h2>
+                {shopsBusinessesData.features && shopsBusinessesData.features.map((result) => (
+                  <div className="card" key={result.properties.place_id}>
+                    <div className="card-body">
+                      <h5 className="card-title">{result.properties.name}</h5>
+                      <p className="card-text">Address: {result.properties.formatted}</p>
+                      <p className="card-text">Eircode: {result.properties.postcode}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
-              {restaurantsCafesData.features && restaurantsCafesData.features.length === 0 && (
-                <p>No Restaurant/Cafe Amenities Found in {searchTerm}</p>
-              )}
+                ))}
+                {shopsBusinessesData.features && shopsBusinessesData.features.length === 0 && (
+                  <p>No Shopping Centres/Shop Amenities Found in {searchTerm}</p>
+                )}
+              </div>
             </div>
 
             <div>
-              <h2>Shopping Centres and Businesses</h2>
-              {shopsBusinessesData.features && shopsBusinessesData.features.map((result) => (
-                <div className="card" key={result.properties.place_id}>
-                  <div className="card-body">
-                    <h5 className="card-title">{result.properties.name}</h5>
-                    <p className="card-text">Address: {result.properties.formatted}</p>
-                    <p className="card-text">Eircode: {result.properties.postcode}</p>
+              <div className="amenities-section">
+                <h2>Hotels 🏨</h2>
+                {hotelsData.features && hotelsData.features.map((result) => (
+                  <div className="card" key={result.properties.place_id}>
+                    <div className="card-body">
+                      <h5 className="card-title">{result.properties.name}</h5>
+                      <p className="card-text">Address: {result.properties.formatted}</p>
+                      <p className="card-text">Eircode: {result.properties.postcode}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
-              {shopsBusinessesData.features && shopsBusinessesData.features.length === 0 && (
-                <p>No Shopping Centres/Shop Amenities Found in {searchTerm}</p>
-              )}
+                ))}
+                {hotelsData.features && hotelsData.features.length === 0 && (
+                  <p>No Hotels/Accommodation Amenities Found in {searchTerm}</p>
+                )}
+              </div>
             </div>
 
             <div>
-              <h2>Hotels</h2>
-              {hotelsData.features && hotelsData.features.map((result) => (
-                <div className="card" key={result.properties.place_id}>
-                  <div className="card-body">
-                    <h5 className="card-title">{result.properties.name}</h5>
-                    <p className="card-text">Address: {result.properties.formatted}</p>
-                    <p className="card-text">Eircode: {result.properties.postcode}</p>
+              <div className="amenities-section">
+                <h2>Tourism Locations 🗽</h2>
+                {tourismData.features && tourismData.features.map((result) => (
+                  <div className="card" key={result.properties.place_id}>
+                    <div className="card-body">
+                      <h5 className="card-title">{result.properties.name}</h5>
+                      <p className="card-text">Address: {result.properties.formatted}</p>
+                      <p className="card-text">Eircode: {result.properties.postcode}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
-              {hotelsData.features && hotelsData.features.length === 0 && (
-                <p>No Hotels/Accommodation Amenities Found in {searchTerm}</p>
-              )}
+                ))}
+                {tourismData.features && tourismData.features.length === 0 && (
+                  <p>No Tourist Amenities Found in {searchTerm}</p>
+                )}
+              </div>
             </div>
           </div>
+        </div>
 
           <div className="col-md-6">
-            {/* Right column: The rest of the amenities */}
-            <div>
-              <h2>Services</h2>
-              {servicesData.features && servicesData.features.map((result) => (
-                <div className="card" key={result.properties.place_id}>
-                  <div className="card-body">
-                    <h5 className="card-title">{result.properties.name}</h5>
-                    <p className="card-text">Address: {result.properties.formatted}</p>
-                    <p className="card-text">Eircode: {result.properties.postcode}</p>
-                  </div>
+            <div className="section-container">
+              <div className="amenities-section">
+                <div>
+                  <h2>Services 📠</h2>
+                  {servicesData.features && servicesData.features.map((result) => (
+                    <div className="card" key={result.properties.place_id}>
+                      <div className="card-body">
+                        <h5 className="card-title">{result.properties.name}</h5>
+                        <p className="card-text">Address: {result.properties.formatted}</p>
+                        <p className="card-text">Eircode: {result.properties.postcode}</p>
+                      </div>
+                    </div>
+                  ))}
+                  {servicesData.features && servicesData.features.length === 0 && (
+                    <p>No Service Amenities Found in {searchTerm}</p>
+                  )}
                 </div>
-              ))}
-              {servicesData.features && servicesData.features.length === 0 && (
-                <p>No Service Amenities Found in {searchTerm}</p>
-              )}
+              </div>
+    
+
+            <div>
+              <div className="amenities-section"> 
+                <h2>Healthcare, Pharmacies and Hospitals 🏥</h2>
+                {healthcareData.features && healthcareData.features.map((result) => (
+                  <div className="card" key={result.properties.place_id}>
+                    <div className="card-body">
+                      <h5 className="card-title">{result.properties.name}</h5>
+                      <p className="card-text">Address: {result.properties.formatted}</p>
+                      <p className="card-text">Eircode: {result.properties.postcode}</p>
+                    </div>
+                  </div>
+                ))}
+                {healthcareData.features && healthcareData.features.length === 0 && (
+                  <p>No Healthcare Amenities Found in {searchTerm}</p>
+                )}
+              </div>
             </div>
 
             <div>
-              <h2>Healthcare, Pharmacies and Hospitals</h2>
-              {healthcareData.features && healthcareData.features.map((result) => (
-                <div className="card" key={result.properties.place_id}>
-                  <div className="card-body">
-                    <h5 className="card-title">{result.properties.name}</h5>
-                    <p className="card-text">Address: {result.properties.formatted}</p>
-                    <p className="card-text">Eircode: {result.properties.postcode}</p>
+              <div className="amenities-section">
+                <h2>Religious Establishments ⛪</h2>
+                {religionData.features && religionData.features.map((result) => (
+                  <div className="card" key={result.properties.place_id}>
+                    <div className="card-body">
+                      <h5 className="card-title">{result.properties.name}</h5>
+                      <p className="card-text">Address: {result.properties.formatted}</p>
+                      <p className="card-text">Eircode: {result.properties.postcode}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
-              {healthcareData.features && healthcareData.features.length === 0 && (
-                <p>No Healthcare Amenities Found in {searchTerm}</p>
-              )}
+                ))}
+                {religionData.features && religionData.features.length === 0 && (
+                  <p>No Religious Amenities Found in {searchTerm}</p>
+                )}
+              </div>
             </div>
 
-            <div>
-              <h2>Religious Establishments</h2>
-              {religionData.features && religionData.features.map((result) => (
-                <div className="card" key={result.properties.place_id}>
-                  <div className="card-body">
-                    <h5 className="card-title">{result.properties.name}</h5>
-                    <p className="card-text">Address: {result.properties.formatted}</p>
-                    <p className="card-text">Eircode: {result.properties.postcode}</p>
-                  </div>
-                </div>
-              ))}
-              {religionData.features && religionData.features.length === 0 && (
-                <p>No Religious Amenities Found in {searchTerm}</p>
-              )}
-            </div>
-
-            <div>
-              <h2>Tourism Locations</h2>
-              {tourismData.features && tourismData.features.map((result) => (
-                <div className="card" key={result.properties.place_id}>
-                  <div className="card-body">
-                    <h5 className="card-title">{result.properties.name}</h5>
-                    <p className="card-text">Address: {result.properties.formatted}</p>
-                    <p className="card-text">Eircode: {result.properties.postcode}</p>
-                  </div>
-                </div>
-              ))}
-              {tourismData.features && tourismData.features.length === 0 && (
-                <p>No Tourist Amenities Found in {searchTerm}</p>
-              )}
-            </div>
 
  
             <div>
-              <h2>Nearby Towns/Cities</h2>
-              {townsData.features && townsData.features.map((result) => (
-                <div className="card" key={result.properties.place_id}>
-                  <div className="card-body">
-                    <h5 className="card-title">{result.properties.name}</h5>
-                    <p className="card-text">Address: {result.properties.formatted}</p>
-                    <p className="card-text">Eircode: {result.properties.postcode}</p>
+              <div className="amenities-section">
+                <h2>Nearby Towns/Cities 🧭</h2>
+                {townsData.features && townsData.features.map((result) => (
+                  <div className="card" key={result.properties.place_id}>
+                    <div className="card-body">
+                      <h5 className="card-title">{result.properties.name}</h5>
+                      <p className="card-text">Address: {result.properties.formatted}</p>
+                      <p className="card-text">Eircode: {result.properties.postcode}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
-              {townsData.features && townsData.features.length === 0 && (
-                <p>No Nearby Towns/Cities Found near {searchTerm}</p>
-              )}
+                ))}
+                {townsData.features && townsData.features.length === 0 && (
+                  <p>No Nearby Towns/Cities Found near {searchTerm}</p>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
       <Footer />
     </>
   );

@@ -193,7 +193,7 @@ function SchoolsNav() {
   return (
     <>
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-        <div className="container mt-4 flex-grow-1">
+        <div className="container mt-4 ">
           <div className="mb-3"></div>
           <label htmlFor="searchTerm" className="form-label">
             Search by Locality or County:

@@ -193,7 +193,7 @@ footer {
 
 
 /* crime-navbar */
-.amenities-container {
+.amenities-container, .schools-container {
   padding: 20px;
 }
 

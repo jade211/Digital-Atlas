@@ -41,6 +41,7 @@
 
 /* home.jsx*/
 
+
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -49,7 +50,14 @@
 
 .content {
   display: flex;
+  justify-content: space-between;
 }
+
+.title {
+  text-align: center; /* Center align the title */
+  margin-bottom: 20px; /* Add some bottom margin for spacing */
+}
+
 
 .left-content {
   flex: 1;
@@ -57,16 +65,33 @@
 
 .right-content {
   flex-basis: 5%;
-  margin-left: 10px; /* Adjust as needed */
+  margin-left: 10px;
 }
 
-.hero {
+/* .hero {
   text-align: center;
+  padding-left: 45%;
+} */
+
+/* .hero-content {
+  margin-top: 50px;
+} */
+
+.hero-image {
+  padding-top: 40%;
+  width: 400px; 
+  height: 700px; 
 }
 
-.hero-content {
-  margin-top: 50px;
+ul li a {
+  color: black; /* Change the color to your desired color */
+  text-decoration: none; /* Remove the underline */
 }
+
+ul li a:hover {
+  color: black; /* Change the color when hovered */
+}
+
 
 .overview {
   margin-top: 50px;
@@ -133,6 +158,7 @@ footer {
   font-size: 0.8em;
   color: #888;
 }
+
 
 
 /* amenities-nav.jsx, transportation-nav.jsx, schools-nav.jsx */

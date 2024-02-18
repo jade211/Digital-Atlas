@@ -398,7 +398,7 @@ function SchoolsNav() {
                   </div>
                 ))}
                 {collegeData.features && collegeData.features.length === 0 && (
-                  <p>No Universities Found in {searchTerm}</p>
+                  <p>No Colleges Found in {searchTerm}</p>
                 )}
               </div>
             </div>
@@ -417,6 +417,9 @@ function SchoolsNav() {
                   </div>
                 </div>
               ))}
+              {universityData.features && universityData.features.length === 0 && (
+                  <p>No University Found in {searchTerm}</p>
+                )}
             </div>
           </div>
 

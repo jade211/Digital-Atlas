@@ -881,6 +881,9 @@ function AmenitiesNav() {
                   </div>
                 </div>
               ))}
+              {amenitiesData.features && amenitiesData.features.length === 0 && (
+                <p>No Entertainment Amenities Found in {searchTerm}</p>
+              )}
             </div>
 
             <div>
@@ -894,6 +897,9 @@ function AmenitiesNav() {
                   </div>
                 </div>
               ))}
+              {restaurantsCafesData.features && restaurantsCafesData.features.length === 0 && (
+                <p>No Restaurant/Cafe Amenities Found in {searchTerm}</p>
+              )}
             </div>
 
             <div>
@@ -907,6 +913,9 @@ function AmenitiesNav() {
                   </div>
                 </div>
               ))}
+              {shopsBusinessesData.features && shopsBusinessesData.features.length === 0 && (
+                <p>No Shopping Centres/Shop Amenities Found in {searchTerm}</p>
+              )}
             </div>
 
             <div>
@@ -920,13 +929,16 @@ function AmenitiesNav() {
                   </div>
                 </div>
               ))}
+              {hotelsData.features && hotelsData.features.length === 0 && (
+                <p>No Hotels/Accommodation Amenities Found in {searchTerm}</p>
+              )}
             </div>
           </div>
 
           <div className="col-md-6">
             {/* Right column: The rest of the amenities */}
             <div>
-              <h2>Services and Religious Establishments</h2>
+              <h2>Services</h2>
               {servicesData.features && servicesData.features.map((result) => (
                 <div className="card" key={result.properties.place_id}>
                   <div className="card-body">
@@ -936,6 +948,9 @@ function AmenitiesNav() {
                   </div>
                 </div>
               ))}
+              {servicesData.features && servicesData.features.length === 0 && (
+                <p>No Service Amenities Found in {searchTerm}</p>
+              )}
             </div>
 
             <div>
@@ -949,6 +964,9 @@ function AmenitiesNav() {
                   </div>
                 </div>
               ))}
+              {healthcareData.features && healthcareData.features.length === 0 && (
+                <p>No Healthcare Amenities Found in {searchTerm}</p>
+              )}
             </div>
 
             <div>
@@ -962,6 +980,9 @@ function AmenitiesNav() {
                   </div>
                 </div>
               ))}
+              {religionData.features && religionData.features.length === 0 && (
+                <p>No Religious Amenities Found in {searchTerm}</p>
+              )}
             </div>
 
             <div>
@@ -975,8 +996,12 @@ function AmenitiesNav() {
                   </div>
                 </div>
               ))}
+              {tourismData.features && tourismData.features.length === 0 && (
+                <p>No Tourist Amenities Found in {searchTerm}</p>
+              )}
             </div>
 
+ 
             <div>
               <h2>Nearby Towns/Cities</h2>
               {townsData.features && townsData.features.map((result) => (
@@ -988,6 +1013,9 @@ function AmenitiesNav() {
                   </div>
                 </div>
               ))}
+              {townsData.features && townsData.features.length === 0 && (
+                <p>No Nearby Towns/Cities Found near {searchTerm}</p>
+              )}
             </div>
           </div>
         </div>

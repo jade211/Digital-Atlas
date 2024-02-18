@@ -153,6 +153,17 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 import React, { useState } from 'react';
 import Footer from './footer';
 
@@ -177,8 +188,8 @@ function SchoolsNav() {
           const [schoolResponse, collegeResponse] = await Promise.all([fetch(schoolUrl), fetch(collegeUrl)]);
           const [schoolsData, collegeData] = await Promise.all([schoolResponse.json(), collegeResponse.json()]);
 
-          setSchoolsData(schoolsData);
-          setCollegeData(collegeData);
+          setSchoolsData(removeDuplicates(schoolsData, 'place_id'));
+          setCollegeData(removeDuplicates(collegeData, 'place_id'));
         }
       }
     } catch (error) {
@@ -188,6 +199,20 @@ function SchoolsNav() {
 
   const filterDataWithNames = (data) => {
     return data.features ? data.features.filter(result => result.properties.name) : [];
+  };
+
+  const removeDuplicates = (data, property) => {
+    const uniqueData = [];
+    const uniqueValues = new Set();
+    
+    data.features.forEach(result => {
+      if (!uniqueValues.has(result.properties[property])) {
+        uniqueValues.add(result.properties[property]);
+        uniqueData.push(result);
+      }
+    });
+
+    return { features: uniqueData };
   };
 
   return (

@@ -965,6 +965,29 @@ function TransportNav() {
             </div>
             </div>
 
+        
+          <div className="section-container flex-grow-1">
+          <div className="transport-info">
+            <h2>Dublin Bus</h2>
+                {filteredTransports.map((transport) => (
+                  <div className="card" key={transport.id}>
+                    <div className="card-body">
+                      <p className="card-title"><strong>Bus:</strong> {transport.bus}</p>
+                      <p className="card-text"><strong>First Stop:</strong> {transport.route_from}</p>
+                      <p className="card-text"><strong>Last Stop:</strong> {transport.route_to}</p>
+                      <p className="card-text"><strong>County:</strong> {transport.county}</p>
+                    </div>
+                  </div>
+                ))}
+             { transports.features && transports.features.length === 0 && (
+                <p>No Dublin Bus Found in {searchTerm}</p> )
+            }
+            </div>
+            </div>
+            </div>
+
+
+          <div className="col-md-6">
           <div className="section-container flex-grow-1">
           <div className="transport-info">
             <h2>Train Stations Information</h2>
@@ -984,34 +1007,11 @@ function TransportNav() {
             }
             </div>
             </div>
-            </div>
-
-        <div className="col-md-6">
-          <div className="section-container flex-grow-1">
-          <div className="transport-info">
-            <h2>Dublin Bus</h2>
-              <div>
-                {filteredTransports.map((transport) => (
-                  <div className="card" key={transport.id}>
-                    <div className="card-body">
-                      <p className="card-title"><strong>Bus:</strong> {transport.bus}</p>
-                      <p className="card-text"><strong>First Stop:</strong> {transport.route_from}</p>
-                      <p className="card-text"><strong>Last Stop:</strong> {transport.route_to}</p>
-                      <p className="card-text"><strong>County:</strong> {transport.county}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-             { transports.features && transports.features.length === 0 && (
-                <p>No Dublin Bus Found in {searchTerm}</p> )
-            }
-            </div>
-            </div>
+          
 
           <div className="section-container flex-grow-1">
           <div className="transport-info">
             <h2>Bus Eireann</h2>
-              <div>
                 {filteredExtraTransports.map((transport) => (
                   <div className="card" key={transport.id}>
                     <div className="card-body">
@@ -1022,7 +1022,6 @@ function TransportNav() {
                     </div>
                   </div>
                 ))}
-              </div>
               { extraTransports.features && extraTransports.features.length === 0 && (
                 <p>No Bus Eireann Found in {searchTerm}</p> 
               )}

@@ -849,6 +849,23 @@ function AmenitiesNav() {
     return data.features ? data.features.filter(result => result.properties.name) : [];
   };
 
+  const removeDuplicatesByTitle = (data) => {
+    const uniqueData = [];
+    const titlesSet = new Set();
+  
+    data.features &&
+      data.features.forEach((result) => {
+        const title = result.properties.name;
+  
+        if (!titlesSet.has(title)) {
+          titlesSet.add(title);
+          uniqueData.push(result);
+        }
+      });
+  
+    return { features: uniqueData };
+  };
+
   return (
     <>
     <div className="container mt-4">
@@ -876,7 +893,7 @@ function AmenitiesNav() {
               <div className="amenities-section">
                 <div>
                   <h2>Entertainment and Leisure 🎳</h2>
-                  {filterDataWithNames(amenitiesData).map((result) => (
+                  {filterDataWithNames(removeDuplicatesByTitle(amenitiesData)).map((result) => (
                     <div className="card" key={result.properties.place_id}>
                       <div className="card-body">
                         <h5 className="card-title">{result.properties.name}</h5>
@@ -893,8 +910,8 @@ function AmenitiesNav() {
 
             <div>
             <div className="amenities-section">
-                <h2>Restaurants and Cafes 🍴🍽</h2>
-                {filterDataWithNames(restaurantsCafesData).map((result) => (
+                <h2>Restaurants and Cafes 🍴</h2>
+                {filterDataWithNames(removeDuplicatesByTitle(restaurantsCafesData)).map((result) => (
                   <div className="card" key={result.properties.place_id}>
                     <div className="card-body">
                       <h5 className="card-title">{result.properties.name}</h5>
@@ -912,7 +929,7 @@ function AmenitiesNav() {
             <div>
               <div className="amenities-section">
                 <h2>Shopping Centres and Businesses 🏪</h2>
-                {filterDataWithNames(shopsBusinessesData).map((result) => (
+                {filterDataWithNames(removeDuplicatesByTitle(shopsBusinessesData)).map((result) => (
                   <div className="card" key={result.properties.place_id}>
                     <div className="card-body">
                       <h5 className="card-title">{result.properties.name}</h5>
@@ -930,7 +947,7 @@ function AmenitiesNav() {
             <div>
               <div className="amenities-section">
                 <h2>Hotels 🏨</h2>
-                {filterDataWithNames(hotelsData).map((result) => (
+                {filterDataWithNames(removeDuplicatesByTitle(hotelsData)).map((result) => (
                   <div className="card" key={result.properties.place_id}>
                     <div className="card-body">
                       <h5 className="card-title">{result.properties.name}</h5>
@@ -970,7 +987,7 @@ function AmenitiesNav() {
               <div className="amenities-section">
                 <div>
                   <h2>Services 📠</h2>
-                  {filterDataWithNames(servicesData).map((result) => (
+                  {filterDataWithNames(removeDuplicatesByTitle(servicesData)).map((result) => (
                     <div className="card" key={result.properties.place_id}>
                       <div className="card-body">
                         <h5 className="card-title">{result.properties.name}</h5>
@@ -989,7 +1006,7 @@ function AmenitiesNav() {
             <div>
               <div className="amenities-section"> 
                 <h2>Healthcare, Pharmacies and Hospitals 🏥</h2>
-                {filterDataWithNames(healthcareData).map((result) => (
+                {filterDataWithNames(removeDuplicatesByTitle(healthcareData)).map((result) => (
                   <div className="card" key={result.properties.place_id}>
                     <div className="card-body">
                       <h5 className="card-title">{result.properties.name}</h5>
@@ -1007,7 +1024,7 @@ function AmenitiesNav() {
             <div>
               <div className="amenities-section">
                 <h2>Religious Establishments ⛪</h2>
-                {filterDataWithNames(religionData).map((result) => (
+                {filterDataWithNames(removeDuplicatesByTitle(religionData)).map((result) => (
                   <div className="card" key={result.properties.place_id}>
                     <div className="card-body">
                       <h5 className="card-title">{result.properties.name}</h5>
@@ -1027,7 +1044,7 @@ function AmenitiesNav() {
             <div>
               <div className="amenities-section">
                 <h2>Nearby Towns/Cities 🧭</h2>
-                {filterDataWithNames(townsData).map((result) => (
+                {filterDataWithNames(removeDuplicatesByTitle(townsData)).map((result) => (
                   <div className="card" key={result.properties.place_id}>
                     <div className="card-body">
                       <h5 className="card-title">{result.properties.name}</h5>

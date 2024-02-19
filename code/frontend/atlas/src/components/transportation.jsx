@@ -988,7 +988,7 @@ function Transport({ searchTerm, searchOption }) {
   };
 
   return (
-    <div className="amenities-container">
+    <div className="transport-container">
       <h1>Transport</h1>
       {!selectedCategory ? (
         <div>

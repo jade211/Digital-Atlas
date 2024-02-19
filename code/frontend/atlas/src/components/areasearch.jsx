@@ -1208,7 +1208,7 @@ function AreaSearch() {
   const handleFeatureSelect = (feature) => {
     setSelectedFeature(feature);
   };
-
+  const capitalSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
   return (
     <>
     <div style={{ display: 'flex', width: '100%', minHeight: '100vh', overflowX: 'hidden' }}>
@@ -1260,11 +1260,16 @@ function AreaSearch() {
             <Comment />
           </div>
         )}
+        {searchButtonClicked && searchTerm.trim() !== '' && !selectedFeature && (
+          <div className="alert alert-info" role="alert" style={{ borderLeft: '4px solid #007bff', borderRadius: '1', marginBottom: '20px' }}>
+            <h4 className="alert-heading">Search Result: {capitalSearchTerm}</h4>
+            <p className="mb-0" style={{ fontSize: '1.1rem' }}>{`You have searched for ${capitalSearchTerm}. Please use the features in the sidebar to discover more about the area.`}</p>
+          </div>
+        )}
+        </div>
       </div>
-    </div>
-    <Footer />
+      <Footer />
     </>
   );
 }
-
 export default AreaSearch;

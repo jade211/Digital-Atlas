@@ -4685,7 +4685,8 @@ const House = ({ searchTerm }) => {
 
         const filteredHouses = data.filter(
           (house) =>
-            house.area.toLowerCase().includes(searchTerm.toLowerCase())
+            // house.area.toLowerCase().includes(searchTerm.toLowerCase())
+            house.area.toLowerCase() === searchTerm.toLowerCase()
         );
 
         if (filteredHouses.length === 0) {

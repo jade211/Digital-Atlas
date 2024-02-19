@@ -3698,8 +3698,38 @@ const HouseNav = () => {
   };
 
   return (
+    // <>
+    // <div className="container" style={{ minHeight: '100vh', paddingTop: '20px', fontSize: '25px'}}>
+    //   <h1 className="text-center mb-4">Housing and Rent Prices</h1>
+    //   <div className="mb-3 d-flex justify-content-center">
+    //     <input
+    //       type="text"
+    //       className="form-control me-2"
+    //       placeholder="Enter area..."
+    //       value={areaInput}
+    //       onChange={(e) => setAreaInput(e.target.value)}
+    //     />
+    //     <button className="btn btn-primary" onClick={handleSearch}>Search</button>
+    //     </div>
+    //     <div className='row flex-grow-1'>
+    //       <div className='col-md-6 d-flex'>
+    //         <div className='section-container flex-grow-1'>
+    //           <div className='house-info'>
+    //             <h2>Prices</h2>
+    //           {result}
+    //           <div className="mt-3" style={{ font: 'Lobster', fontSize: '27px'}}>
+    //             <pre>{formattedData}</pre>
+    //           </div>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    // </div>
+    // <Footer />
+    // </>
+
     <>
-    <div className="container" style={{ minHeight: '100vh', paddingTop: '20px'}}>
+    <div className="container" style={{ minHeight: '100vh', paddingTop: '20px', fontSize: '25px'}}>
       <h1 className="text-center mb-4">Housing and Rent Prices</h1>
       <div className="mb-3 d-flex justify-content-center">
         <input
@@ -3710,11 +3740,32 @@ const HouseNav = () => {
           onChange={(e) => setAreaInput(e.target.value)}
         />
         <button className="btn btn-primary" onClick={handleSearch}>Search</button>
-      </div>
-      {result}
-      <div className="mt-3">
-        <pre>{formattedData}</pre>
-      </div>
+        </div>
+        <div className='row flex-grow-1'>
+          <div className='col-md-6 d-flex'>
+            <div className='section-container flex-grow-1'>
+              <div className='house-info'>
+                <h2>Sale Prices</h2>
+              {result}
+              </div>
+            </div>
+          </div>
+
+          <div className='col-md-6'>
+            <div className='section-container flex-grow-1'>
+              <div className='house-info'style={{ font: 'Lobster', fontSize: '27px'}}>
+              <h2>Rent Prices</h2>
+              {searchTerm && (
+              <div className="mt-3">
+                <h3>Year: 2023</h3>
+                <h3>Area: {searchTerm.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</h3>
+                <pre>{formattedData}</pre>
+              </div>
+            )}
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
     <Footer />
     </>

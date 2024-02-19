@@ -222,7 +222,7 @@ footer {
   gap: 20px;
 }
 
-.amenities-section, .school-info, .transport-info {
+.amenities-section, .school-info, .transport-info, .house-info {
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 8px;
@@ -300,3 +300,6 @@ footer {
   position: relative;
   z-index: 1; /* Ensure content is above the black blocks */
 }
+
+
+

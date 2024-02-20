@@ -410,3 +410,14 @@ body {
     padding: 8px;
   }
 }
+
+/* homepage links css */
+.feature-list li a {
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.feature-list li a:hover {
+  background-color: #f8f9fa; 
+  border-radius: 5px; 
+}

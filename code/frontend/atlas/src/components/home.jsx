@@ -161,8 +161,8 @@ function Home() {
         <div className="left-content">
           <section className="hero">
             <div className="hero-content">
-              <h1 className='title'>Explore Your Area with Digital Atlas</h1>
-              <p>A user-focused website leveraging dependable data sources to provide valuable area-specific insights.</p>
+              <h1 className='title'>Explore Your Area With Digital Atlas</h1>
+              <p><i>A user-focused website leveraging dependable data sources to provide valuable area-specific insights.</i></p>
             </div>
           </section>
 
@@ -171,15 +171,16 @@ function Home() {
             <div className="feature">
               <p>Digital Atlas provides information on various features useful for understanding your community, including crime statistics and demographic data.</p>
               <p>Discover detailed statistics on:</p>
-              <ul>
-                <li><Link to="/amenitiesnav">Amenities</Link></li>
-                <li><Link to="/crimenav">Crime</Link></li>
-                <li><Link to="/schoolsnav">Education</Link></li>
-                <li><Link to="/transportnav">Transport</Link></li>
-                <li><Link to="/housenav">House Prices</Link></li>
+              <ul className="list-unstyled feature-list">
+                <li><Link to="/amenitiesnav" className="text-decoration-none">Amenities</Link></li>
+                <li><Link to="/crimenav" className="text-decoration-none">Crime</Link></li>
+                <li><Link to="/schoolsnav" className="text-decoration-none">Education</Link></li>
+                <li><Link to="/transportnav" className="text-decoration-none">Transport</Link></li>
+                <li><Link to="/housenav" className="text-decoration-none">House Prices</Link></li>
               </ul>
             </div>
           </section>
+  
 
           <section className="call-to-action">
             <h2>Ready to Get Started?</h2>

@@ -1369,7 +1369,7 @@ function Amenities({ searchTerm, searchOption }) {
             </div>
           ))
         ) : (
-          <p>No {selectedCategory} Amenities Found in {searchTerm}</p>
+          <p>No {selectedCategory} Amenities Found in {capitalSearchTerm}</p>
         )}
       </div>
     );

@@ -952,7 +952,6 @@ function Transport({ searchTerm, searchOption }) {
         <button className="btn btn-primary" onClick={handleReturnToMenu}>
           Return to Transport Menu
         </button>
-        <h1>Transportation Information for {capitalSearchTerm}</h1>
         <h2>{selectedCategory}</h2>
         {dataForCategory.length > 0 ? (
           selectedCategory === 'Train Stations' || selectedCategory === 'Bus Stops' ? (
@@ -984,7 +983,7 @@ function Transport({ searchTerm, searchOption }) {
             ))
           )
         ) : (
-          <p>No {selectedCategory} Found</p>
+          <p>No {selectedCategory} Found in {capitalSearchTerm}</p>
         )}
       </div>
     );
@@ -992,7 +991,7 @@ function Transport({ searchTerm, searchOption }) {
 
   return (
     <div className="transport-container">
-      <h1>Transport</h1>
+      <h1>Transportation Information for {capitalSearchTerm}</h1>
       {!selectedCategory ? (
         <div>
           <div className="result-section">

@@ -289,7 +289,7 @@ function Schools({ searchTerm, searchOption }) {
             </div>
           ))
         ) : (
-          <p>No {selectedCategory} Found in {searchTerm}</p>
+          <p>No {selectedCategory} Found in {capitalSearchTerm}</p>
         )}
       </div>
     );

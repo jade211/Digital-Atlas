@@ -1211,11 +1211,11 @@ function AreaSearch() {
   const capitalSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
   return (
     <>
-    <div style={{ display: 'flex', width: '100%', minHeight: '100vh', overflowX: 'hidden' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', overflowX: 'hidden' }}>
       {/* Sidebar with background layout */}
-      <div style={{ width: '10%', backgroundColor: '#000', color: '#fff', padding: '20px', display: 'flex', flexDirection: 'column', paddingTop: '25px', fontSize: '20px' }}>
+      <div className="sidebar">
         <h2>Features</h2>
-        <ul style={{ listStyleType: 'none', padding: 0, flex: 1 }}>
+        <ul>
           <li onClick={() => handleFeatureSelect('amenities')}>Amenities</li>
           <li onClick={() => handleFeatureSelect('schools')}>Education</li>
           <li onClick={() => handleFeatureSelect('crime')}>Crime</li>
@@ -1224,9 +1224,6 @@ function AreaSearch() {
         </ul>
       </div>
 
-
-
-      {/* Main content area */}
       <div style={{ width: '80%', marginLeft: '20px', overflowY: 'auto' }}>
         <div style={{ marginBottom: '20px', display: 'flex', alignItems: 'center' }}>
           <label htmlFor="searchTerm" className="form-label" style={{ marginRight: '10px' }}>

@@ -215,7 +215,6 @@ footer {
 
 
 /* Amenities-navbar css */
-
 .section-container {
   display: flex;
   flex-direction: column;
@@ -229,11 +228,9 @@ footer {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* You can add more specific styling based on your design preferences */
 
 
 /* footer.jsx */
-
 .footer {
   background-color: #333;
   color: #fff;
@@ -278,8 +275,6 @@ footer {
 
 
 /* contact.jsx */
-
-
 .black-block {
   position: absolute;
   top: 0;
@@ -303,3 +298,51 @@ footer {
 
 
 
+
+
+/* Sidebar CSS */
+.sidebar {
+  width: 15%;
+  min-width: 150px;
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 25px;
+  font-size: 1.5em;
+  box-sizing: border-box;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  flex: 1;
+}
+
+.sidebar li {
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.sidebar li:hover {
+  background-color: #333;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    font-size: 1.2em;
+    min-width: 120px;
+  }
+  
+  .sidebar li {
+    padding: 8px;
+  }
+}

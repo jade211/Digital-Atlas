@@ -1361,6 +1361,8 @@ function Amenities({ searchTerm, searchOption }) {
     );
   };
 
+  const capitalSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
+
   const getCategoryData = (category) => {
     switch (category) {
       case 'Entertainment and Leisure':
@@ -1389,7 +1391,7 @@ function Amenities({ searchTerm, searchOption }) {
 
   return (
     <div className="amenities-container">
-      <h1>Amenities</h1>
+      <h1>Amenities in {capitalSearchTerm	}</h1>
       {!selectedCategory ? (
         <div>
           <div className="result-section">

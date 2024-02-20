@@ -4582,6 +4582,7 @@ const House = ({ searchTerm }) => {
       setFormattedDataRent('Error during rent data fetching.');
     }
   };
+  const capitalSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
 
   useEffect(() => {
     const fetchHousesData = async () => {
@@ -4746,7 +4747,7 @@ const House = ({ searchTerm }) => {
 
   return (
     <div>
-      <h1>Housing and Rent Prices</h1>
+      <h1>Housing and Rent Prices for {capitalSearchTerm}</h1>
       {result}
       <div>
         <pre>{formattedDataRent}</pre>

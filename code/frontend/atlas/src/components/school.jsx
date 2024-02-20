@@ -259,6 +259,8 @@ function Schools({ searchTerm, searchOption }) {
     handleSearch();
   }, [searchTerm, searchOption]);
 
+  const capitalSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
+
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
@@ -308,7 +310,7 @@ function Schools({ searchTerm, searchOption }) {
  
   return (
     <div className="schools-container">
-      <h1>Education</h1>
+      <h1>Education in {capitalSearchTerm}</h1>
       {!selectedCategory ? (
         <div>
           <div className="result-section">

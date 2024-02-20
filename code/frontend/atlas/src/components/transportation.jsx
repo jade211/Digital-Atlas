@@ -867,6 +867,8 @@ function Transport({ searchTerm, searchOption }) {
     fetchData();
   }, [searchTerm]);
 
+  const capitalSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
+
   const fetchTrainData = async () => {
     try {
       let geocodeApiUrl;
@@ -950,6 +952,7 @@ function Transport({ searchTerm, searchOption }) {
         <button className="btn btn-primary" onClick={handleReturnToMenu}>
           Return to Transport Menu
         </button>
+        <h1>Transportation Information for {capitalSearchTerm}</h1>
         <h2>{selectedCategory}</h2>
         {dataForCategory.length > 0 ? (
           selectedCategory === 'Train Stations' || selectedCategory === 'Bus Stops' ? (

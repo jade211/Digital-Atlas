@@ -2461,6 +2461,8 @@ import { Chart } from 'chart.js/auto';
         fetchCrimeData();
       }
     }, [searchTerm]);
+
+    const capitalSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
   
     const formatCrimeData = () => {
       if (!data) return <h2>Crime Data</h2>;
@@ -2539,6 +2541,7 @@ import { Chart } from 'chart.js/auto';
 
     return (
       <div>
+        <h1>Crime Rate for {capitalSearchTerm}</h1>
         {data && (
           <div>
             <Bar data={generateChartData()} options={{ maintainAspectRatio: false }} />

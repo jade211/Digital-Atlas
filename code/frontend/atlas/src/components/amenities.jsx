@@ -1228,7 +1228,7 @@ function Amenities({ searchTerm, searchOption }) {
           const placeId = geocodeData.results[0]?.place_id;
 
           if (placeId) {
-            const servicesApiUrl = `https://api.geoapify.com/v2/places?categories=education.driving_school,education.music_school,education.language_school,childcare,parking,pet.veterinary,pet.service,rental,service,amenity,building.service,office&filter=place:${encodeURIComponent(
+            const servicesApiUrl = `https://api.geoapify.com/v2/places?categories=service,education.driving_school,education.music_school,education.language_school,childcare,parking,pet.veterinary,pet.service,rental,amenity,building.service,office&filter=place:${encodeURIComponent(
               placeId
             )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
@@ -1266,34 +1266,48 @@ function Amenities({ searchTerm, searchOption }) {
             
 
 
-
-
-
-
-            const [servicesResponse, amenitiesResponse, hotelsResponse, healthcareResponse, restaurantsCafesResponse, shopsBusinessesResponse, religionResponse, tourismResponse, townsResponse] =
-              await Promise.all([
-                fetch(servicesApiUrl),
-                fetch(amenitiesApiUrl),
-                fetch(hotelsApiUrl),
-                fetch(healthcareApiUrl),
-                fetch(restaurantsCafesApiUrl),
-                fetch(shopsBusinessesApiUrl),
-                fetch(religionApiUrl),
-                fetch(tourismApiUrl),
-                fetch(townsApiUrl),
-              ]);
-
-            const [servicesData, amenitiesData, hotelsData, healthcareData, restaurantsCafesData, shopsBusinessesData, religionData, tourismData, townsData] =
-              await Promise.all([
-                servicesResponse.json(),
-                amenitiesResponse.json(),
-                hotelsResponse.json(),
-                healthcareResponse.json(),
-                restaurantsCafesResponse.json(),
-                shopsBusinessesResponse.json(),
-                religionResponse.json(),
-                tourismResponse.json(),
-                townsResponse.json(),
+            const [
+              servicesResponse,
+              amenitiesResponse,
+              hotelsResponse,
+              healthcareResponse,
+              restaurantsCafesResponse,
+              shopsBusinessesResponse,
+              religionResponse,
+              tourismResponse,
+              townsResponse,
+            ] = await Promise.all([
+              fetch(servicesApiUrl),
+              fetch(amenitiesApiUrl),
+              fetch(hotelsApiUrl),
+              fetch(healthcareApiUrl),
+              fetch(restaurantsCafesApiUrl),
+              fetch(shopsBusinessesApiUrl),
+              fetch(religionApiUrl),
+              fetch(tourismApiUrl),
+              fetch(townsApiUrl),
+            ]);
+    
+            const [
+              servicesData,
+              amenitiesData,
+              hotelsData,
+              healthcareData,
+              restaurantsCafesData,
+              shopsBusinessesData,
+              religionData,
+              tourismData,
+              townsData,
+            ] = await Promise.all([
+              servicesResponse.json(),
+              amenitiesResponse.json(),
+              hotelsResponse.json(),
+              healthcareResponse.json(),
+              restaurantsCafesResponse.json(),
+              shopsBusinessesResponse.json(),
+              religionResponse.json(),
+              tourismResponse.json(),
+              townsResponse.json(),
               ]);
 
             // Function to remove duplicates
@@ -1367,6 +1381,8 @@ function Amenities({ searchTerm, searchOption }) {
     switch (category) {
       case 'Entertainment and Leisure':
         return amenitiesData;
+      case 'Services':
+        return servicesData;
       case 'Hotels and Accommodation':
         return hotelsData;
       case 'Hospitals, Pharmacies and Healthcare':
@@ -1375,8 +1391,6 @@ function Amenities({ searchTerm, searchOption }) {
         return restaurantsCafesData;
       case 'Shopping Centres and Shops':
         return shopsBusinessesData;
-        case 'Servives':
-          return servicesData;
       case 'Religious Establishments':
         return religionData;
       case 'Tourist Locations':

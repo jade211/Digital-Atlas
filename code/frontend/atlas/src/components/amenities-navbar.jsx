@@ -1213,6 +1213,8 @@ function AmenitiesNav() {
     return { features: uniqueData };
   };
 
+  const capitalSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
+
   return (
     <>
     <div className="container mt-4">
@@ -1239,7 +1241,7 @@ function AmenitiesNav() {
           <div className="section-container">
             <div className="amenities-section">
               <div>
-                <h2>Entertainment and Leisure 📠</h2>
+                <h2>Entertainment and Leisure 🎳</h2>
                 {filterDataWithNames(removeDuplicatesByTitle(amenitiesData)).map((result) => (
                   <div className="card" key={result.properties.place_id}>
                     <div className="card-body">
@@ -1250,7 +1252,7 @@ function AmenitiesNav() {
                   </div>
                 ))}
                 {amenitiesData.features && amenitiesData.features.length === 0 && (
-                  <p>No Entertainment/Leisure Amenities Found in {searchTerm}</p>
+                  <p>No Entertainment/Leisure Amenities Found in {capitalSearchTerm}</p>
                 )}
               </div>
             </div>
@@ -1268,14 +1270,14 @@ function AmenitiesNav() {
                   </div>
                 ))}
                 {restaurantsCafesData.features && restaurantsCafesData.features.length === 0 && (
-                  <p>No Restaurant/Cafe Amenities Found in {searchTerm}</p>
+                  <p>No Restaurant/Cafe Amenities Found in {capitalSearchTerm}</p>
                 )}
               </div>
             </div>
 
             <div>
               <div className="amenities-section">
-                <h2>Shopping Centres and Shops🏨</h2>
+                <h2>Shopping Centres and Shops 🏪</h2>
                 {filterDataWithNames(removeDuplicatesByTitle(shopsBusinessesData)).map((result) => (
                   <div className="card" key={result.properties.place_id}>
                     <div className="card-body">
@@ -1286,7 +1288,7 @@ function AmenitiesNav() {
                   </div>
                 ))}
                 {shopsBusinessesData.features && shopsBusinessesData.features.length === 0 && (
-                  <p>No Shopping Centres/Shop Amenities Found in {searchTerm}</p>
+                  <p>No Shopping Centres/Shop Amenities Found in {capitalSearchTerm}</p>
                 )}
               </div>
             </div>
@@ -1304,7 +1306,7 @@ function AmenitiesNav() {
                   </div>
                 ))}
                 {hotelsData.features && hotelsData.features.length === 0 && (
-                  <p>No Hotels/Accommodation Amenities Found in {searchTerm}</p>
+                  <p>No Hotels/Accommodation Amenities Found in {capitalSearchTerm}</p>
                 )}
               </div>
             </div>
@@ -1322,7 +1324,7 @@ function AmenitiesNav() {
                   </div>
                 ))}
                 {tourismData.features && tourismData.features.length === 0 && (
-                  <p>No Tourist Amenities Found in {searchTerm}</p>
+                  <p>No Tourist Amenities Found in {capitalSearchTerm}</p>
                 )}
               </div>
             </div>
@@ -1344,7 +1346,7 @@ function AmenitiesNav() {
                     </div>
                   ))}
                   {servicesData.features && servicesData.features.length === 0 && (
-                    <p>No Service Amenities Found in {searchTerm}</p>
+                    <p>No Service Amenities Found in {capitalSearchTerm}</p>
                   )}
                 </div>
               </div>
@@ -1363,7 +1365,7 @@ function AmenitiesNav() {
                   </div>
                 ))}
                 {healthcareData.features && healthcareData.features.length === 0 && (
-                  <p>No Healthcare Amenities Found in {searchTerm}</p>
+                  <p>No Healthcare Amenities Found in {capitalSearchTerm}</p>
                 )}
               </div>
             </div>
@@ -1401,7 +1403,7 @@ function AmenitiesNav() {
                   </div>
                 ))}
                 {townsData.features && townsData.features.length === 0 && (
-                  <p>No Nearby Towns/Cities Found near {searchTerm}</p>
+                  <p>No Nearby Towns/Cities Found near {capitalSearchTerm}</p>
                 )}
               </div>
             </div>

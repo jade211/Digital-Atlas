@@ -342,6 +342,8 @@ function SchoolsNav() {
     return { features: uniqueData };
   };
 
+  const capitalSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
+
   return (
     <>
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -379,7 +381,7 @@ function SchoolsNav() {
                   </div>
                 ))}
                 {schoolsData.features && schoolsData.features.length === 0 && (
-                  <p>No Schools Found in {searchTerm}</p>
+                  <p>No Schools Found in {capitalSearchTerm}</p>
                 )}
               </div>
             </div>
@@ -387,7 +389,7 @@ function SchoolsNav() {
 
             <div className="section-container flex-grow-1">
               <div className='school-info'>
-                <h2>Colleges/ Universities</h2>
+                <h2>Colleges</h2>
                 {filterDataWithNames(collegeData).map((result) => (
                   <div className="card" key={result.properties.place_id}>
                     <div className="card-body">
@@ -398,7 +400,7 @@ function SchoolsNav() {
                   </div>
                 ))}
                 {collegeData.features && collegeData.features.length === 0 && (
-                  <p>No Colleges Found in {searchTerm}</p>
+                  <p>No Colleges Found in {capitalSearchTerm}</p>
                 )}
               </div>
             </div>
@@ -418,7 +420,7 @@ function SchoolsNav() {
                 </div>
               ))}
               {universityData.features && universityData.features.length === 0 && (
-                  <p>No University Found in {searchTerm}</p>
+                  <p>No University Found in {capitalSearchTerm}</p>
                 )}
             </div>
           </div>

@@ -3543,13 +3543,13 @@ const HouseNav = () => {
             if (!newFormattedValue) {
               setFormattedData('Value not found in data.');
             } else {
-              setFormattedData(`Average Rent Cost: €${newFormattedValue}`);
+              setFormattedData(`€${newFormattedValue}`);
             }
           } else {
-            setFormattedData('County not found in the mapping.');
+            setFormattedData('Area not found in the mapping.');
           }
         } else {
-          setFormattedData(`Average Rent Cost: €${newValue}`);
+          setFormattedData(`€${newValue}`);
         }
       } catch (error) {
         console.error(error);
@@ -3745,7 +3745,7 @@ const HouseNav = () => {
           <div className='col-md-6 d-flex'>
             <div className='section-container flex-grow-1'>
               <div className='house-info'>
-                <h2>Sale Prices</h2>
+                <h2><u>Sale Prices</u></h2>
               {result}
               </div>
             </div>
@@ -3753,13 +3753,15 @@ const HouseNav = () => {
 
           <div className='col-md-6'>
             <div className='section-container flex-grow-1'>
-              <div className='house-info'style={{ font: 'Lobster', fontSize: '27px'}}>
-              <h2>Rent Prices</h2>
+              <div className='house-info'>
+              <h2><u>Rent Prices</u></h2>
               {searchTerm && (
               <div className="mt-3">
-                <h3>Year: 2023</h3>
-                <h3>Area: {searchTerm.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</h3>
-                <pre>{formattedData}</pre>
+                <p>Year: 2023</p>
+                <p>Area: {searchTerm.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</p>
+                <div className="mt-3">
+                  <p>Average Rent Cost: {formattedData}</p>
+                </div>
               </div>
             )}
               </div>

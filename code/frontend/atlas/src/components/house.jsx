@@ -4750,7 +4750,7 @@ const House = ({ searchTerm }) => {
       <h1>Housing and Rent Prices for {capitalSearchTerm}</h1>
       {result}
       <div>
-        <pre>{formattedDataRent}</pre>
+        {formattedDataRent}
       </div>
     </div>
   );

@@ -199,9 +199,9 @@ function Home() {
         <div className="contact-info">
           <p>Contact us: info@digitalatlas.com</p>
           <ul>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/privacy">Privacy Policy</Link></li>
-            <li><Link to="/terms">Terms of Service</Link></li>
+            <li><Link to="/">About</Link></li>
+            <li><Link to="/searcharea">Search</Link></li>
+            <li><Link to="/contact">Contact Us</Link></li>
           </ul>
         </div>
         <div className="copyright">&copy; 2024 Digital Atlas. All rights reserved.</div>

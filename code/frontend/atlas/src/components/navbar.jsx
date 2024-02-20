@@ -323,6 +323,122 @@
 
 
 
+// import React, { useState, useEffect } from 'react';
+// import logo from '../logo.png';
+
+// function Navbar() {
+//   const [isScrollingUp, setIsScrollingUp] = useState(true);
+//   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+
+//   const handleScroll = () => {
+//     const currentScrollPos = window.pageYOffset;
+//     setIsScrollingUp(prevScrollPos > currentScrollPos);
+//     setPrevScrollPos(currentScrollPos);
+//   };
+
+//   useEffect(() => {
+//     window.addEventListener('scroll', handleScroll);
+
+//     return () => {
+//       window.removeEventListener('scroll', handleScroll);
+//     };
+//   }, []);
+
+//   return (
+//     <>
+//       <style>
+//         {`
+//           * {
+//             margin: 0;
+//             padding: 0;
+//             box-sizing: border-box;
+//             font-family: 'Lobster';
+//           }
+//           body {
+//             background-color: #E4E4E1;
+//             background-image: radial-gradient(at top center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%), linear-gradient(to top, rgba(255,255,255,0.1) 0%, rgba(143,152,157,0.60) 100%);
+//  	          background-blend-mode: normal, multiply;
+//             margin: 0;
+//             padding: 0;
+//             color: #000;
+//           }
+//           nav {
+//             position: fixed;
+//             top: 0;
+//             left: 0;
+//             width: 100%;
+//             background-color: #000;
+//             padding: 10px 20px;
+//             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+//             z-index: 1000;
+//             border-radius: 0;
+//             // border-radius: 0 0 20px 20px;
+//           }
+//           nav a {
+//             font-size: 2rem;
+//             font-weight: 400;
+//             color: #fff;
+//             text-decoration: none;
+//             // margin-right: 15px;
+//             padding: 4px 15px;
+//             transition: color 0.3s ease;
+//           }
+//           nav a:hover {
+//             color: #8ef;
+//           }
+//           nav a span {
+//             position: absolute;
+//             top: 0;
+//             left: 0;
+//             width: 100%;
+//             height: 100%;
+//             z-index: -1;
+//             border-bottom: 2px solid #8ef;
+//             border-radius: 15px;
+//             transform: scale(0) translateY(50px);
+//             opacity: 0;
+//             transition: transform 0.5s, opacity 0.5s;
+//           }
+//           nav a:hover span {
+//             transform: scale(1) translateY(0);
+//             opacity: 1;
+//           }
+//           .logo {
+//             width: 100%;
+//             height: 60px;
+//             margin-right: 10px;
+//           }
+//         `}
+//       </style>
+//       <nav className="navbar">
+//         <a href="/"><img src={logo} alt="Logo" className="logo" /></a>
+//         <a href="searcharea">Search<span></span></a>
+//         <a href="/amenitiesnav">Amenities<span></span></a>
+//         <a href="/crimenav">Crime<span></span></a>
+//         <a href="/transportnav">Transport<span></span></a>
+//         <a href="/schoolsnav">Education<span></span></a>
+//         <a href="/housenav">Housing<span></span></a>
+//         <a href="/contact">Contact<span></span></a>
+//       </nav>
+//     </>
+//   );
+// }
+
+// export default Navbar;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import logo from '../logo.png';
 
@@ -346,69 +462,6 @@ function Navbar() {
 
   return (
     <>
-      <style>
-        {`
-          * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Lobster';
-          }
-          body {
-            background-color: #E4E4E1;
-            background-image: radial-gradient(at top center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%), linear-gradient(to top, rgba(255,255,255,0.1) 0%, rgba(143,152,157,0.60) 100%);
- 	          background-blend-mode: normal, multiply;
-            margin: 0;
-            padding: 0;
-            color: #000;
-          }
-          nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #000;
-            padding: 10px 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            border-radius: 0 0 20px 20px;
-          }
-          nav a {
-            font-size: 2rem;
-            font-weight: 400;
-            color: #fff;
-            text-decoration: none;
-            // margin-right: 15px;
-            padding: 4px 15px;
-            transition: color 0.3s ease;
-          }
-          nav a:hover {
-            color: #8ef;
-          }
-          nav a span {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            border-bottom: 2px solid #8ef;
-            border-radius: 15px;
-            transform: scale(0) translateY(50px);
-            opacity: 0;
-            transition: transform 0.5s, opacity 0.5s;
-          }
-          nav a:hover span {
-            transform: scale(1) translateY(0);
-            opacity: 1;
-          }
-          .logo {
-            width: 100%;
-            height: 60px;
-            margin-right: 10px;
-          }
-        `}
-      </style>
       <nav className="navbar">
         <a href="/"><img src={logo} alt="Logo" className="logo" /></a>
         <a href="searcharea">Search<span></span></a>

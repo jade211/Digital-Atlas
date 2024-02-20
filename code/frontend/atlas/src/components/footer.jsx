@@ -24,15 +24,12 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Home from './home';
-import AreaSearch from './areasearch';
-import ContactPage from './contact';
 
 function Footer() {
   return (
     <footer style={{ width: '100%', backgroundColor: '#333', color: '#fff', padding: '21px' }}>
       <div className="contact-info">
-        <p>Contact us: info@digitalatlas.com</p>
+        <p>Contact us: digitalatlas211@gmail.com</p>
         <ul style={{ listStyleType: 'none', padding: 0 }}>
           <li><Link to="/" style={{ color: '#fff' }}>About</Link></li>
           <li><Link to="/searcharea" style={{ color: '#fff' }}>Search</Link></li>

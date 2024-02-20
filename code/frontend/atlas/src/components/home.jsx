@@ -208,7 +208,7 @@ function Home() {
 
       <footer>
         <div className="contact-info">
-          <p>Contact us: info@digitalatlas.com</p>
+          <p>Contact us: digitalatlas211@gmail.com</p>
           <ul>
             <li><Link to="/">About</Link></li>
             <li><Link to="/searcharea">Search</Link></li>

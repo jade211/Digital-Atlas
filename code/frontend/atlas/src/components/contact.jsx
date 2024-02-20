@@ -217,7 +217,7 @@ function ContactPage() {
                         <div className="contact-info">
                             <div className="mb-3">
                                 <h4>Email:</h4>
-                                <p>info@digitalatlas.com</p>
+                                <p>digitalatlas211@gmail.com</p>
                             </div>
                             <div className="mb-3">
                                 <h4>Phone:</h4>

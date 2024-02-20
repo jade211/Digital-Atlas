@@ -149,9 +149,10 @@ import { Link, useNavigate } from 'react-router-dom';
 function Home() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchOption, setSearchOption] = useState('town');
 
   const handleSearch = () => {
-    navigate(`/searcharea?query=${encodeURIComponent(searchTerm)}`);
+    navigate(`/searcharea?query=${encodeURIComponent(searchTerm)}&option=${encodeURIComponent(searchOption)}`);
   };
 
   return (
@@ -184,7 +185,17 @@ function Home() {
             <h2>Ready to Get Started?</h2>
             <p>Enter your area of interest in the search bar below to begin exploring!</p>
             <div className="search-bar">
-              <input type="text" placeholder="Enter your area of interest" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+              <input 
+              type="text" 
+              placeholder="Enter your area of interest" 
+              value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+              <select
+                value={searchOption}
+                onChange={(e) => setSearchOption(e.target.value)}
+              >
+                <option value="city">Town</option>
+                <option value="state">County</option>
+              </select>
               <button onClick={handleSearch}>Search</button>
             </div>
           </section>

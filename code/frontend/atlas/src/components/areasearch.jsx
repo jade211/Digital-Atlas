@@ -1161,10 +1161,10 @@ function AreaSearch() {
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const query = searchParams.get('query');
+    const option = searchParams.get('option') || 'town'; 
     if (query) {
-      // If a search query parameter is present in the URL, set it as the search term
       setSearchTerm(query);
-      // Trigger the search automatically
+      setSearchOption(option);
       handleSearch();
     }
   }, [location.search, searchButtonClicked]);

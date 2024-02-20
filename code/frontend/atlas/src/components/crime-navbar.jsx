@@ -1103,10 +1103,17 @@ function CrimeNav() {
         <div className="container result-container">
           <div style={{ display: 'flex' }}></div>
           <div className="d-flex">
-            <div style={{ flex: 1 }}>
-              <h2 className="mb-3">10 Most Frequent Crimes in {gardaStationInput} (2023)</h2>
-              <pre style={{ fontSize: '20px', lineHeight: '2.0' }}>{formatCrimeData()}</pre>
-            </div>
+          <div style={{ flex: 1 }}>
+            <h2 className="mb-3">10 Most Frequent Crimes in {gardaStationInput} (2023)</h2>
+            <p style={{ fontSize: '20px', lineHeight: '2.0' }}>
+              {formatCrimeData().split('\n').map((line, index) => (
+                <React.Fragment key={index}>
+                  {line}
+                  <br />
+                </React.Fragment>
+              ))}
+            </p>
+          </div>
             <div>
               <button
                 onClick={handleShowMoreClick}

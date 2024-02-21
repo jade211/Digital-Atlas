@@ -2465,17 +2465,40 @@ import { Chart } from 'chart.js/auto';
     const capitalSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
   
     const formatCrimeData = () => {
-      if (!data) return <h2>Crime Data</h2>;
-  
+      if (!data) return '';
+    
       const crimeData = data.result.value;
-  
-      const formattedCrimeData = crimeData.map((value, index) => {
+      const sortedCrimeData = crimeData.slice().sort((a, b) => b - a);
+      const totalCrimes = crimeData.reduce((total, value) => total + value, 0);
+      const crimesToDisplay = sortedCrimeData.slice(0, 5);
+    
+      let formattedCrimeData = `<div style="margin-top: 20px;">`;
+      formattedCrimeData += `<h4>Total Crimes: ${totalCrimes}</h4>`;
+      formattedCrimeData += `<table style="width: 90%; border-collapse: collapse; margin-top: 20px;">
+                                  <thead>
+                                    <tr>
+                                      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Crime</th>
+                                      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Value</th>
+                                      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Percentage out of Total Crimes</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>`;
+    
+      formattedCrimeData += crimesToDisplay.map((value, index) => {
         const crimeTypeCode = Object.keys(data.result.dimension['C02480V03003'].category.label)[index];
         const crimeTypeLabel = crimeTypeLabels[crimeTypeCode];
-        return `${crimeTypeLabel}: ${value}`;
-      });
-  
-      return formattedCrimeData.join('\n');
+        const percentage = ((value / totalCrimes) * 100).toFixed(2);
+    
+        return `<tr key=${index}>
+                  <td style="border: 1px solid #ddd; padding: 5px; text-align: left;">${crimeTypeLabel}</td>
+                  <td style="border: 1px solid #ddd; padding: 5px; text-align: left;">${value}</td>
+                  <td style="border: 1px solid #ddd; padding: 5px; text-align: left;">${percentage}%</td>
+                </tr>`;
+      }).join('');
+    
+      formattedCrimeData += `</tbody></table>`;
+      formattedCrimeData += `</div>`;
+      return formattedCrimeData;
     };
   
     const generateApiUrl = (id1, id2, categoryIndex1, categoryIndex2) => {
@@ -2544,7 +2567,13 @@ import { Chart } from 'chart.js/auto';
         <h1>Crime Rate for {capitalSearchTerm}</h1>
         {data && (
           <div>
-            <Bar data={generateChartData()} options={{ maintainAspectRatio: false }} />
+            <div style={{ flex: 1 }}>
+              <h3 className="mb-3">5 Most Frequent Crimes in {capitalSearchTerm} (2023)</h3>
+              <div dangerouslySetInnerHTML={{ __html: formatCrimeData() }} />
+            </div>
+            <div>
+              <Bar data={generateChartData()} options={{ maintainAspectRatio: false }} />
+            </div>
           </div>
         )}
       </div>

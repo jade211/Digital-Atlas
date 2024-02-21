@@ -1234,19 +1234,19 @@ function Amenities({ searchTerm, searchOption }) {
 
             const amenitiesApiUrl = `https://api.geoapify.com/v2/places?categories=education.library,entertainment,leisure,pet.dog_park,adult,beach,building.entertainment,sport&filter=place:${encodeURIComponent(
               placeId
-            )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+            )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
             const hotelsApiUrl = `https://api.geoapify.com/v2/places?categories=accommodation&filter=place:${encodeURIComponent(
               placeId
-            )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+            )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
             const healthcareApiUrl = `https://api.geoapify.com/v2/places?categories=healthcare,building.healthcare&filter=place:${encodeURIComponent(
               placeId
-            )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+            )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
             const restaurantsCafesApiUrl = `https://api.geoapify.com/v2/places?categories=catering&filter=place:${encodeURIComponent(
               placeId
-            )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+            )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
             const shopsBusinessesApiUrl = `https://api.geoapify.com/v2/places?categories=commercial&filter=place:${encodeURIComponent(
               placeId
@@ -1254,7 +1254,7 @@ function Amenities({ searchTerm, searchOption }) {
 
             const religionApiUrl = `https://api.geoapify.com/v2/places?categories=religion&filter=place:${encodeURIComponent(
               placeId
-            )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+            )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
             const tourismApiUrl = `https://api.geoapify.com/v2/places?categories=heritage,tourism.attraction.artwork,tourism.attraction.viewpoint,tourism.attraction.fountain,tourism.attraction.clock,tourism.sights.place_of_worship,tourism.sights.place_of_worship.church,tourism.sights.place_of_worship.chapel,tourism.sights.place_of_worship.cathedral,tourism.sights.place_of_worship.mosque,tourism.sights.place_of_worship.synagogue,tourism.sights.place_of_worship.temple,tourism.sights.place_of_worship.shrine,tourism.sights.monastery,tourism.sights.city_hall,tourism.sights.conference_centre,tourism.sights.lighthouse,tourism.sights.windmill,tourism.sights.tower,tourism.sights.battlefield,tourism.sights.fort,tourism.sights.castle,tourism.sights.ruines,tourism.sights.archaeological_site,tourism.sights.city_gate,tourism.sights.bridge,tourism.sights.memorial,tourism.sights.memorial.aircraft,tourism.sights.memorial.locomotive,tourism.sights.memorial.railway_car,tourism.sights.memorial.ship,tourism.sights.memorial.tank,tourism.sights.memorial.tomb,tourism.sights.memorial.monument,tourism.sights.memorial.wayside_cross,tourism.sights.memorial.boundary_stone,tourism.sights.memorial.pillory,tourism.sights.memorial.milestone&filter=place:${encodeURIComponent(
               placeId
@@ -1262,7 +1262,7 @@ function Amenities({ searchTerm, searchOption }) {
 
             const townsApiUrl = `https://api.geoapify.com/v2/places?categories=populated_place.village,populated_place.hamlet,populated_place.neighbourhood,populated_place.city,populated_place.suburb,populated_place.town&filter=place:${encodeURIComponent(
               placeId
-            )}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+            )}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
             
 
 

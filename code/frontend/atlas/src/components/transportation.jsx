@@ -883,8 +883,8 @@ function Transport({ searchTerm, searchOption }) {
         const placeId = geocodeData.results[0]?.place_id;
 
         if (placeId) {
-          const busUrl = `https://api.geoapify.com/v2/places?categories=public_transport.bus&filter=place:${encodeURIComponent(placeId)}&limit=5&apiKey=${API_KEY}`;
-          const trainUrl = `https://api.geoapify.com/v2/places?categories=public_transport.train&filter=place:${encodeURIComponent(placeId)}&limit=5&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
+          const busUrl = `https://api.geoapify.com/v2/places?categories=public_transport.bus&filter=place:${encodeURIComponent(placeId)}&limit=10&apiKey=${API_KEY}`;
+          const trainUrl = `https://api.geoapify.com/v2/places?categories=public_transport.train&filter=place:${encodeURIComponent(placeId)}&limit=10&apiKey=a777d7b98c864c52ac9a1081e45d8e51`;
 
           const [busResponse, trainResponse] = await Promise.all([fetch(busUrl), fetch(trainUrl)]);
           const [busesData, trainData] = await Promise.all([busResponse.json(), trainResponse.json()]);

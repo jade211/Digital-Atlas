@@ -989,21 +989,40 @@ function CrimeNav() {
 
   const formatCrimeData = () => {
     if (!data) return '';
-
+  
     const crimeData = data.result.value;
     const sortedCrimeData = crimeData.slice().sort((a, b) => b - a);
     const totalCrimes = crimeData.reduce((total, value) => total + value, 0);
     const numberOfCrimesToDisplay = showMore ? sortedCrimeData.length : 10;
     const crimesToDisplay = sortedCrimeData.slice(0, numberOfCrimesToDisplay);
-
-    const formattedCrimeData = crimesToDisplay.map((value, index) => {
+  
+    let formattedCrimeData = `<div style="margin-top: 20px;">`;
+    formattedCrimeData += `<h4>Total Crimes: ${totalCrimes}</h4>`;
+    formattedCrimeData += `<table style="width: 90%; border-collapse: collapse; margin-top: 20px;">
+                                <thead>
+                                  <tr>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Crime</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Value</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Percentage out of Total Crimes</th>
+                                  </tr>
+                                </thead>
+                                <tbody>`;
+  
+    formattedCrimeData += crimesToDisplay.map((value, index) => {
       const crimeTypeCode = Object.keys(data.result.dimension['C02480V03003'].category.label)[index];
       const crimeTypeLabel = crimeTypeLabels[crimeTypeCode];
       const percentage = ((value / totalCrimes) * 100).toFixed(2);
-      return `${crimeTypeLabel}: ${value} (${percentage}% of the total crimes committed)`;
-    });
-
-    return formattedCrimeData.join('\n');
+  
+      return `<tr key=${index}>
+                <td style="border: 1px solid #ddd; padding: 5px; text-align: left;">${crimeTypeLabel}</td>
+                <td style="border: 1px solid #ddd; padding: 5px; text-align: left;">${value}</td>
+                <td style="border: 1px solid #ddd; padding: 5px; text-align: left;">${percentage}%</td>
+              </tr>`;
+    }).join('');
+  
+    formattedCrimeData += `</tbody></table>`;
+    formattedCrimeData += `</div>`;
+    return formattedCrimeData;
   };
 
   const handleShowMoreClick = () => {
@@ -1047,6 +1066,8 @@ function CrimeNav() {
 
     return apiUrl;
   };
+
+  const capitalSearchTerm = gardaStationInput.charAt(0).toUpperCase() + gardaStationInput.slice(1);
 
   const generateChartData = () => {
     if (!data) return null;
@@ -1104,28 +1125,22 @@ function CrimeNav() {
           <div style={{ display: 'flex' }}></div>
           <div className="d-flex">
           <div style={{ flex: 1 }}>
-            <h2 className="mb-3">10 Most Frequent Crimes in {gardaStationInput} (2023)</h2>
-            <p style={{ fontSize: '20px', lineHeight: '2.0' }}>
-              {formatCrimeData().split('\n').map((line, index) => (
-                <React.Fragment key={index}>
-                  {line}
-                  <br />
-                </React.Fragment>
-              ))}
-            </p>
+            <h2 className="mb-3">10 Most Frequent Crimes in {capitalSearchTerm} (2023)</h2>
+            <div dangerouslySetInnerHTML={{ __html: formatCrimeData() }} />
           </div>
             <div>
               <button
                 onClick={handleShowMoreClick}
-                className="btn btn-primary btn-lg" // Larger button
-                style={{ transition: 'background-color 0.3s' }} // Smooth hover transition
-                onMouseEnter={(e) => e.target.style.backgroundColor = '#0056b3'} // Change background on hover
-                onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(54,162,235,1)'} // Revert background on leave
+                className="btn btn-primary btn-lg"
+                style={{ transition: 'background-color 0.3s' }}
+                onMouseEnter={(e) => e.target.style.backgroundColor = '#0056b3'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(54,162,235,1)'}
               >
                 {showMore ? 'Show Less' : 'Show More'}
               </button>
             </div>
           </div>
+          <br></br>
           <div className="chart-container" style={{ flexGrow: 1 }}>
             <Bar data={generateChartData()} options={{ maintainAspectRatio: false }} />
           </div>

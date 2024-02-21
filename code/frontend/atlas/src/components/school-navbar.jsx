@@ -307,9 +307,9 @@ function SchoolsNav() {
         const placeId = geocodeData.results[0]?.place_id;
 
         if (placeId) {
-          const schoolUrl = `https://api.geoapify.com/v2/places?categories=education.school&filter=place:${encodeURIComponent(placeId)}&limit=5&apiKey=${API_KEY}`;
-          const collegeUrl = `https://api.geoapify.com/v2/places?categories=education.college,education.university&filter=place:${encodeURIComponent(placeId)}&limit=5&apiKey=${API_KEY}`;
-          const universityUrl = `https://api.geoapify.com/v2/places?categories=education.university&filter=place:${encodeURIComponent(placeId)}&limit=5&apiKey=${API_KEY}`;
+          const schoolUrl = `https://api.geoapify.com/v2/places?categories=education.school&filter=place:${encodeURIComponent(placeId)}&limit=20&apiKey=${API_KEY}`;
+          const collegeUrl = `https://api.geoapify.com/v2/places?categories=education.college,education.university&filter=place:${encodeURIComponent(placeId)}&limit=20&apiKey=${API_KEY}`;
+          const universityUrl = `https://api.geoapify.com/v2/places?categories=education.university&filter=place:${encodeURIComponent(placeId)}&limit=20&apiKey=${API_KEY}`;
           
           const [schoolResponse, collegeResponse, universityResponse] = await Promise.all([fetch(schoolUrl), fetch(collegeUrl), fetch(universityUrl)]);
             const [schoolsData, collegeData, universityData] = await Promise.all([schoolResponse.json(), collegeResponse.json(), universityResponse.json()]);

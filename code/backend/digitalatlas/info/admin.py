@@ -5,11 +5,6 @@ from .models import *
 
 # admin.site.register(Schools)
 
-admin.site.register(County)
-admin.site.register(Primary)
-admin.site.register(Post_Primary)
-admin.site.register(Special)
 admin.site.register(Transport)
 admin.site.register(House)
 admin.site.register(Extra_Transport)
-admin.site.register(Contact)

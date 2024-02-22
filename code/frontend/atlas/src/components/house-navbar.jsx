@@ -684,7 +684,7 @@ const HouseNav = () => {
               <h2><u>Rent Prices</u></h2>
               {searchTerm && (
               <div className="mt-3">
-                <p>Year: 2023</p>
+                <p>Year: 2022</p>
                 <p>Area: {searchTerm.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</p>
                 <div className="mt-3">
                   <p>Average Rent Cost: {formattedData}</p>

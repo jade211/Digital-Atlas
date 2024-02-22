@@ -1,8 +1,6 @@
 from django.db import models
 from django.core.mail import send_mail
 
-# Create your models here.
-
 class Transport(models.Model):
     id = models.AutoField(primary_key=True)
     bus = models.CharField(max_length=10)

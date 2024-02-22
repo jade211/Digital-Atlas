@@ -1,5 +1,3 @@
-# Create your tests here.
-
 import os
 from django.conf import settings
 

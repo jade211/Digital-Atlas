@@ -279,6 +279,7 @@ function CrimeNav() {
           </label>
           <div className="input-group">
             <input
+              id="searchTerm"
               type="text"
               className="form-control"
               value={gardaStationInput}

@@ -86,7 +86,7 @@ function TransportNav() {
     <div className="container mt-4 ">
       <div className="mb-3"></div>
         <label htmlFor="searchTerm" className="form-label">
-          Search by Locality or Country:
+          Search by Locality or County:
         </label>
         <div className="input-group">
             <input

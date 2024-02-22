@@ -39,7 +39,7 @@ function AreaSearch() {
     });
     setMap(mapInstance);
 
-    return () => mapInstance.remove();
+    // return () => mapInstance.remove();
   }, []);
 
   const handleSearch = () => {

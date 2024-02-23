@@ -44,14 +44,17 @@ Digital Atlas is a user-centric website that offers local statistical insights a
 
 
 ### Glossary
-- **CSO**: Central Statistics Office
-- **GTFS**: General Transit Feed Specification
-- **API**: Application Programming Interface: Allows different software systems to communicate with each other.
-- **MSW**: Mock Service Worker: A library that helps simulate API responses during testing.
-- **Backend**: Refers to the server-side of the application, which processes user requests.
-- **Frontend**: The user interface and user experience part of the application.
-- **Geocoding**: The process of converting location-based information, such as addresses or place names, into geographic coordinates (latitude and longitude).
-- **Component**: A modular and self-contained unit of the system responsible for specific functionality.
+| Term      | Definition                                                                                         |
+|-----------|---------------------------------------------------------------------------------------------------|
+| CSO       | Central Statistics Office                                                                         |
+| GTFS      | General Transit Feed Specification                                                               |
+| API       | Application Programming Interface: Allows different software systems to communicate with each other |
+| MSW       | Mock Service Worker: A library that helps simulate API responses during testing                  |
+| Backend   | Refers to the server-side of the application, which processes user requests                      |
+| Frontend  | The user interface and user experience part of the application                                    |
+| Geocoding | The process of converting location-based information, such as addresses or place names, into geographic coordinates (latitude and longitude) |
+| Component | A modular and self-contained unit of the system responsible for specific functionality             |
+
 
 
 ## System Architecture
@@ -320,42 +323,30 @@ To test the backend files, you can navigate to the backend directory and run the
 
 ### Dependencies List and Version
 
-**Python:**
-- Python 3.8.10
+| Dependency                   | Version    |
+|------------------------------|------------|
+| Python                       | 3.8.10     |
+| NodeJS                       | v19.4.0    |
+| Npm                          | 9.2.0      |
+| Pip                          | 20.0.2     |
+| Django                       | 4.1.6      |
+| Djangorestframework          | 3.14.0     |
+| django-cors-headers          | 3.14.0     |
+| @testing-library/user-event | ^13.5.0    |
+| bootstrap                    | ^5.3.2     |
+| chart.js                     | ^4.4.1     |
+| mapbox-gl                    | ^3.1.2     |
+| react                        | "^18.2.0"  |
+| react-chartjs-2              | "^5.2.0"   |
+| react-dom                    | "^18.2.0"  |
+| react-icons                  | "^5.0.1"   |
+| react-router-dom             | ^6.22.0    |
+| react-scripts                | 5.0.1      |
+| web-vitals                   | ^2.1.4     |
+| @testing-library/jest-dom   | ^6.4.2     |
+| @testing-library/react       | ^14.2.1    |
+| msw                          | ^2.2.1     |
 
-**NodeJS:**
-- v19.4.0
-
-**Npm:**
-- 9.2.0
-
-**Pip:**
-- pip 20.0.2
-
-**Django:**
-- 4.1.6
-
-**Djangorestframework:**
-- 3.14.0
-
-**django-cors-headers:**
-- 3.14.0
-
-**Other Frontend Dependencies:**
-- @testing-library/user-event": ^13.5.0
-- bootstrap: ^5.3.2
-- chart.js: ^4.4.1
-- mapbox-gl: ^3.1.2
-- react: "^18.2.0
-- react-chartjs-2: "^5.2.0
-- react-dom: "^18.2.0
-- react-icons: "^5.0.1
-- react-router-dom: ^6.22.0
-- react-scripts": 5.0.1
-- web-vitals: ^2.1.4
-- @testing-library/jest-dom: ^6.4.2
-- @testing-library/react: ^14.2.1
-- msw: ^2.2.1
 
 ### Dependency Commands Ran During the Process
 

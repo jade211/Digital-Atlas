@@ -68,17 +68,21 @@ This section offers a high level overview of how the major components of Digital
 * Geocode API - Geoapify API
 * Places API - Geoapify API
 * Mapbox Geocoding API - Mapbox
+
 **Databases:** Our backend has utilised Django to store information relevant to statistics such as the transport information and housing prices. The databases we have taken this information from include:
-* HPA02 Residential Dwelling Property Transactions - Central Statistics Office
-* Bus Eireann - GTFS Transport For Ireland Public Transport Information
-* Dublin Bus - GTFS Transport For Ireland Public Transport Information
+  * HPA02 Residential Dwelling Property Transactions - Central Statistics Office
+  * Bus Eireann - GTFS Transport For Ireland Public Transport Information
+  * Dublin Bus - GTFS Transport For Ireland Public Transport Information
 
 
 #### Frontend
 
 **User Interface:** Digital Atlas’s frontend is responsible for providing the main interactive user interface. This includes the various web pages (such as the homepage, search page, and different statistics pages) as well as an interactive map for seamless user interactions.
+
 **Navigation Bar:** The navigation bar offers easy access to different sections of the website, including the homepage and the contact page, as well as a link to each separate component relating to a particular feature. A user can click these statistics individually to further search an area of interest. Each statistic component is equipped with a dedicated search bar for specific queries.
+
 **Main Search Functionality:** Users first input a location. After the search button is clicked, this triggers the setting of the search term and the frontend components of each feature component (school, transport, amenities, crime and housing) and the data for that area is returned and interactable - providing real-time, relevant information for that area.
+
 **User Feedback Section:** Enables users to provide feedback and insights on specific areas, fostering a sense of community engagement
 
 
@@ -255,21 +259,21 @@ Open your terminal and run the following command to clone the repository from th
 
 Install the required dependencies for backend functionality.
 
-``` cd DigitalAtlas/2024-ca326-jhudson-digitalatlas/code/backend/digitalatlas
-pip install -r requirements.txt ```
+```cd DigitalAtlas/2024-ca326-jhudson-digitalatlas/code/backend/digitalatlas```
+```pip install -r requirements.txt```
 
 If there are difficulties downloading from the requirements.txt file, these are the following dependencies needed for the backend.
-``` pip install djangorestframework
-pip install django-cors-headers
-pip install pytest-django```
+``` pip install djangorestframework```
+```pip install django-cors-headers```
+```pip install pytest-django```
 
 
 
 ** Step 3: Make Migrations **
 Navigate to the backend section of the folder and apply migrations to set up the backend database
-```cd DigitalAtlas/2024-ca326-jhudson-digitalatlas/code/backend/digitalatlas
-python 3 manage.py makemigrations
-python3 manage.py migrate```
+```cd DigitalAtlas/2024-ca326-jhudson-digitalatlas/code/backend/digitalatlas```
+```python 3 manage.py makemigrations```
+```python3 manage.py migrate```
 
 
 ** Step 4: Run the Django Server **
@@ -279,8 +283,8 @@ Start the Django development server:
 
 ** Step 5: Installing Dependencies (Frontend) **
 Navigate into the repository through the following commands and run npm install to automatically download the Digital Atlas dependencies.
-``` cd DigitalAtlas/2024-ca326-jhudson-digitalatlas/code/frontend/atlas
-npm install```
+``` cd DigitalAtlas/2024-ca326-jhudson-digitalatlas/code/frontend/atlas```
+```npm install```
 
 
 ** Step 6: Run the React Server **
@@ -296,8 +300,8 @@ Open a web browser (such as Chrome) and type in http://localhost:3000 to view th
 
 Open a web browser (such as Chrome) and type in http://127.0.0.1:8000 to view the contents of the backend databases
 You can also create an admin account to modify these databases by navigating back to the backend directory and running the following commands:
-``` cd DigitalAtlas/2024-ca326-jhudson-digitalatlas/code/backend/digitalatlas
-python3 manage.py createsuperuser ```
+``` cd DigitalAtlas/2024-ca326-jhudson-digitalatlas/code/backend/digitalatlas```
+```python3 manage.py createsuperuser ```
 
 There is also a premade admin login:
 Username: digitalatlas
@@ -307,11 +311,11 @@ Password: project@2024
 **Step 9: Testing**
 
 To test the frontend components, you can navigate to the frontend directory and run the following command:
-``` cd DigitalAtlas/2024-ca326-jhudson-digitalatlas/code/frontend/atlas
-npm test ```
+``` cd DigitalAtlas/2024-ca326-jhudson-digitalatlas/code/frontend/atlas```
+```npm test ```
 To test the backend files, you can navigate to the backend directory and run the following command:
-``` cd DigitalAtlas/2024-ca326-jhudson-digitalatlas/code/backend/digitalatlas/info
-pytest tests.py ```
+``` cd DigitalAtlas/2024-ca326-jhudson-digitalatlas/code/backend/digitalatlas/info```
+```pytest tests.py ```
 
 
 ### Dependencies List and Version

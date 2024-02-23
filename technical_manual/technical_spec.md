@@ -269,30 +269,30 @@ If there are difficulties downloading from the requirements.txt file, these are 
 
 
 
-** Step 3: Make Migrations **
+**Step 3: Make Migrations**
 Navigate to the backend section of the folder and apply migrations to set up the backend database
 ```cd DigitalAtlas/2024-ca326-jhudson-digitalatlas/code/backend/digitalatlas```
 ```python 3 manage.py makemigrations```
 ```python3 manage.py migrate```
 
 
-** Step 4: Run the Django Server **
+**Step 4: Run the Django Server**
 Start the Django development server:
 ```python manage.py runserver```
 
 
-** Step 5: Installing Dependencies (Frontend) **
+**Step 5: Installing Dependencies (Frontend)**
 Navigate into the repository through the following commands and run npm install to automatically download the Digital Atlas dependencies.
 ``` cd DigitalAtlas/2024-ca326-jhudson-digitalatlas/code/frontend/atlas```
 ```npm install```
 
 
-** Step 6: Run the React Server **
+**Step 6: Run the React Server**
 Start the react development server
 ```npm start```
 
 
-**Step 7: Access the website **
+**Step 7: Access the website**
 
 Open a web browser (such as Chrome) and type in http://localhost:3000 to view the contents of the website.
 

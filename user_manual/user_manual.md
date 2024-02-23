@@ -45,13 +45,16 @@ Jade Hudson and Sruthi Santhosh
 Welcome to the user manual for Digital Atlas! Our website is designed to provide users with comprehensive data and analysis on specific areas of Ireland. Regardless of the reason for wanting to know about local statistics, buying a property, starting a business, or simply being inquisitive, Digital Atlas provides you with the information you need to decide what to do next.
 
 ## 1.2 Glossary
-- **CSO**: Central Statistics Office
-- **GTFS**: General Transit Feed Specification
-- **API**: Application Programming Interface - Allows different software systems to communicate with each other.
-- **Backend**: Refers to the server-side of the application, which processes user requests.
-- **Frontend**: The user interface and user experience part of the application.
-- **Geocoding**: The process of converting location-based information, such as addresses or place names, into geographic coordinates (latitude and longitude).
-- **Component**: A modular and self-contained unit of the system responsible for specific functionality.
+| Term      | Definition                                                                                     |
+|-----------|-----------------------------------------------------------------------------------------------|
+| CSO       | Central Statistics Office                                                                     |
+| GTFS      | General Transit Feed Specification                                                           |
+| API       | Application Programming Interface: Allows different software systems to communicate with each other |
+| Backend   | Refers to the server-side of the application, which processes user requests                  |
+| Frontend  | The user interface and user experience part of the application                                |
+| Geocoding | The process of converting location-based information, such as addresses or place names, into geographic coordinates (latitude and longitude) |
+| Component | A modular and self-contained unit of the system responsible for specific functionality         |
+
 
 ## 1.3 Purpose
 Beyond compiling data, Digital Atlas aims to arm users with the knowledge they need to successfully negotiate the challenges involved in selecting the ideal location inside Ireland. Digital Atlas strives to make informed decisions easier by combining a variety of data, such as housing costs, school information, transportation options, crime data, and local amenities, into a single, user-friendly platform. Our goal is to give users the resources they need to thoroughly investigate areas of interest. This will enable them to weigh important aspects like cost, safety, accessibility, and lifestyle amenities, enabling them to make well-informed decisions that suit their unique needs and preferences. Whether you're an investor looking to buy a property, a homeowner looking to expand, or just someone who is interested in learning more about the varied aspects of different parts of Ireland, Digital Atlas is dedicated to assisting you in making informed and confident decisions along the way.
@@ -124,14 +127,14 @@ With its simple and easy-to-use layout, Digital Atlas’s homepage makes it simp
 The header section situated at the top of the homepage includes:
 
 - The Digital Atlas logo, which serves as a direct link to the homepage.
-- The navigation menu, containing various links to different sections of the website such as “Search”, “Amenities”, “Crime”, “Transport”, “Education”, “Housing”, and “Contact”.
+- The navigation menu, containing various links to different sections of the website such as “Search”, “Amenities”, “Crime”, “Transport”, “Education”, “Housing”, and “Contact” 
 
 ### 3.2 Hero Section
 
 The hero section, which appears beneath the header, includes the following:
 
 - A visually appealing banner image that depicts different locations in Ireland.
-- Brief but interesting welcome paragraph for users to Digital Atlas that emphasizes the goal of the website.
+- Brief but interesting welcome paragraph for users to Digital Atlas that emphasises the goal of the website.
 
 ### 3.3 Search Bar
 
@@ -146,11 +149,11 @@ Surrounding the search bar are sections of informational content, including:
 
 ### 3.5 Footer
 
-The footer area, located at the bottom of the homepage contains the following links; quick access to key pages such as the homepage, search page and contact us page. It also contains copyright information.
+The footer area, located at the bottom of the homepage contains the following links; quick access to key pages such as the homepage, searchpage and contact us page. It also contains copyright information.
 
 ### 3.6 Visual Design
 
-The homepage has a visually appealing and unified design that incorporates artwork, typefaces, and colors that are consistent with Digital Atlas's branding.
+The homepage has a visually appealing and unified design that incorporates artwork, typefaces, and colours that are consistent with Digital Atlas's branding.
 
 
 # 4. Searching for Area Information
@@ -169,7 +172,8 @@ Users only need to click the search bar to activate it and start exploring. Afte
 
 It is important to note that the Digital Atlas search feature is directly linked to the homepage search bar. Users are automatically routed to the specialised search page after entering their area of interest and starting a search, where they may examine detailed results specific to their request. Users will be able to easily obtain comprehensive information about the locations they have selected thanks to this smooth transition, which guarantees a seamless transition from exploration to analysis. 
 
-By integrating a user-friendly search bar directly into the homepage and seamlessly connecting it to the search functionality of Digital Atlas, we aim to provide users with a streamlined and intuitive browsing experience. Whether you're researching potential neighborhoods, evaluating housing markets, or planning your next business venture, Digital Atlas is here to empower you every step of the way.
+By integrating a user-friendly search bar directly into the homepage and seamlessly connecting it to the search functionality of Digital Atlas, we aim to provide users with a streamlined and intuitive browsing experience. Whether you're researching potential neighbourhoods, evaluating housing markets, or planning your next business venture, Digital Atlas is here to empower you every step of the way.
+
 
 ## 4.2 Submitting Search Query
 
@@ -190,7 +194,7 @@ Users can explore the several aspects that comprise the selected locality and ge
 
 ## 5.1 Overview
 
-The Digital Atlas area details page is an extensive information resource that provides users with a thorough understanding of the designated area in Ireland. Here, users get access to a wide range of data covering many areas that are essential for gaining a thorough picture of the locality. The area details page is made to give users a comprehensive overview of the area they have selected, covering everything from crime rates to school information, transport to amenities, housing costs, and rent costs.
+The Digital Atlas area details page is an extensive information resource that provides users with a thorough understanding of the designated area in Ireland. Here, users get access to a wide range of data covering many areas that are essential for gaining a thorough picture of the locality. The area details page is made to give users a comprehensive overview of the area they have selected, covering everything from crime rates to school information, transport to amenities, housing costs and rent costs.
 
 ## 5.2 Types of Information Available
 
@@ -199,8 +203,8 @@ Upon clicking the search button, viewers are directed to a side navbar with all 
 - **Local Crime:** Information about crime rates and categories of reported crimes in the designated area is available to users. Data on theft, vandalism, burglaries, and other criminal activity may be included in this.
 - **Schools:** Details on local schools, universities, and colleges are provided, along with an address and an eircode.
 - **Transportation:** Information is accessible on train and bus stops as well as buses like Dublin Bus and Bus Eireann.
-- **Amenities:** Information regarding the parks, retail establishments, restaurants, medical services, and leisure spaces that are close by.
-- **Average Home Price:** Details about the typical cost of homes in the neighborhood are provided, along with information on the typical rent for such homes.
+- **Amenities:** Information regarding the parks, retail establishments,restaurants, medical services, and leisure spaces that are close by.
+- **Average Home Price:** Details about the typical cost of homes in the neighbourhood are provided, along with information on the typical rent for such homes.
 
 ## 5.3 Information Display
 
@@ -213,7 +217,7 @@ Upon clicking the search button, viewers are directed to a side navbar with all 
 
 ## 6.1 Overview:
 
-Rather than a conventional region details page, Digital Atlas has features pages that are specifically designed to offer in-depth details about each particular feature based on specific areas in Ireland. These feature pages let users enter a place and get comprehensive information about a range of topics, including average property prices, area crime, transportation, schools, and amenities. The features sections provide an easy-to-use way to get relevant information and make decisions, whether you're looking at possible neighborhoods, or just interested in statistics for the area.
+Rather than a conventional region details page, Digital Atlas has features pages that are specifically designed to offer in-depth details about each particular feature based on specific areas in Ireland. These feature pages let users enter a place and get comprehensive information about a range of topics, including average property prices, area crime, transportation, schools, and amenities. The features sections provide an easy-to-use way to get relevant information and make decisions, whether you're looking at possible neighbourhoods, or just interested about statistics for the area.
 
 ## 6.2 Types of Information Available:
 
@@ -221,7 +225,7 @@ Rather than a conventional region details page, Digital Atlas has features pages
 - **Schools:** Details such as name, address, and eircode for local schools, colleges, and universities.
 - **Transportation:** Details are provided regarding train and bus stations, in addition to buses such as Dublin Bus and Bus Eireann.
 - **Local Crime:** Information about the types and rates of crimes that have been reported in a given area, including theft, vandalism, burglaries, and other criminal activity.
-- **Average House Price:** Details on the typical cost of homes in the neighborhood as well as the typical rental price.
+- **Average House Price:** Details on the typical cost of homes in the neighbourhood as well as the typical rental price.
 
 ## 6.3 Display of Information:
 
@@ -233,13 +237,13 @@ Rather than a conventional region details page, Digital Atlas has features pages
 ## 7.1 Website Features Interaction
 
 - **Search Functionality:** Users can input their desired area into the search bar on the homepage to access area-specific information.
-- **Navigation Menu:** Explore the website's various areas, including "Home", "Contact”, "Search", etc by utilizing the navigation menu situated in the header.
-- **Interactive Maps:** Interact with interactive maps to visualize geographical distribution of the specified area.
+- **Navigation Menu:** Explore the website's various areas, including "Home", "Contact”, "Search", etc by utilising the navigation menu situated in the header.
+- **Interactive Maps:** Interact with interactive maps to visualise geographical distribution of the specified area.
 
 ## 7.2 Comment Section Interaction
 
 - **Locating the Comment Section:** To locate the comment area, after searching the desired area, scroll to the bottom of the search results page.
-- **Leaving Feedback:** Users can fill up the offered comment box with their thoughts, questions, and observations.
+- **Leaving Feedback:** Users can fill up the offered comment box with their thoughts, questions and observations.
 - **Submitting Comments:** After writing their message, users can click the "Submit Comment" button to send it in.
 - **Interacting with Other Users:** Users can interact with other users by leaving comments, adding more details, or indicating agreement or disagreement with others by liking or disliking comments.
 
@@ -262,7 +266,7 @@ Digital Atlas's front-end development makes use of React, a JavaScript user inte
 ## 8.2 Querying APIs and Datasets
 
 ### API Integration:
-To obtain area-specific data, including crime statistics, school information, transportation data, amenities, and typical house prices, Digital Atlas searches external APIs and databases. Reputable sources including Geoapify API, GTFS, Mapbox Geocoding API, and the Central Statistics Office are the source of these datasets and APIs.
+To obtain area-specific data, including crime statistics, school information, transportation data, amenities, and typical house prices, Digital Atlas searches external APIs and databases. Reputable sources including Geoapify API, GTFS, Mapbox Geocoding API and the Central Statistics Office are the source of these datasets and APIs.
 
 ### Data Processing:
 The Django back-end's Python scripts are in charge of sending HTTP requests to the APIs in order to retrieve the necessary data, process it, and display it on the website. After being retrieved, the data is saved in the database and dynamically displayed on the front end through the use of React components.
@@ -270,25 +274,25 @@ The Django back-end's Python scripts are in charge of sending HTTP requests to t
 ## 8.3 Technical Requirements
 
 ### Supported Browsers:
-Google Chrome, Mozilla Firefox, Safari, Microsoft Edge, and other contemporary web browsers are all optimized for use with Digital Atlas. For optimal performance, users are advised to utilize the most recent versions of these browsers.
+Google Chrome, Mozilla Firefox, Safari, Microsoft Edge, and other contemporary web browsers are all optimised for use with Digital Atlas. For optimal performance, users are advised to utilise the most recent versions of these browsers.
 
 ### Internet Connection Speed:
-To use the Digital Atlas website and quickly retrieve area-specific data, you must have a reliable internet connection. Although the website uses optimization measures to reduce loading times, users will have a better overall experience if they have quicker internet connections.
+To use the Digital Atlas website and quickly retrieve area-specific data, you must have a reliable internet connection. Although the website uses optimisation measures to reduce loading times, users will have a better overall experience if they have quicker internet connections.
 
 
 # 9. Conclusion
 
-In this user guide, we've provided you with all the information required to successfully browse and use the Digital Atlas website. Below is a synopsis of the main ideas discussed:
+In this user guide, we’ve provided you with all the information required to successfully browse and use the Digital Atlas website in this user guide. Below is a synopsis of the main ideas discussed:
 
 1. **Accessing the Website:** Guides explaining how to get to the website locally or via a URL for testing and development.
 2. **Navigating the Homepage:** A thorough rundown of the navigation menu, search bar, and informative items on the site.
 3. **Using the Website:** Instructions on how users can use Digital Atlas's features, such as commenting on areas and offering their opinions.
-4. **Technological Overview:** Details regarding the technologies utilized, datasets and querying APIs, as well as the technological specifications needed to see the website.
+4. **Technological Overview:** Details regarding the technologies utilised, datasets and querying APIs, as well as the technological specifications needed to see the website.
 
 ## Thank You!
 
-We really appreciate that you have made Digital Atlas your go-to source for area-specific information in Ireland. With our platform, we strive to improve your entire user experience and give you the insights and functionality you need to make wise decisions.
+We really appreciate that you have made Digital Atlas as your go-to source for area specific information in Ireland. With our platform, we strive to improve your entire user experience and give the insights and functionality you need to make wise decisions.
 
 ### Closing Remarks
 
-Your opinions and comments are very important to us as we develop and grow Digital Atlas further. We welcome your feedback, questions, and suggestions for future improvements. Once again, I want to thank you for joining the community at Digital Atlas. As you explore and discover Ireland's various regions, we look forward to being of service to you.
+Your opinions and comments are very important to us as we develop and grow Digital Atlas further. We welcome your feedback, questions, and suggestions for future improvements. Once again, I want to thank you for joining the community at Digital Atlas. As you go through and discover Ireland's various regions, we look forward to being of service to you.

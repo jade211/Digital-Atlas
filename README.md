@@ -12,10 +12,10 @@
 
 ## 👨‍💻 Team Members
 
-| Name           | ID        | Email                         |
-|----------------|-----------|-------------------------------|
-| Jade Hudson    | 21706905  | jade.hudson5@mail.dcu.ie      |
-| Sruthi Santhosh| 21377986  | sruthi.santhosh2@mail.dcu.ie  |
+| Name           | Email                         |
+|----------------|-------------------------------|
+| Jade Hudson    | jade.hudson5@mail.dcu.ie      |
+| Sruthi Santhosh| sruthi.santhosh2@mail.dcu.ie  |
 
 **Supervisor**: Dr. Yalemisew Abgaz
 
